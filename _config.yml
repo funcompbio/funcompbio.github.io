@@ -1,2 +1,33 @@
-title: Fundamentals of Computational Biology
-theme: jekyll-theme-slate
+# Site settings
+title: FCB @ UPF
+subtitle: Fundamentals of Computational Biology
+description: |
+  Fundamentals of Computational Biology (FCB) is a compulsory subject of the curriculum of the bachelor's degree in Human Biology at the <a href='https://www.upf.edu' _target='_blank'>Universitat Pompeu Fabra</a>. It is taught in the first trimester of the first course and its goal is to introduce concepts and basic tools of computation and information technologies, required to address biological questions using a computer. The purpose of introducing this subject at the beginning of the curriculum is to enable the student using the tools and abilities acquired in FCB throughout the whole degree. The main topics of FCB are manipulating files from the command line, programming with Python and R, and developing automatized and reproducible workflows, in the context of biological data analysis.
+baseurl: ""
+url: "https://funcompbio.github.io"
+githubdir: "funcompbio/funcompbio.github.io"
+
+# Author/user information
+authorname: Robert Castelo
+jobtitle: Associate Professor
+email: robert.castelo@upf.edu
+twitter_username: robertclab
+github_username: rcastelo
+google_scholar_id: lhjg-J4AAAAJ&hl
+authorurl: "https://functionalgenomics.upf.edu"
+moodleurl: "https://aulaglobal.upf.edu/course/view.php?id=40168"
+address: |
+    Department of Experimental and Health Sciences
+    Universitat Pompeu Fabra
+    Barcelona Biomedical Research Park
+    Doctor Aiguader 88
+    08003 Barcelona
+
+# Build settings
+markdown: kramdown
+
+# Other options
+permalink: blog/:year/:month/:title
+excerpt_separator: "<!--more-->"
+
+include: ['_images', '_css']

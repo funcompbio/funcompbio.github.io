@@ -1,34 +1,15 @@
-## Course structure
+---
+layout: default
+---
 
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+<div class="home">
+	
+<h1>{{ site.subtitle }}</h1>
 
-```markdown
-Syntax highlighted code block
+{% include image.html url="/_images/ReprogrammingENIAC900x385.png" caption="<a href='https://en.wikipedia.org/wiki/Marlyn_Meltzer' target='_blank'>Marlyn Wescoff Meltzer</a> (standing) and <a href='https://en.wikipedia.org/wiki/Ruth_Teitelbaum' target='_blank'>Ruth Teitelbaum</a> (crouching) wiring the right side of the <a href='https://en.wikipedia.org/wiki/ENIAC' target='_blank'>ENIAC</a> computer with a new program in 1946. Image taken from <a href='https://en.wikipedia.org/wiki/Women_in_computing' target='_blank'>Wikipedia</a>." width=900 align="center" %}
 
-# Header 1
-## Header 2
-### Header 3
+{{ site.description }}
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/funcompbio/funcompbio.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+</div>

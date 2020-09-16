@@ -1,2 +1,7 @@
 _site
 .env
+.DS_Store
+*.gem
+.bundle
+.sass-cache
+Gemfile.lock
