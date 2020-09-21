@@ -1,0 +1,19 @@
+<h1 id="setup-and-background">Setup and background</h1>
+<p>In this practical we will use some basic commands to navigate and manipulate the Unix file system. You need to have access to the command-line of your operating system. Please check the <a href="https://funcompbio.github.io/setup">setup</a> webpage to make sure that you have access to some flavor of an Unix operating system and its command line.</p>
+<p>To practise working with files from the Unix command-line we will download some COVID19 data. Please follow the next two steps:</p>
+<ol style="list-style-type: decimal">
+<li>Go to the Catalan Health Departament COVID data portal at <a href="https://dadescovid.cat" class="uri">https://dadescovid.cat</a> and switch the language to &quot;ENGLISH&quot; using the pull-down menu on the top-right corner of the page.</li>
+<li>Follow the downloads link and on the next page click and download the two files corresponding to the &quot;7 DAY AGGREGATION&quot; and the &quot;DAILY DATA&quot; for &quot;CATALUNYA&quot;. Make sure you know exactly where in your filesystem these two files have been downloaded. Tip: some browsers automatically download files into a folder called &quot;Downloads&quot; or under a name corresponding to the translation of &quot;Downloads&quot; to the default language of your operating system.</li>
+</ol>
+<h1 id="creating-your-first-directory">Creating your first directory</h1>
+<p>Open a terminal window and figure out which is your username and your default path working directory (PWD) by typing the commands <code>whoami</code> (first) and <code>pwd</code> (second) on the shell prompt. After you type each command you should press the <code>Enter</code> key to ask the shell to execute the command. Your interaction with the shell in the terminal window should look similar to the following image.</p>
+<div class="figure">
+<img src="./terminaldefault.png" />
+
+</div>
+<p>The shell prompt may display different information to the left of the cursor and usually ends with the dollar sign. The solely purpose of the shell prompt is to indicate where we can start typing commands, while the purpose of the cursor is to indicate that the shell is waiting for us to type commands. In the image above the shell prompt it is displaying the name of the host computer (<code>messi</code>) and the the current PWD, which corresponds to our <em>home</em> directory and for this reason is abbreviated with the tilde <code>~</code>.</p>
+<p>Now, give the command to create a directory called <code>practical1</code>:</p>
+<pre><code>$ mkdir practical1</code></pre>
+<p>To check whether we have successfully created a directory called <code>practical1</code> we can use the command <code>ls</code> and verify whether among the listed files we can find the one with the name of the directory we have just created. Next, let's change our default PWD to the new directory we have created.</p>
+<pre><code>$ cd practical1</code></pre>
+<p>To check whether we have successfully changed the PWD to the new directory, use again the command <code>pwd</code>.</p>
