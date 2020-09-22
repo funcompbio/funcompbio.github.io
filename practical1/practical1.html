@@ -1,3 +1,14 @@
+<h1 id="objectives">Objectives</h1>
+<p>The learning objectives for this practical are:</p>
+<ul>
+<li>Have your computer setup to work with the Unix command-line.</li>
+<li>Create directories and navigate through the Unix filesystem.</li>
+<li>Copy and move files.</li>
+<li>Use the Unix online manual.</li>
+<li>Remove files and directories.</li>
+<li>Explore file contents.</li>
+<li>Create your own GitHub profile.</li>
+</ul>
 <h1 id="setup-and-background">Setup and background</h1>
 <p>In this practical we will use some basic commands to navigate and manipulate the Unix file system. You need to have access to the <a href="https://en.wikipedia.org/wiki/Command-line_interface">command-line interface</a> of your operating system. Please check the <a href="/setup/">setup</a> webpage to make sure that you have access to some flavor of an Unix operating system and its command line.</p>
 <p>To practise working with files from the Unix command-line we will download some COVID19 data. Please follow the next two steps:</p>
@@ -24,7 +35,9 @@
 <h1 id="changing-the-default-path-working-directory">Changing the default path working directory</h1>
 <p>We can change our default PWD to the new directory we have created before by doing:</p>
 <pre><code>$ cd practical1</code></pre>
-<p>To check whether we have successfully changed the PWD to the new directory, use again the command <code>pwd</code>.</p>
+<p>To check whether we have successfully changed the PWD to the new directory, use again the command <code>pwd</code>. We can move back to the previous directory from where we moved our default access by doing:</p>
+<pre><code>$ cd ..</code></pre>
+<p>Here the two consecutive dot characters <code>..</code> indicate the previous directory in the filesystem hiearchy. You can check out again with <code>pwd</code> that after the previous command you have come back to the directory from where you created <code>practical1</code>.</p>
 <h1 id="copying-and-moving-files">Copying and moving files</h1>
 <p>Locate the path where you have downloaded the two COVID19 data files and use the <code>ls</code> command to verify that they are indeed stored on that directory. If you have downloaded the two files in a directory called <strong>for instance</strong> <code>Downloads</code> located right below a home directory called <strong>for instance</strong> <code>/Users/robert</code>, you can use the <code>ls</code> command as follows to check out the presence of those files in that directory</p>
 <pre><code>$ ls /Users/robert/Downloads</code></pre>
@@ -34,7 +47,8 @@
 <pre><code>/Users/robert/Downloads/catalunya_setmanal.zip</code></pre>
 <p>then the command to copy that file to the current PWD <strong>would be</strong></p>
 <pre><code>cp /Users/robert/Downloads/catalunya_setmanal.zip .</code></pre>
-<p><strong>Tip:</strong> when writing long paths it is useful to exploit the so-called <em>tab-completion mechanism</em>, which consists of pressing the <code>Tab</code> key (typically located above the <code>Caps Lock</code> key) once you've written a few letter of a file name in the path. If those few letters constitute a unique prefix of the filename, the rest of the filename will be written for you by the shell. If the prefix is not unique, by pressing the <code>Tab</code> key twice, the shell will show your the two or more filenames that match that prefix.</p>
+<p><strong>Important</strong>: the dot character '.' indicates that the destination of the file is your current PWD. To copy the previous file into the directory <code>practical1</code> using '.' as destination, you need to make sure that <code>practical1</code> is your current PWD.</p>
+<p><strong>Tip:</strong> when writing long paths it is useful to exploit the so-called <em>tab-completion mechanism</em>, which consists of pressing the <code>Tab</code> key (typically located above the <code>Caps Lock</code> key) once you've written a few letters of a file name in the path. If those few letters constitute a unique prefix of the filename, the rest of the filename will be written for you by the shell. If the prefix is not unique, by pressing the <code>Tab</code> key twice, the shell will show your the two or more filenames that match that prefix. Actually, the tab-completion mechanism also works for commands: if you type <code>cp</code> and press <code>Tab</code>, the shell will show you all the available commands that start with <code>cp</code>.</p>
 <p>Note that because <code>/Users/robert</code> corresponds in this example to the <em>home</em> directory of the user, we could use the abbreviation <code>~</code>, corresponding to the <em>home</em> directory, to write the previous command line as</p>
 <pre><code>cp ~/Downloads/catalunya_setmanal.zip .</code></pre>
 <p>Note that the previous command will work regardless of what is your username, as long as the sought file is stored in the <code>Downloads</code> directory. <strong>Tip:</strong> In keyboards with a Spanish layout, the tilde <code>~</code> character can be written by pressing the keys <code>AltGr+4</code>.</p>
@@ -75,3 +89,18 @@ unzip catalunya_diari.zip</code></pre>
 </ul>
 <p>The second point implies that the contents are organized as a table, where each line contains a record of the data and each record consists of a given number of values separated by some delimiter character, typically the comma character <code>,</code> but also the semicolon <code>;</code>, sometimes the colon <code>:</code>, etc. In a CSV file, the first line may contain column names describing the kind of values stored in the rest of the lines at the corresponding place.</p>
 <p>Finally, a very useful command to summarize the contents of a text file is <code>wc</code>, which provides the number of lines, words and characters in a text file. When multiple files are given, either by specifying their names one after each other or by using the wildcard character (e.g., <code>*.csv</code>), those statistics are given for each file and also their grand totals. Use the <code>wc</code> command on the CSV COVID19 data files.</p>
+<h1 id="create-your-own-github-profile">Create your own GitHub profile</h1>
+<p>Go to <a href="https://github.com" class="uri">https://github.com</a> and create your own GitHub profile by entering the following three bits of information in the sign up form:</p>
+<ul>
+<li>Username: you can write any word as username as long as it doesn't exist already as username in GitHub. If you think you may be using this account professionally in the future, you can try with the first letter of your first name, followed by your family name.</li>
+<li>Email: enter your student UPF email (<code>xxxx.yyyy@estudiant.upf.edu</code>). It is important that you enter your student UPF email to enable the connection of your account with GitHub Classroom organisation of FCB.</li>
+<li>Password: enter a password according to the requirements shown in the form.</li>
+</ul>
+<p>On the next screen, answer the security question, if it appears, and press the button <strong>&quot;Join a free plan&quot;</strong>.</p>
+<p>On the next screen, answer the given questions as follows:</p>
+<ul>
+<li>What kind of work do you do, mainly? <strong>Student</strong></li>
+<li>How much programming experience do you have? <strong>None</strong> (probably, but feel free to select another answer)</li>
+<li>What do you plan to use GitHub for? select <strong>School work and student projects</strong> at least and feel free to select other answers.</li>
+</ul>
+<p>Now check out your email, you should find a new one from GitHub where they ask you to verify your email address. Follow the given link to do this step and your browser should open on your brand new GitHub profile. You can now log out by clicking on the icon at the top right corner of the GitHub page and select <code>Sign out</code> from the pull down menu. Do not forget your GitHub username and password!!!</p>
