@@ -9,7 +9,7 @@ Here you can find links to the training material of each FCB session, which can 
 <ul id="archive">
 {% for sessions in site.data.sessions %}
       <li class="archiveposturl">
-        <span><a href="{{ site.url }}/{{ sessions.dirname }}">{{ sessions.title }}</a></span><br>
+        <span><a href="{{ site.baseurl }}/{{ sessions.dirname }}">{{ sessions.title }}</a></span><br>
 <span class = "postlower">{{ sessions.desc }}</span>
 <strong style="font-size:100%; font-family: 'Titillium Web', sans-serif; float:right; padding-right: .5em">
 {% if sessions.slides %}
