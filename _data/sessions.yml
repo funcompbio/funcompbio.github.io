@@ -1,7 +1,7 @@
 - title: "Practical 1"
   dirname: practical1
   slides: Practical1
-  desc: "The Unix file system and version control."
+  desc: "The Unix file system and how to create a GitHub profile."
 
 - title: "Practical 2"
   dirname: practical2
