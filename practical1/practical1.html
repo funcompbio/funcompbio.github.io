@@ -16,7 +16,13 @@
 <pre><code>$ mkdir practical1</code></pre>
 <p>To check whether we have successfully created a directory called <code>practical1</code> we can use the command <code>ls</code> and verify whether among the listed files we can find the name <code>practical1</code>. The output of <code>ls</code> consists of the names of every file in your current PWD. It may useful to distinguish between regular files and directories, you can do that in different ways, one of them using the option <code>-F</code>:</p>
 <pre><code>$ ls -F</code></pre>
-<p>and you should see a trailing slash character '/' right after the name of each file that is a directory, i.e., you should find for instance 'practical1/'. Next, let's change our default PWD to the new directory we have created.</p>
+<p>You should see a trailing slash character '/' right after the name of each file that is a directory, i.e., you should find for instance 'practical1/'.</p>
+<h1 id="using-the-online-manual">Using the online manual</h1>
+<p>The Unix system an online manual pages for each of its commands that can be accessed through the command <code>man</code> giving as first argument the name of the command for which you want to read its manual page. For instance, try to access the manual page of the command <code>ls</code> by doing:</p>
+<pre><code>man ls</code></pre>
+<p>All manual pages have the same structure of sections <code>NAME</code>, <code>SYNOPSIS</code>, <code>DESCRIPTION</code>, etc. and you can browse through it by using the <code>Enter</code> key to scroll one line at a time, the <code>Space</code> key to scroll by page, the <code>b</code> key to scroll one page backwards and the <code>q</code> key to quit the manual. Checkout the meaning of the option <code>F</code> in the manual of <code>ls</code> and the manual page for <code>mkdir</code>. Make sure you understand what is said in the section <code>NAME</code>.</p>
+<h1 id="changing-the-default-path-working-directory">Changing the default path working directory</h1>
+<p>We can change our default PWD to the new directory we have created before by doing:</p>
 <pre><code>$ cd practical1</code></pre>
 <p>To check whether we have successfully changed the PWD to the new directory, use again the command <code>pwd</code>.</p>
 <h1 id="copying-and-moving-files">Copying and moving files</h1>
@@ -35,3 +41,20 @@
 <p>Once you have copied the two files, please verify using the command <code>ls</code> that the two files are indeed in your current PWD. If you have been successful, you have probably typed twice the <code>cp</code> command. However, because the two filenames start with the prefix <code>catalunya</code>, you could have done the job with one single command by using again the wildcard character <code>*</code> as follows</p>
 <pre><code>$ cp /Users/robert/Downloads/catalunya* .</code></pre>
 <p>Because you have copied the two files, they will stay in their original directory from where you have copied them, e.g., in <code>/Users/robert/Downloads</code> in the example above. A slightly different operation is to <strong>move</strong> the files, which means that they are removed from their original location once they are copied into their destination. The command to move the files, instead of copy them, is <code>mv</code> with an analogous syntax to <code>cp</code>. Try to move the files and check out that they dissapear from their original location.</p>
+<h1 id="unpacking-and-uncompressing-files">Unpacking and uncompressing files</h1>
+<p>The two files we have copied to our directory called <code>practical1</code> should have the following names:</p>
+<ul>
+<li><code>catalunya_setmanal.zip</code></li>
+<li><code>catalunya_diari.zip</code></li>
+</ul>
+<p>The <a href="https://en.wikipedia.org/wiki/Filename_extension">filename extension</a> <code>.zip</code> indicates that these two files contained packaged (possibly more than one file) and compressed (reduced in size) files. To unpackage and uncompress these two files we can use the command <code>unzip</code>. A good practise is to make a first call to <code>unzip</code> using the option <code>-l</code> to list the contents of each file without unpackaging and uncompressing them:</p>
+<pre><code>unzip -l catalunya_setmanal.zip
+unzip -l catalunya_diari.zip</code></pre>
+<p>This operation allows us to anticipate what files are going to be created by unpackaging and uncompressing these two <code>.zip</code> files. Let's do that now:</p>
+<pre><code>unzip catalunya_setmanal.zip
+unzip catalunya_diari.zip</code></pre>
+<p>Use the <code>ls</code> command to see that you have indeed obtain some new files as a result of the previous command.</p>
+<h1 id="removing-files">Removing files</h1>
+<p>There are two commands to remove files. One is <code>rmdir</code> and the other is <code>rm</code>. Check their respective manual pages and figure out what is the difference between these two commands reading only the <code>NAME</code> section. Going back to our COVID19 data files, you should have now four files, the two <code>.zip</code> files and two new <code>.csv</code> files, corresponding to the unpackaged and uncompressed COVID19 data files. Because we have now the <code>.csv</code> files, we do not need anymore the <code>.zip</code> files, remove these two <code>.zip</code> files by doing:</p>
+<pre><code>rm *.zip</code></pre>
+<p>Here we have used the wildcar character <code>*</code> to specify that we want to remove all files whose filename ends with <code>.zip</code>. Check out with the command <code>ls</code> that they indeed have been removed. <strong>WARNING</strong>: the Unix system has no bin were removed files could go before being finally removed by emptying the bin. In the command-line interface of a Unix system, if you accidentally remove a file, <strong>you cannot recover it</strong>. Because of that you should pay attention when you use the wildcar character <code>*</code>, because an unintended space character before or after the <code>*</code> could imply <strong>removing all files of your PWD</strong>.</p>
