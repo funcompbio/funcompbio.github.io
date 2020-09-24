@@ -1,9 +1,9 @@
+- title: "Lecture 2"
+  dirname: lecture2
+  slides: Lecture2
+  desc: "The Unix file system and the command line."
+
 - title: "Practical 1"
   dirname: practical1
   slides: Practical1
   desc: "The Unix file system and how to create a GitHub profile."
-
-- title: "Practical 2"
-  dirname: practical2
-  slides: Practical2
-  desc: "Text files, concatenation, pasting, redirection and pipes."
