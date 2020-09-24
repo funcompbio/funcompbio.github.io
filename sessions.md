@@ -13,7 +13,7 @@ Here you can find links to the training material of each FCB session, which can 
 <span class = "postlower">{{ sessions.desc }}</span>
 <strong style="font-size:100%; font-family: 'Titillium Web', sans-serif; float:right; padding-right: .5em">
 {% if sessions.slides %}
-  <a href="{{ site.url }}/{{ sessions.dirname }}/ {{ sessions.slides }}.html"><i class="fab fa-html5"></i></a>&nbsp;&nbsp;
+  <a href="{{ site.url }}/{{ sessions.dirname }}/{{ sessions.slides }}.html"><i class="fab fa-html5"></i></a>&nbsp;&nbsp;
 {% endif %}
 {% if sessions.github %}
 <a href="{{ sessions.github }}"><i class="fab fa-github"></i></a>&nbsp;&nbsp;
