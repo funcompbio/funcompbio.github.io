@@ -90,7 +90,7 @@ unzip catalunya_diari.zip</code></pre>
 </ul>
 <p>The second point implies that the contents are organized as a table, where each line contains a record of the data and each record consists of a given number of values separated by some delimiter character, typically the comma character <code>,</code> but also the semicolon <code>;</code>, sometimes the colon <code>:</code>, etc. In a CSV file, the first line may contain column names describing the kind of values stored in the rest of the lines at the corresponding place.</p>
 <p>Finally, a very useful command to summarize the contents of a text file is <code>wc</code>, which provides the number of lines, words and characters in a text file. When multiple files are given, either by specifying their names one after each other or by using the wildcard character (e.g., <code>*.csv</code>), those statistics are given for each file and also their grand totals. Use the <code>wc</code> command on the CSV COVID19 data files.</p>
-<p><strong>Tip:</strong> All these commands to explore file contents may block the shell waiting for content if you forget to specify a filename. In such as case, press the combination of keys <code>Ctrl+d</code>, which send an <a href="https://en.wikipedia.org/wiki/End-of-file">end-of-file (EOF)</a> signal to the command and will immediately exit, giving you back the control of the shell.</p>
+<p><strong>Tip:</strong> All these commands to explore file contents may block the shell waiting for content if you forget to specify a filename. In such a case, press the combination of keys <code>Ctrl+d</code>, which send an <a href="https://en.wikipedia.org/wiki/End-of-file">end-of-file (EOF)</a> signal to the command and will immediately exit, giving you back the control of the shell.</p>
 <h1 id="redirect-terminal-output-to-a-file">Redirect terminal output to a file</h1>
 <p>A very useful feature of Unix is <a href="https://en.wikipedia.org/wiki/Redirection_%28computing%29">redirection</a>. Here, we are going to see what it means to redirect the terminal output to a file. To redirect the terminal output to a file we use the operator <code>&gt;</code> as follows:</p>
 <pre><code>$ command &gt; file</code></pre>
@@ -102,6 +102,7 @@ unzip catalunya_diari.zip</code></pre>
 <pre><code>$ cat &gt; test.txt
 Hello world!</code></pre>
 <p>Now press the EOF key combination (<code>Ctrl+d</code>) and verify that the previous content of <code>test.txt</code> has dissapeared and instead it has now only the words &quot;Hello world!&quot;.</p>
+<p><strong>Tip:</strong> You should note that running twice the terminal redirection (<code>&gt;</code>) over the same file, overwrites completely the initial contents of the file. To avoid overwritting the content of a file, and adding instead the new content at the end, you should use <code>&gt;&gt;</code> instead of <code>&gt;</code>.</p>
 <h1 id="create-your-own-github-profile">Create your own GitHub profile</h1>
 <p>Go to <a href="https://github.com" class="uri">https://github.com</a> and create your own GitHub profile by entering the following three bits of information in the sign up form:</p>
 <ul>
