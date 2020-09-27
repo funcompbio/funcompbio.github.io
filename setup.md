@@ -5,9 +5,10 @@ permalink: /setup/
 ---
 
 Here you can find the steps to set up your computer for FCB. Depending
-on the operating system of your computer, you will have to follow different
-steps. Here you will find those steps separately for Unix, Windows and macOS.
-It is recommended that you install the software tools in the order given here.
+on the operating system of your computer, you may have to follow different
+steps. Here, you will find those steps separately for Unix, Windows and macOS
+when necessary. It is recommended that you install the software tools in the
+order given here.
 
 ## Unix shell
 
@@ -124,8 +125,9 @@ modern editors are easier to use for newbies:
   * [sublime](https://www.sublimetext.com)
   * [atom](https://atom.io)
 
-If you want to use a classical editor in a macOS system, you should use Homebrew
-to install them via `brew install <nameofeditor>`.
+If you want to use a classical editor in a macOS system, check out first whether
+is already available in the shell via `which <nameofeditor>` and if not, use
+Homebrew to install it via `brew install <nameofeditor>`.
 
 ## Python and Jupyter Notebook
 
@@ -138,7 +140,7 @@ it is recommended that you install Python 3.x in your computer.
 
 If you have a computer running some flavor of the Unix operating system, such
 as [Ubuntu](https://ubuntu.com), [RedHat](https://redhat.com) or
-[CentOS](https://www.centos.org), probably Python 3.x may be already installed.
+[CentOS](https://www.centos.org), probably Python 3.x is already installed.
 Check it out by opening a terminal window and typing the following in the shell:
 
 ```
@@ -166,7 +168,7 @@ If you have a computer running the Windows operating system, then you should
 follow these steps:
 
   1. Go to the [Python downloads for windows](https://www.python.org/downloads/windows)
-  page, follow the link for the _LatestPython 3 Release_ and in the next page scroll
+  page, follow the link for the _Latest Python 3 Release_ and in the next page scroll
   down until you find the link to download the _latest stable Windows x86-64 executable_.
   If your system has a 32-bit processor, then you should look for the link of the
   32-bit installer. Follow that link and once the download has finished, execute the
@@ -198,8 +200,8 @@ be seeing in your terminal window. It may happen that the last line gives a 2.x.
 version but with a different minor (`x`) or revision (`y`) version numbers than the
 ones shown here.
 
-Installing and maintaining a Python installation in macOS may become complicated
-for several technical reasons, see this [xkcd joke](https://xkcd.com/1987). For
+Installing and maintaining a Python installation in macOS may become complicated,
+see this [xkcd joke](https://xkcd.com/1987). For
 this reason, it is recommended to use a package manager software such as Homebrew
 to install Python 3.x and Jupyter Notebook, through the following two steps:
 
@@ -228,9 +230,10 @@ to install Python 3.x and Jupyter Notebook, through the following two steps:
 
 ## R and RStudio
 
-To install R go to https://cran.r-project.org and follow the corresponding
-download link according to your operating system (Linux, Windows or macOS) at
-the top of the page.
+To install R go to [https://cran.r-project.org](https://cran.r-project.org)
+and follow the corresponding download link according to your operating system
+(Linux, Windows or macOS) at the top of the page.
 
-To install RStudio go to https://rstudio.com/products/rstudio/download and
-select the download link under _RStudio Desktop_ (Free).
+To install RStudio go to
+[https://rstudio.com/products/rstudio/download](https://rstudio.com/products/rstudio/download)
+and select the download link under _RStudio Desktop (Free)_.
