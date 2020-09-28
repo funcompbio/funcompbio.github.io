@@ -1,3 +1,4 @@
+/* adapted from https://lendmeyourear.net/media/remark-template-basic.css */
 *{box-sizing:border-box}*:before,*:after{box-sizing:border-box}
 html{font-size:100%;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif}
 body{margin:0;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;font-size:20px;line-height:1.5;color:#555555;background-color:#FFFFFF}
@@ -73,4 +74,18 @@ blockquote{border-left:5px solid #cccccc;padding-left:1em;margin:1em -1em;font-s
 .right-column {
   width: 50%;
   float: right;
+}
+
+/* side-by-side images */
+.sbys-column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.sbys-row::after {
+  content: "";
+  clear: both;
+  display: table;
 }

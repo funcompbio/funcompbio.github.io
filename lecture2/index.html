@@ -73,8 +73,9 @@ Image and caption taken from
 
 * There are many [variants](https://www.levenez.com/unix) of Unix, one of the most
   popular ones is [Linux](https://en.wikipedia.org/wiki/Linux) but also
-  [Android](https://en.wikipedia.org/wiki/Android_%28operating_system%29) and
-  [macOS](https://en.wikipedia.org/wiki/MacOS) are based on a Unix OS.
+  [Android](https://en.wikipedia.org/wiki/Android_%28operating_system%29),
+  [iOS](https://en.wikipedia.org/wiki/IOS)
+  and [macOS](https://en.wikipedia.org/wiki/MacOS) are based on a Unix OS.
 
 * Did they use the Unix OS 50 years ago in the same way we use it now?
 
@@ -257,9 +258,9 @@ and arguments.
 
 ---
 
-## Unix commands
+## Unix file commands
 
-Examples of Unix commands:
+Examples of Unix commands that manipulate files:
 
   * listing files:
 
@@ -286,6 +287,51 @@ Examples of Unix commands:
   ```
 
 ---
+
+## Unix commands to explore file contents
+
+Examples of Unix commands that explore the contents of [text files](https://en.wikipedia.org/wiki/Text_file):
+
+  * beginning of a text file:
+
+  ```
+  $ head filename
+  ```
+
+  * end of a text file:
+
+  ```
+  $ tail filename
+  ```
+
+  * whole text file:
+
+  ```
+  $ cat filename
+  ```
+
+  * paging text files:
+
+  ```
+  $ more filename
+  ```
+
+---
+
+## Redirecting terminal output to a file
+
+* Unix offers a mechanism to
+[redirect](https://en.wikipedia.org/wiki/Redirection_%28computing%29)
+to a file, the output printed in the terminal window.
+
+```
+$ command > file
+```
+
+![TerminalOutputRedirection](terminaloutputredirection.png)
+
+---
+
 
 ## Concluding remarks
 
