@@ -1,3 +1,8 @@
+- title: "Lecture 1"
+  dirname: lecture1
+  slides: Lecture1
+  desc: "Welcome to FCB."
+
 - title: "Lecture 2"
   dirname: lecture2
   slides: Lecture2
@@ -6,4 +11,4 @@
 - title: "Practical 1"
   dirname: practical1
   slides: Practical1
-  desc: "The Unix file system and how to create a GitHub profile."
+  desc: "The Unix file system, explore file contents, redirect terminal output and how to create a GitHub profile."
