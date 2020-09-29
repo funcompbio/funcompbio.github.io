@@ -10,6 +10,12 @@ steps. Here, you will find those steps separately for Unix, Windows and macOS
 when necessary. It is recommended that you install the software tools in the
 order given here.
 
+If you have a tablet device, then it is probably running either Android
+(Samsung Galaxy Tab, etc.) or iOS (iPad). You will also find below instructions
+for such devices but at some point it may become easier for you to work
+with a computer. In any case, it is recommended that you use some external
+keyboard with your tablet.
+
 ## Unix shell
 
 ### Unix
@@ -59,6 +65,16 @@ to facilitate working and installing additional software from the command line:
      ```
      If you get the previous output message, you are ready to use Homebrew.
 
+### Android
+
+If you have a tablet running Android, then you already have a Unix system
+but you still need a terminal emulator app. There are a few options but
+probably the best one for our goals here is
+[Termux](https://play.google.com/store/apps/details?id=com.termux). You
+can find further details on how to install and use Termux in Android
+in the following
+[link](https://www.techrepublic.com/article/how-to-get-a-linux-terminal-on-android).
+
 ## Git version-control system
 
 ### Unix
@@ -101,6 +117,34 @@ $ which git
 
 If you get an error, then go to the previous section and install the
 Xcode CLT.
+
+### Android
+
+If you have a tablet running Android, once you have installed the
+Termux app (see previous section), open the terminal window and
+type:
+
+```
+$ apt update
+$ apt upgrade
+```
+If both commands execute successfully, then you can type the final
+command that will install Git and other component called `openssh`, which is
+also necessary for Git.
+
+```
+apt install git openssh
+```
+Once this installation is finished, you should type:
+
+```
+$ termux-setup-storage
+```
+This command will probably cause Android to ask you to allow
+the app to access storage. You should grant that access. You
+can find more details on the installation of Git in an Android
+device in this
+[link](https://www.techrepublic.com/article/how-to-install-git-on-android).
 
 ## Text editor
 
