@@ -17,3 +17,8 @@
   dirname: practical1
   slides: Practical1
   desc: "The Unix file system, explore file contents, redirect terminal output and how to create a GitHub profile."
+
+- title: "Practical 2"
+  dirname: practical1
+  slides: Practical1
+  desc: "Text files, redirecting terminal output to a pipe, extracting rows and columns, sorting rows, remove consecutive duplicated lines, counting consecutive occurrences and pasting columns."
