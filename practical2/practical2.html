@@ -48,7 +48,7 @@ ls</code></pre>
 <pre><code>$ grep pattern filename</code></pre>
 <p>where <code>pattern</code> is the text that we expect to match to the lines we want to extract, while <code>filename</code> is the name of the file from which we want to extract the lines matching the pattern. Note that <code>pattern</code> can be something sophisticated such as a <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expression</a> (not covered in this practical) and <code>filename</code> can be ommitted when we want <code>grep</code> to read input from a pipe.</p>
 <p>For instance, the column <code>RESIDENCIA</code> in the COVID19 data indicates whether the row contains data derived from geriatric-care residences (value <code>Si</code>) or not (value <code>No</code>). You can check the <a href="https://dadescovid.cat/documentacio?lang=eng">documentation</a> at the Catalan COVID19 data portal to understand why the data is provided separately for these two types of population.</p>
-<p>Let's say we want to extract the rows for the weekly county COVID19 data derived from the population that does not live in geriatric-care residences into a separate file called <code>catalunya_setmanal_general.csv</code>.</p>
+<p>Let's say we want to extract the rows for the COVID19 data derived from the population in Catalunya that does not live in geriatric-care residences into a separate file called <code>catalunya_setmanal_general.csv</code>.</p>
 <pre><code>$ grep No catalunya_setmanal.csv &gt; catalunya_setmanal_general.csv</code></pre>
 <p>Now, repeat the command but this time extracting the rows corresponding to the population that <strong>does live</strong> in geriatric-care residences into a separate file called <code>catalunya_setmanal_geriatric.csv</code>.</p>
 <p><strong>Tip</strong>: note that <code>grep</code> has worked well for this particular task because no other column in the data has used the terms <code>Si</code> and <code>No</code> for any other purpose. The <code>grep</code> command doesn't know about columns, it only finds matches of a pattern in lines, reporting the lines that match the pattern. You can also ask <code>grep</code> to report the lines that <strong>do not</strong> match the pattern by using the option <code>-v</code>.</p>
@@ -60,7 +60,7 @@ ls</code></pre>
 <p>Now let's say we want to extract this column from the geriatric subset of the data. We could either run the previous command on the file we created before:</p>
 <pre><code>$ cut -d &#39;;&#39; -f 15 catalunya_setmanal_geriatric.csv | head</code></pre>
 <p>or had we not generated that file, we could have done it from the original data file using two pipes, as follows:</p>
-<pre><code>$ grep Si catalunya_setmanal.csv | cut -d &#39;;&#39; -f 15 catalunya_setmanal_geriatric.csv | head</code></pre>
+<pre><code>$ grep Si catalunya_setmanal.csv | cut -d &#39;;&#39; -f 15 | head</code></pre>
 <p>Note that in both cases the output is identical.</p>
 <h1 id="sort-rows">Sort rows</h1>
 <p>Unix provides a command called <code>sort</code> to order rows of a file in a number of ways. By default, it sorts rows in increasing alphabetical order. Note for instance that in the <code>catalunya_setmanal.csv</code> file, the column <code>DATA_INI</code> and <code>DATA_FI</code> contain the initial and end date of the recorded data for each row, that first lines correspond to more recent data and that date is written in a format that the alphabetic order matches the time order. Type the following four commands:</p>
