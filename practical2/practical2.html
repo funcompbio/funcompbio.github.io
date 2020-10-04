@@ -2,7 +2,7 @@
 <p>The learning objectives for this practical are:</p>
 <ul>
 <li>Use a text editor to write your Unix scripts.</li>
-<li>Redirect terminal output to a pipe.</li>
+<li>Chain Unix commands using pipes.</li>
 <li>Extract rows and columns.</li>
 <li>Sorting lines.</li>
 <li>Counting occurrences.</li>
@@ -12,8 +12,8 @@
 <p>We will download again some COVID19 data. Please follow the next two steps:</p>
 <ol style="list-style-type: decimal">
 <li>Go to the Catalan Health Departament COVID data portal at <a href="https://dadescovid.cat" class="uri">https://dadescovid.cat</a> and switch the language to &quot;ENGLISH&quot; using the pull-down menu on the top-right corner of the page.</li>
-<li>Follow the downloads link and on the next page click and download the two files corresponding to the &quot;7 DAY AGGREGATION&quot; for &quot;CATALUNYA&quot; and &quot;COUNTIES&quot; (&quot;COMARQUES&quot; in Catalan). It is important that in the same day to make the data files comparable because the data is updated daily. Make sure you know exactly where in your filesystem these two files have been downloaded. <strong>Tip:</strong> some browsers automatically download files into a folder called &quot;Downloads&quot; or under a name corresponding to the translation of &quot;Downloads&quot; to the default language of your operating system.</li>
-<li>Make a directory in your filesystem, for instance at your <em>home</em> directory, called <code>practical2</code> and copy in it the CSV files contained in the previous two ZIP files that you have downloaded, as we analogously did in practical 1.</li>
+<li>Follow the downloads link and on the next page click and download the two files corresponding to the &quot;7 DAY AGGREGATION&quot; for &quot;CATALUNYA&quot; and &quot;COUNTIES&quot; (&quot;COMARQUES&quot; in Catalan). It is important that you download both files in the same day to make them comparable, because all data is updated daily. Make sure you know exactly where in your filesystem these two files have been downloaded. <strong>Tip:</strong> some browsers automatically download files into a folder called &quot;Downloads&quot; or under a name corresponding to the translation of &quot;Downloads&quot; to the default language of your operating system.</li>
+<li>Make a directory in your filesystem, for instance at your <em>home</em> directory, called <code>practical2</code> and copy in it the CSV files contained in the previous two ZIP files that you have downloaded, as you analogously did in practical 1.</li>
 </ol>
 <h1 id="use-a-text-editor-to-write-your-unix-scripts.">Use a text editor to write your Unix scripts.</h1>
 <p>If you have not done so yet, please download an install a text editor application in your computer, following the <a href="/setup/">setup</a> instructions. Once the text editor application is installed, run it as follows:</p>
@@ -24,37 +24,38 @@
 <p>Once the text editor application is running, write the following two lines on a new fresh empty text file:</p>
 <pre><code>## Script for practical 2
 </code></pre>
-<p>Save these contents into a file called <code>practical2.sh</code> located at the directory <code>practical2</code> that you created before. During the rest of this practical, write all the Unix commands that you type in the terminal also in the text file. Please don't type them twice, first type them in the terminal window and once they work, then using the mouse copy and paste the command-line into the text editor. Each time you copy a new line, save the file again. To keep a better record of what you are doing, add above each shell line a shell comment line, which always starts with one or more hash characters (<code>#</code>), for <strong>example</strong>:</p>
+<p>Save these contents into a file called <code>practical2.sh</code> located at the directory <code>practical2</code> that you created before. During the rest of this practical, write all the Unix commands that you type in the terminal also in the text file. Please don't type them twice, first type them in the terminal window and once they work, then select the command-line using the mouse and finally copy and paste it into the text editor. Each time you copy a new line, save the file again. To keep a better record of what you are doing, add above each shell line a shell comment line, which always starts with one or more hash characters (<code>#</code>), for <strong>example</strong>:</p>
 <pre><code>## list the files
 ls</code></pre>
-<h1 id="redirect-terminal-output-to-a-pipe">Redirect terminal output to a pipe</h1>
-<p>In the previous practical we have seen how to redirect the terminal output to a file. In this section we are going to see a similar concept, where instead of redirecting the terminal output created by a Unix command to a file, we will redirect that terminal output to <em>another Unix command</em> by using what is known as a <a href="https://en.wikipedia.org/wiki/Pipeline_%28Unix%29">Unix pipeline</a>, or Unix pipe for short.</p>
-<p>The concept of Unix pipes was created by <a href="https://en.wikipedia.org/wiki/Douglas_McIlroy">Douglas McIlroy</a>, which is based on his widely adopted summary of the <a href="https://en.wikipedia.org/wiki/Unix_philosophy">Unix philosophy</a>:</p>
+<h1 id="chain-unix-commands-using-pipes">Chain Unix commands using pipes</h1>
+<p>In the previous practical we have seen how to redirect the terminal output to a file. In this section we are going to see a similar concept, where instead of redirecting the terminal output created by a Unix command to a file, we will redirect that terminal output as input into <strong>another Unix command</strong> by using what is known as a <a href="https://en.wikipedia.org/wiki/Pipeline_%28Unix%29">Unix pipeline</a>, or Unix pipe for short. The concept of Unix pipes was created by <a href="https://en.wikipedia.org/wiki/Douglas_McIlroy">Douglas McIlroy</a>, which is based on his widely adopted view of the <a href="https://en.wikipedia.org/wiki/Unix_philosophy">Unix philosophy</a>:</p>
 <blockquote>
 <p>Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.</p>
 </blockquote>
-<p>The Unix pipe consists of placing the vertical bar (<code>|</code>), available in Spanish keyboards by pressing <code>AltGr+1</code>, between two Unix commands. Try the following:</p>
+<p>To use the Unix pipe we should place the vertical bar (<code>|</code>), available in Spanish keyboards by pressing <code>AltGr+1</code>, between two Unix commands. Try the following:</p>
 <pre><code>$ cat catalunya_setmanal.csv | head</code></pre>
-<p>Notice that while the <code>cat</code> command should send the output of the <strong>whole</strong> text file to the terminal window, we only see the first few lines of that output because the pipe has sent that whole output to the <code>head</code> command, which only shows the first few lines of its input. This can be graphically represented as follows: <img src="singlepipe.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;"></p>
+<p>Notice that while the <code>cat</code> command should have sent the output of the <strong>whole</strong> text file to the terminal window, we only see the first few lines of that output. This has occurred because the pipe has sent that whole output from the <code>cat</code> command to the input of the <code>head</code> command, which only shows the first few lines of that input. This can be graphically represented as follows:</p>
+<p><img src="singlepipe.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;"></p>
 <h1 id="extract-rows-and-columns">Extract rows and columns</h1>
 <p>Text files such as CSV files have a matrix layout with rows corresponding to lines and columns to values separated by some delimiter character, which is a semicolon (<code>;</code>) in the case of the previous file <code>catalunya_setmanal.csv</code>. Because of its matrix layout, a CSV file can be always opened by any spreadsheet software, such as Microsoft Excel; see image below.</p>
 <p><img src="ExcelCSV.png" style="display: block; margin-left: auto; margin-right: auto; width: 80%; height: auto;"></p>
 <p>However, there are at least two circumstances in which working with CSV files from the Unix command-line is preferable to do it from a spreadsheet software such as Microsoft Excel:</p>
 <ol style="list-style-type: decimal">
-<li>Spreadsheet software will always attempt to load the whole data into main memory. This may become prohibitive when having tens of thousands of rows, which is common for molecular data.</li>
-<li>Every spreadsheet software uses its own format to store the data, which makes it prone to <a href="https://en.wikipedia.org/wiki/Digital_obsolescence">digital obsolescence</a>, the fact that old software or and old version of a software that opens a file is no longer available. CSV files, and text files in general, can never become obsolete because their format does not depend on any specific software to be read or written.</li>
+<li>Spreadsheet software will always attempt to load the whole data into main memory. This may become prohibitive when having tens of thousands of rows, which is common for high-thoughput molecular measurements data.</li>
+<li>Every spreadsheet software uses its own format to store the data, which makes it prone to <a href="https://en.wikipedia.org/wiki/Digital_obsolescence">digital obsolescence</a>, the fact that old software required to open a file is no longer available. CSV files, and text files in general, can never become obsolete because their format does not depend on any specific software to be read or written.</li>
 </ol>
-<p>Here we will learn to do two common operations on data organized in a matrix layout: extract rows and extract columns. To extract rows from a text file in Unix we will use the command <code>grep</code>, which requires two bits of information:</p>
+<p>Here we will learn to do two common operations on data organized in a matrix layout: extract rows (lines) and extract columns (delimiter-separated values). To extract rows from a text file in Unix we will use the command <code>grep</code>, which requires two pieces of information:</p>
 <pre><code>$ grep pattern filename</code></pre>
-<p>where <code>pattern</code> is the text that we expect to match to the lines we want to extract, while <code>filename</code> is the name of the file from which we want to extract the lines matching the pattern. Note that <code>pattern</code> can be something sophisticated such as a <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expression</a> (not covered in this practical) and <code>filename</code> can be ommitted when want <code>grep</code> to read input from a pipe.</p>
+<p>where <code>pattern</code> is the text that we expect to match to the lines we want to extract, while <code>filename</code> is the name of the file from which we want to extract the lines matching the pattern. Note that <code>pattern</code> can be something sophisticated such as a <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expression</a> (not covered in this practical) and <code>filename</code> can be ommitted when we want <code>grep</code> to read input from a pipe.</p>
 <p>For instance, the column <code>RESIDENCIA</code> in the COVID19 data indicates whether the row contains data derived from geriatric-care residences (value <code>Si</code>) or not (value <code>No</code>). You can check the <a href="https://dadescovid.cat/documentacio?lang=eng">documentation</a> at the Catalan COVID19 data portal to understand why the data is provided separately for these two types of population.</p>
 <p>Let's say we want to extract the rows for the weekly county COVID19 data derived from the population that does not live in geriatric-care residences into a separate file called <code>catalunya_setmanal_general.csv</code>.</p>
 <pre><code>$ grep No catalunya_setmanal.csv &gt; catalunya_setmanal_general.csv</code></pre>
 <p>Now, repeat the command but this time extracting the rows corresponding to the population that <strong>does live</strong> in geriatric-care residences into a separate file called <code>catalunya_setmanal_geriatric.csv</code>.</p>
-<p><strong>Warning</strong>: when using the terminal output redirection mechanism (<code>&gt;</code>) you should <strong>never</strong> use as output filename, a filename that is being used as input in the same command line because that would lead to overwriting the input file and end without or with corrupted output.</p>
+<p><strong>Tip</strong>: note that <code>grep</code> has worked well for this particular task because no other column in the data has used the terms <code>Si</code> and <code>No</code> for any other purpose. The <code>grep</code> command doesn't know about columns, it only finds matches of a pattern in lines, reporting the lines that match the pattern. You can also ask <code>grep</code> to report the lines that <strong>do not</strong> match the pattern by using the option <code>-v</code>.</p>
+<p><strong>Warning</strong>: when using the terminal output redirection mechanism (<code>&gt;</code>) you should <strong>never</strong> use as output filename the filename that is being used as input in the same command line, because that would lead to overwriting the input file and ending with a corrupted output or without output at all.</p>
 <p>Extracting columns can be done using the Unix command <code>cut</code>, which in the case of CSV files also requires specifying the options <code>-d</code> and <code>-f</code>:</p>
 <pre><code>$ cut -d &#39;delimiter&#39; -f field filename</code></pre>
-<p>The option <code>-d</code> allows us to specify a <a href="https://en.wikipedia.org/wiki/Delimiter">delimiter character</a>, which by default is the <a href="https://en.wikipedia.org/wiki/Tab_key">TAB character</a> and should be always specified between single quotes (e.g., <code>,</code>). The option <code>-f</code> allows us to specify the columns, also known as (<a href="https://en.wikipedia.org/wiki/Data_field">fields</a> in this context. For instance, let's say we want to extract the last column of the CSV file <code>catalunya_setmanal.csv</code>, corresponding to the number of exitus at each week. Taking into account that this file uses the semicolon (<code>;</code>) as field separator, we should write:</p>
+<p>The option <code>-d</code> allows us to specify a <a href="https://en.wikipedia.org/wiki/Delimiter">delimiter character</a>, which by default is the <a href="https://en.wikipedia.org/wiki/Tab_key">TAB character</a> and should be always specified between single quotes (e.g., <code>','</code>). The option <code>-f</code> allows us to specify the columns, also known as <a href="https://en.wikipedia.org/wiki/Data_field">fields</a> in this context. For instance, let's say we want to extract the last column of the CSV file <code>catalunya_setmanal.csv</code>, corresponding to the number of exitus at each week. Taking into account that this file uses the semicolon (<code>;</code>) as field separator, we should write:</p>
 <pre><code>$ cut -d &#39;;&#39; -f 15 catalunya_setmanal.csv | head</code></pre>
 <p>Now let's say we want to extract this column from the geriatric subset of the data. We could either run the previous command on the file we created before:</p>
 <pre><code>$ cut -d &#39;;&#39; -f 15 catalunya_setmanal_geriatric.csv | head</code></pre>
@@ -62,7 +63,7 @@ ls</code></pre>
 <pre><code>$ grep Si catalunya_setmanal.csv | cut -d &#39;;&#39; -f 15 catalunya_setmanal_geriatric.csv | head</code></pre>
 <p>Note that in both cases the output is identical.</p>
 <h1 id="sort-rows">Sort rows</h1>
-<p>Unix provides a command called <code>sort</code> to order rows of a file in a number of ways. By default, it orders rows in increasing alphabetical order. Note for instance that in the <code>cataluna_setmanal.csv</code> file, the column <code>DATA_INI</code> and <code>DATA_FI</code> contain the initial and end date of the recorded data for each row, that first lines correspond to more recent data and that date is written in a format that the alphabeic order matches the time order. Type the following four commands:</p>
+<p>Unix provides a command called <code>sort</code> to order rows of a file in a number of ways. By default, it sorts rows in increasing alphabetical order. Note for instance that in the <code>cataluna_setmanal.csv</code> file, the column <code>DATA_INI</code> and <code>DATA_FI</code> contain the initial and end date of the recorded data for each row, that first lines correspond to more recent data and that date is written in a format that the alphabetic order matches the time order. Type the following four commands:</p>
 <pre><code>$ cut -d &#39;;&#39; -f 3,15 catalunya_setmanal.csv | head
 $ cut -d &#39;;&#39; -f 3,15 catalunya_setmanal.csv | tail
 $ cut -d &#39;;&#39; -f 3,15 catalunya_setmanal.csv | sort | head
@@ -95,7 +96,7 @@ VALLES ORIENTAL;41;2020-02-24;2020-03-01;Si;;;0.0000;0;0.0000;0;0.0000;0;0;0</co
 <p>Lines appear to be grouped by county name, which occurs in the first column. Let's extract the first column, apply the <code>uniq</code> command on its output and count the number of resulting lines:</p>
 <pre><code>$ cut -f 1 -d &#39;;&#39; comarques_setmanal.csv | uniq | wc -l
       43</code></pre>
-<p>Can you figure out to what corresponds this number?</p>
+<p>Do you know to what corresponds this number?</p>
 <p>In this case, duplicated lines were occurring in consecutively one after each other. However, if this were not the case, what do you think we could do before using the <code>uniq</code> command to bring duplicated lines together?</p>
 <h1 id="count-consecutive-occurrences">Count consecutive occurrences</h1>
 <p>In a previous practical, we have seen the command <code>wc</code>, which can be employed to count the lines of a text file. Here we want to learn the command <code>uniq</code> with its option <code>-c</code>, which allows one to count consecutive repeated lines. This is useful to count occurrences of interest in a file. For instance, let's say we want to count the number of different exitus occurrences in the file <code>catalunya_setmanal.csv</code>, i.e., how many lines (weeks) reported 0 exitus, how many reported 1, how many reported 2, etc. We need to extract the exitus column (15), sort it and apply the <code>uniq -c</code> command:</p>
@@ -135,7 +136,7 @@ VALLES ORIENTAL;41;2020-02-24;2020-03-01;Si;;;0.0000;0;0.0000;0;0.0000;0;0;0</co
    9 17
    2 18</code></pre>
 <h1 id="paste-columns">Paste columns</h1>
-<p>The Unix command <code>paste</code> allows us to paste in parallel lines of given files using a <code>TAB</code> as delimiter character by default, which can be changed with the option '-d'. For instance, see what happens when extract two columns from the CSV file and paste them again:</p>
+<p>The Unix command <code>paste</code> allows us to paste in parallel lines of given files using a <code>TAB</code> as delimiter character by default, which can be changed with the option <code>-d</code>. For instance, see what happens when extract two columns from the CSV file and paste them again:</p>
 <pre><code>$ cut -d &#39;;&#39; -f 3 catalunya_setmanal.csv &gt; catalunya_setmanal_dataini.csv
 $ cut -d &#39;;&#39; -f 15 catalunya_setmanal.csv &gt; catalunya_setmanal_exitus.csv
 $ paste catalunya_setmanal_dataini.csv catalunya_setmanal_exitus.csv | head
@@ -150,7 +151,7 @@ DATA_INI    EXITUS
 2020-09-10  0
 2020-09-10  17</code></pre>
 <h1 id="exercise">Exercise</h1>
-<p>Compare the number of exitus among general population (i.e., excluding geriatric residences) in the month of March 2020 between two of your favorite Catalan counties. For instance, this would be the output for <code>SEGRIA</code> (left) and <code>OSONA</code> (right):</p>
+<p>Compare the number of exitus among the general population (i.e., excluding geriatric residences) in the month of March 2020 between two of your favorite Catalan counties. For instance, this would be the output for <code>SEGRIA</code> (left) and <code>OSONA</code> (right):</p>
 <pre><code>11      53
 10      54
 11      57

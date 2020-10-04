@@ -169,9 +169,11 @@ modern editors are easier to use for newbies:
   * [sublime](https://www.sublimetext.com)
   * [atom](https://atom.io)
 
-If you want to use a classical editor in a macOS system, check out first whether
-is already available in the shell via `which <nameofeditor>` and if not, use
-Homebrew to install it via `brew install <nameofeditor>`.
+If you want to use a classical editor in a **macOS system**, check out first whether
+is already available in the shell via `which nameofeditor` and if not, use
+Homebrew to install it via `brew install nameofeditor`, where you should
+**replace** `nameofeditor` **by the name of the editor application**.
+
 
 ## Python and Jupyter Notebook
 
