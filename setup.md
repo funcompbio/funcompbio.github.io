@@ -68,12 +68,19 @@ to facilitate working and installing additional software from the command line:
 ### Android
 
 If you have a tablet running Android, then you already have a Unix system
-but you still need a terminal emulator app. There are a few options but
+but you still need a terminal emulator app. There are a few options, but
 probably the best one for our goals here is
 [Termux](https://play.google.com/store/apps/details?id=com.termux). You
 can find further details on how to install and use Termux in Android
 in the following
 [link](https://www.techrepublic.com/article/how-to-get-a-linux-terminal-on-android).
+
+### iOS
+
+If you have a tablet running iOS, then you already have a Unix system but
+you still need a terminal emulator app. There are a few options, but
+probably the best one for our goals here is
+[iSH](https://ish.app).
 
 ## Git version-control system
 
@@ -146,6 +153,16 @@ can find more details on the installation of Git in an Android
 device in this
 [link](https://www.techrepublic.com/article/how-to-install-git-on-android).
 
+### iOS
+
+If you have a tablet running iOS, once you have installed the
+iSH app (see previous section), open the terminal window and
+type:
+
+```
+$ apk add git
+```
+
 ## Text editor
 
 We need a text editor to edit scripts and programs. The
@@ -173,7 +190,6 @@ If you want to use a classical editor in a **macOS system**, check out first whe
 is already available in the shell via `which nameofeditor` and if not, use
 Homebrew to install it via `brew install nameofeditor`, where you should
 **replace** `nameofeditor` **by the name of the editor application**.
-
 
 ## Python and Jupyter Notebook
 
