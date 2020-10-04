@@ -113,7 +113,7 @@ VALLES ORIENTAL;41;2020-02-24;2020-03-01;Si;;;0.0000;0;0.0000;0;0.0000;0;0;0</co
   10 2
   10 12
    9 26</code></pre>
-<p>So the most frequent reported exitus figure was 0 in 153 lines, the second most frequent one was 11 in 19 lines, and so on. We can also tell <code>sort</code> to order that output by the second column using the option <code>-k</code>, which would give us the whole ordered frequency distribution of exitus:</p>
+<p>So the most frequent reported exitus figure was 0 in 165 7-day aggregation periods (lines in the CSV file), the second most frequent one was 11 exitus in 18 lines, and so on. We can also tell <code>sort</code> to order that output by the second column using the option <code>-k</code>, which would give us the whole ordered frequency distribution of exitus:</p>
 <pre><code>$ cut -f 15 -d &#39;;&#39; catalunya_setmanal.csv | sort | uniq -c | sort -n -k 2 | head -20
    1 EXITUS
  165 0
