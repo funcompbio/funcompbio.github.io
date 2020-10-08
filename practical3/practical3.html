@@ -1,0 +1,92 @@
+<h1 id="objectives">Objectives</h1>
+<p>The learning objectives for this practical are:</p>
+<ul>
+<li>Use a text editor to write your Unix scripts.</li>
+<li>Chain Unix commands using pipes.</li>
+<li>Extract rows and columns.</li>
+<li>Sorting lines.</li>
+<li>Counting occurrences.</li>
+<li>Pasting columns.</li>
+</ul>
+<h1 id="setup-and-background">Setup and background</h1>
+<p>We will download again some COVID19 data. Please follow the next two steps:</p>
+<ol style="list-style-type: decimal">
+<li>Go to the Catalan Health Departament COVID data portal at <a href="https://dadescovid.cat" class="uri">https://dadescovid.cat</a> and switch the language to &quot;ENGLISH&quot; using the pull-down menu on the top-right corner of the page.</li>
+<li>Follow the downloads link and on the next page click and download the two files corresponding to the &quot;7 DAY AGGREGATION&quot; for &quot;CATALUNYA&quot; and &quot;COUNTIES&quot; (&quot;COMARQUES&quot; in Catalan). It is important that you download both files in the same day to make them comparable, because all data is updated daily. Make sure you know exactly where in your filesystem these two files have been downloaded. <strong>Tip:</strong> some browsers automatically download files into a folder called &quot;Downloads&quot; or under a name corresponding to the translation of &quot;Downloads&quot; to the default language of your operating system.</li>
+<li>Make a directory in your filesystem, for instance at your <em>home</em> directory, called <code>practical3</code> and copy in it the CSV files contained in the previous two ZIP files that you have downloaded, as you analogously did in practical 1 and 2.</li>
+</ol>
+<h1 id="setting-up-git">Setting up Git</h1>
+<p>We start setting up some global options for Git. You only need to do this once in your computer. Make sure you have git installed in your system by opening the Unix shell and typing:</p>
+<pre><code>$ which git</code></pre>
+<p>If you get no answer from this command, it means that you need to install the Git software. Check out the <a href="/setup/">setup</a> page for instructions about how to install it. Once git is installed, please verify the version of git you have by typing:</p>
+<pre><code>$ git --version</code></pre>
+<p>Now you should set up your identity with Git by giving your name and email address. This information is important because Git will store it in every commit and will allow you and others to track which changes you have made. To set up your identity type:</p>
+<pre><code>$ git config --global user.name &quot;XXXXX YYYY&quot;
+$ git config --global user.email &quot;ZZZZ@WWWW.UUUU</code></pre>
+<p>where <code>XXXXX</code> is your first name and <code>YYYYY</code> is your family name, while <code>ZZZZ@WWWW.UUUU</code> if you student UPF email address.</p>
+<p>It may be handy to set up your favorite text editor associated with Git, so that when Git requires you to write some text, your favorite text editor is launched. Please check the following <a href="https://docs.github.com/en/free-pro-team@latest/github/using-git/associating-text-editors-with-git">link</a> to find out how to set your favorite text editor associated with Git. If you don't set up any text editor, it's likely that, when Git needs it, it will start a classical text editor, such as Vi or Emacs. In the case of Vi, to write you need first to press the key of letter 'i' and then you can type your text. Once you're finished, press Esc, colon (:) and type 'x' for save and quit.</p>
+<p>To verify that you have set up your global configuration data correctly, please type:</p>
+<pre><code>$ git config -l</code></pre>
+<p>Git has built-in documentation that you can access in different ways:</p>
+<pre><code>$ git help
+$ git help command
+$ git command --help</code></pre>
+<p>where <code>command</code> is one of Git's commands such as <code>add</code> or <code>checkout</code>.</p>
+<h1 id="setting-up-a-git-repo-in-our-local-disk">Setting up a Git repo in our local disk</h1>
+<p>Here we are going to set up our first Git repo in our local disk. First make sure you have a directory called <code>practical3</code> with the two CSV files <code>cataluna_setmanal.csv' and 'comarques_setmanal.csv'. Now, enter the</code>practical3` directory and type the following:</p>
+<pre><code>$ git init</code></pre>
+<p>Verify that the <code>.git</code> database directory has been created by typing (you should see a directory called <code>.git/</code> next to your CSV files):</p>
+<pre><code>$ ls -lhaF
+drwxr-xr-x  5 robert  staff   160B Oct  7 17:49 ./
+drwxr-xr-x  7 robert  staff   224B Oct  7 17:49 ../
+drwxr-xr-x  9 robert  staff   288B Oct  7 17:49 .git/
+-rw-r--r--@ 1 robert  staff   1.4M Oct  7 17:49 comarques_setmanal.csv
+-rw-r--r--  1 robert  staff   800K Oct  7 17:49 comarques_setmanal_general.csv</code></pre>
+<p>Checkout the status of your Git repo using <code>git status</code>:</p>
+<pre><code>$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+    comarques_setmanal.csv
+    comarques_setmanal_general.csv
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
+<p>You should note that we have two modified files that are &quot;untracked&quot; (unstaged). Stage those files by using the <code>git add</code> command and check the status again:</p>
+<pre><code>$ git add .
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+    new file:   comarques_setmanal.csv
+    new file:   comarques_setmanal_general.csv</code></pre>
+<p>Finally, commit the staged files by doing:</p>
+<pre><code>$ git commit -m &#39;First commit.&#39;
+[master (root-commit) d35b756] First commit.
+ 2 files changed, 26965 insertions(+)
+ create mode 100644 comarques_setmanal.csv
+ create mode 100644 comarques_setmanal_general.csv</code></pre>
+<p>Check out that the status doesn't have pending commits anymore:</p>
+<pre><code>$ git status
+On branch master
+nothing to commit, working tree clean</code></pre>
+<p>Examine this first change with <code>git log</code>:</p>
+<pre><code>$ git log
+commit d35b7567e8ddef0534303737e0b8b3a51b4c0ec6 (HEAD -&gt; master)
+Author: Robert Castelo &lt;robert.castelo@upf.edu&gt;
+Date:   Thu Oct 7 17:55:50 2020 +0200
+
+    First commit.</code></pre>
+<h1 id="update-your-local-repository">Update your local repository</h1>
+<p>Here we want to practise how to update the local repository, keeping track of the changes with Git. First, create a file called <code>catalunya_setmanal_geriatric.csv</code> with the subset of the data in <code>catalunay_setmanal.csv</code> corresponding to the population that lives in geriatric residences (see practical 2). Once you have generated that file, check out the status of the repo. You should notice that Git has detected a new file that is untracked. Stage this untracked file and commit the change to the repo.</p>
+<h1 id="upload-your-local-repository-to-github">Upload your local repository to GitHub</h1>
+<p>Here we want to create in GitHub a remote repository connected to our local one. Log into your GitHub account. Click on the plus sign on the top-right and select &quot;New repository&quot; from the pull-down menu.</p>
+<div class="figure">
+<img src="./GHnewrepo.png" />
+
+</div>
