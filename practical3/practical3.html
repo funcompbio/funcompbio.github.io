@@ -6,6 +6,8 @@
 <li>Update your local repository.</li>
 <li>Upload your local repository to GitHub.</li>
 <li>Cloning a GitHub repo into a local repository.</li>
+<li>Push changes to GitHub.</li>
+<li>Pull changes from GitHub.</li>
 </ul>
 <h1 id="setup-and-background">Setup and background</h1>
 <p>We will download again some COVID19 data. Please follow the next two steps:</p>
@@ -120,12 +122,12 @@ Your branch is up to date with &#39;origin/main&#39;.
 
 nothing to commit, working tree clean</code></pre>
 <p>The GitHub page for the repo has several tabs, where the one called &quot;Settings&quot; can be used to configure some of the other tabs and perform actions such as switching the visibility from private to public or delete entirely this repository from GitHub.</p>
-<h1 id="cloning-a-github-repo-into-a-local-repository.">Cloning a GitHub repo into a local repository.</h1>
+<h1 id="cloning-a-github-repo-into-a-local-repository">Cloning a GitHub repo into a local repository</h1>
 <p>The reverse operation of uploading a local repo to a GitHub is <strong>cloning</strong> a GitHub repo into a local repo. When you <em>clone</em> a GitHub repo, you are copying into your local filesystem all the files, version history and branches from the GitHub repo.</p>
-<p>To <em>clone</em> a <em>public</em> GitHub repo into your local filesystem you use the Git command <code>clone</code> as follows:</p>
+<p>To <em>clone</em> a <strong>public</strong> GitHub repo into your local filesystem you use the Git command <code>clone</code> as follows:</p>
 <pre><code>$ git clone https://github.com/USERNAME/REPONAME [DIRECTORY]</code></pre>
 <p>where <code>USERNAME</code> is the username owner of the repo you want to <em>clone</em>, while <code>REPONAME</code> is the name of the repository you want to clone. <strong>Optionally</strong>, you can give a directory name in <code>DIRECTORY</code> to clone the repo under a directory called differently to the <code>REPONAME</code>.</p>
-<p>To <em>clone</em> a <em>private</em> GitHub repo into your local filesystem you use the Git command <code>clone</code> as follows:</p>
+<p>To <em>clone</em> a <strong>private</strong> GitHub repo into your local filesystem you use the Git command <code>clone</code> as follows:</p>
 <pre><code>$ git clone https://USERNAME:PASSWORD@github.com/USERNAME/REPONAME [DIRECTORY]</code></pre>
 <p>It's important to know whether you are cloning a public or a private repo, because if you use the syntax for cloning a public repo that in fact is private, then Git will give you and error saying that it cannot find the repository.</p>
 <p>For instance, go to your home directory and clone your recently created GitHub repo <code>practical3</code> into a different name such as <code>practical3copy</code> by doing:</p>
@@ -183,7 +185,7 @@ Total 3 (delta 1), reused 0 (delta 0)
 remote: Resolving deltas: 100% (1/1), completed with 1 local object.
 To https://github.com/fcbstudent/practical3
    1a28e38..7d38744  main -&gt; main</code></pre>
-<p>If this last step has been successful, you should be able to see the new file and actually its contents (a <code>README.md</code> file at the root of a GitHub repo has a special <a href="https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/about-readmes">treatment</a> in the GitHub page of the repo as here below.</p>
+<p>If this last step has been successful, you should be able to see the new file and actually its contents as shown here below (a <code>README.md</code> file at the root of a GitHub repo has a special <a href="https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/about-readmes">treatment</a> in the GitHub page of the repo).</p>
 <div class="figure">
 <img src="./GHnewrepo4.png" />
 
