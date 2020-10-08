@@ -22,3 +22,8 @@
   dirname: practical2
   slides: Practical2
   desc: "Text files, redirecting terminal output to a pipe, extracting rows and columns, sorting rows, remove consecutive duplicated lines, counting consecutive occurrences and pasting columns."
+
+- title: "Lecture 4"
+  dirname: lecture4
+  slides: Lecture4
+  desc: "Version control and social coding."
