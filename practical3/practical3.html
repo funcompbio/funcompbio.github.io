@@ -5,6 +5,7 @@
 <li>Setting up a Git repo in our local disk.</li>
 <li>Update your local repository.</li>
 <li>Upload your local repository to GitHub.</li>
+<li>Cloning a GitHub repo into a local repository.</li>
 </ul>
 <h1 id="setup-and-background">Setup and background</h1>
 <p>We will download again some COVID19 data. Please follow the next two steps:</p>
@@ -38,8 +39,8 @@ $ git command --help</code></pre>
 drwxr-xr-x  5 robert  staff   160B Oct  7 17:49 ./
 drwxr-xr-x  7 robert  staff   224B Oct  7 17:49 ../
 drwxr-xr-x  9 robert  staff   288B Oct  7 17:49 .git/
--rw-r--r--@ 1 robert  staff   1.4M Oct  7 17:49 comarques_setmanal.csv
--rw-r--r--  1 robert  staff   800K Oct  7 17:49 comarques_setmanal_general.csv</code></pre>
+-rw-r--r--@ 1 robert  staff   1.4M Oct  7 17:49 catalunya_setmanal.csv
+-rw-r--r--  1 robert  staff   800K Oct  7 17:49 comarques_setmanal.csv</code></pre>
 <p>Checkout the status of your Git repo using <code>git status</code>:</p>
 <pre><code>$ git status
 On branch master
@@ -48,8 +49,8 @@ No commits yet
 
 Untracked files:
   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+    catalunya_setmanal.csv
     comarques_setmanal.csv
-    comarques_setmanal_general.csv
 
 nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
 <p>You should note that we have two modified files that are &quot;untracked&quot; (unstaged). Stage those files by using the <code>git add</code> command and check the status again:</p>
@@ -61,14 +62,14 @@ No commits yet
 
 Changes to be committed:
   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
-    new file:   comarques_setmanal.csv
-    new file:   comarques_setmanal_general.csv</code></pre>
+    new file:   catalunya_setmanal.csv
+    new file:   comarques_setmanal.csv</code></pre>
 <p>Finally, commit the staged files by doing:</p>
 <pre><code>$ git commit -m &#39;First commit.&#39;
 [master (root-commit) d35b756] First commit.
  2 files changed, 26965 insertions(+)
- create mode 100644 comarques_setmanal.csv
- create mode 100644 comarques_setmanal_general.csv</code></pre>
+ create mode 100644 catalunya_setmanal.csv
+ create mode 100644 comarques_setmanal.csv</code></pre>
 <p>Check out that the status doesn't have pending commits anymore:</p>
 <pre><code>$ git status
 On branch master
@@ -119,3 +120,8 @@ Your branch is up to date with &#39;origin/main&#39;.
 
 nothing to commit, working tree clean</code></pre>
 <p>The GitHub page for the repo has several tabs, where the one called &quot;Settings&quot; can be used to configure some of the other tabs and perform actions such as switching the visibility from private to public or delete entirely this repository from GitHub.</p>
+<h1 id="cloning-a-github-repo-into-a-local-repository.">Cloning a GitHub repo into a local repository.</h1>
+<p>The reverse operation of uploading a local repo to a GitHub is <strong>cloning</strong> a GitHub repo into a local repo. To <em>clone</em> a GitHub repo into your local filesystem you use the Git command <code>clone</code> as follows:</p>
+<pre><code>$ git clone https://github.com/USERNAME/REPONAME</code></pre>
+<p>where <code>USERNAME</code> is the username owner of the repo you want to <em>clone</em>, while <code>REPONAME</code> is the name of the repository you want to clone. When you <em>clone</em> a GitHub repo, you are copying into your local filesystem all the files, version history and branches from the GitHub repo. If you are the owner of the GitHub repo or you have permissions to write into that GitHub repo, you can synchronize your commits with the GitHub repo by using the Git command <code>push</code> as follows:</p>
+<pre><code>$ git push</code></pre>
