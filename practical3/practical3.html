@@ -94,7 +94,7 @@ Date:   Thu Oct 7 17:55:50 2020 +0200
 <img src="./GHnewrepo2.png" />
 
 </div>
-<p>At this point you have created in your GitHub account an empty repository called <code>practical3</code>. We are going to connect it now with our local repository of <code>practical3</code>. Make sure your CWD is the Git repository <code>practical3</code> in your local disk and follow the instructions in the GitHub page under the title <strong>&quot;... or push an existing repository from the command line&quot;</strong>, by typing:</p>
+<p>At this point you have created in your GitHub account an empty repository called <code>practical3</code>. We are going to connect it now with our local repository of <code>practical3</code>. Make sure your CWD is the Git repository <code>practical3</code> in your local disk and follow the instructions in the GitHub page under the title <strong>&quot;... or push an existing repository from the command line&quot;</strong>, by typing (<strong>REPLACE</strong> <code>fcbstudent</code> by your own username):</p>
 <pre><code>$ git remote add origin https://github.com/fcbstudent/practical3.git
 $ git branch -M main
 $ git push -u origin main
@@ -121,7 +121,95 @@ Your branch is up to date with &#39;origin/main&#39;.
 nothing to commit, working tree clean</code></pre>
 <p>The GitHub page for the repo has several tabs, where the one called &quot;Settings&quot; can be used to configure some of the other tabs and perform actions such as switching the visibility from private to public or delete entirely this repository from GitHub.</p>
 <h1 id="cloning-a-github-repo-into-a-local-repository.">Cloning a GitHub repo into a local repository.</h1>
-<p>The reverse operation of uploading a local repo to a GitHub is <strong>cloning</strong> a GitHub repo into a local repo. To <em>clone</em> a GitHub repo into your local filesystem you use the Git command <code>clone</code> as follows:</p>
-<pre><code>$ git clone https://github.com/USERNAME/REPONAME</code></pre>
-<p>where <code>USERNAME</code> is the username owner of the repo you want to <em>clone</em>, while <code>REPONAME</code> is the name of the repository you want to clone. When you <em>clone</em> a GitHub repo, you are copying into your local filesystem all the files, version history and branches from the GitHub repo. If you are the owner of the GitHub repo or you have permissions to write into that GitHub repo, you can synchronize your commits with the GitHub repo by using the Git command <code>push</code> as follows:</p>
-<pre><code>$ git push</code></pre>
+<p>The reverse operation of uploading a local repo to a GitHub is <strong>cloning</strong> a GitHub repo into a local repo. When you <em>clone</em> a GitHub repo, you are copying into your local filesystem all the files, version history and branches from the GitHub repo.</p>
+<p>To <em>clone</em> a <em>public</em> GitHub repo into your local filesystem you use the Git command <code>clone</code> as follows:</p>
+<pre><code>$ git clone https://github.com/USERNAME/REPONAME [DIRECTORY]</code></pre>
+<p>where <code>USERNAME</code> is the username owner of the repo you want to <em>clone</em>, while <code>REPONAME</code> is the name of the repository you want to clone. <strong>Optionally</strong>, you can give a directory name in <code>DIRECTORY</code> to clone the repo under a directory called differently to the <code>REPONAME</code>.</p>
+<p>To <em>clone</em> a <em>private</em> GitHub repo into your local filesystem you use the Git command <code>clone</code> as follows:</p>
+<pre><code>$ git clone https://USERNAME:PASSWORD@github.com/USERNAME/REPONAME [DIRECTORY]</code></pre>
+<p>It's important to know whether you are cloning a public or a private repo, because if you use the syntax for cloning a public repo that in fact is private, then Git will give you and error saying that it cannot find the repository.</p>
+<p>For instance, go to your home directory and clone your recently created GitHub repo <code>practical3</code> into a different name such as <code>practical3copy</code> by doing:</p>
+<pre><code>$ cd
+$ git clone https://USERNAME:PASSWORD@github.com/USERNAME/practical3 practical3copy</code></pre>
+<p>where you should replace <code>USERNAME</code> and <code>PASSWORD</code> accordingly.</p>
+<h1 id="push-changes-to-github">Push changes to GitHub</h1>
+<p>Here, we are going to see how update the new local copy of our remote GitHub repo and send (<em>push</em> in Git terminology) those changes to the remote GitHub repo. Enter in the directory of this new local copy of the GitHub repo and introduce a change by creating a <code>README.md</code> file using a Unix shell terminal output redirection as follows:</p>
+<pre><code>$ cd practical3copy
+$ cat &gt; README.md
+This is Practical 3!</code></pre>
+<p>Remember to press the keys <code>Ctrl+d</code> once you've typed the text. Now list the files, verify that a new file called <code>README.md</code> is there, that it has the contents you've typed and check the status of the repo:</p>
+<pre><code>$ ls
+README.md                        catalunya_setmanal_geriatric.csv
+catalunya_setmanal.csv           comarques_setmanal.csv
+$ cat README.md 
+This is Practical 3!
+$ git status
+On branch main
+Your branch is up to date with &#39;origin/main&#39;.
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+    README.md
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
+<p>Stage the modified files and check the status again:</p>
+<pre><code>$ git add .
+$ git status
+On branch main
+Your branch is up to date with &#39;origin/main&#39;.
+
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+    new file:   README.md</code></pre>
+<p>Commit the staged files and check the status again:</p>
+<pre><code>$ git commit -m &#39;Added README.md&#39;
+[main 7d38744] Added README.md
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+$ git status
+On branch main
+Your branch is ahead of &#39;origin/main&#39; by 1 commit.
+  (use &quot;git push&quot; to publish your local commits)
+
+nothing to commit, working tree clean</code></pre>
+<p>Finally, push the changes to the remote GitHub repo:</p>
+<pre><code>$ git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 298 bytes | 298.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/fcbstudent/practical3
+   1a28e38..7d38744  main -&gt; main</code></pre>
+<p>If this last step has been successful, you should be able to see the new file and actually its contents (a <code>README.md</code> file at the root of a GitHub repo has a special <a href="https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/about-readmes">treatment</a> in the GitHub page of the repo as here below.</p>
+<div class="figure">
+<img src="./GHnewrepo4.png" />
+
+</div>
+<h1 id="pull-changes-from-github">Pull changes from GitHub</h1>
+<p>You have your initial copy of the GitHub repo at <code>~/practical3</code> and a modified copy at <code>~/practical3copy</code>, where the latter has been synchronized with the remote GitHub repo. Now, let's see how could we update (<em>pull</em> in Git terminology) our initial copy with the latest changes made in the second copy of our repo. First enter the directory of the initial copy of the GitHub repo (here we assume it was created at the <em>home</em> directory) and verify it lacks the last file <code>README.md</code> we have added to the GitHub repo:</p>
+<pre><code>$ cd
+$ cd practical3
+$ ls
+catalunya_setmanal.csv           comarques_setmanal.csv
+catalunya_setmanal_geriatric.csv</code></pre>
+<p>Second, <em>pull</em> the changes from GitHub and verify the new file <code>README.md</code> has been added to this copy of the GitHub repo:</p>
+<pre><code>$ git pull
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/fcbstudent/practical3
+   1a28e38..7d38744  main       -&gt; origin/main
+Updating 1a28e38..7d38744
+Fast-forward
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+messi:practical3 robert$ ls
+README.md                        catalunya_setmanal_geriatric.csv
+catalunya_setmanal.csv           comarques_setmanal.csv</code></pre>
+<p>In general, you will not work with two local copies of the same GitHub repo in the same computer. We have used these two copies here only to illustrate how to <em>clone</em> a remote repo, and <em>push</em> and <em>pull</em> changes from that repo. The main utility of these actions is when either you work in two or more computers and need to synchronize your local copies of the GitHub repo, or you are working with collaborators that all update the same GitHub repo.</p>
