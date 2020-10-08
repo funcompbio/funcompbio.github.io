@@ -96,10 +96,20 @@ Date:   Thu Oct 7 17:55:50 2020 +0200
 <img src="./GHnewrepo2.png" />
 
 </div>
-<p>At this point you have created in your GitHub account an empty repository called <code>practical3</code>. We are going to connect it now with our local repository of <code>practical3</code>. Make sure your CWD is the Git repository <code>practical3</code> in your local disk and follow the instructions in the GitHub page under the title <strong>&quot;... or push an existing repository from the command line&quot;</strong>, by typing (<strong>REPLACE</strong> <code>fcbstudent</code> by your own username):</p>
-<pre><code>$ git remote add origin https://github.com/fcbstudent/practical3.git
-$ git branch -M main
-$ git push -u origin main
+<p>At this point you have created in your GitHub account an empty repository called <code>practical3</code>. We are going to connect it now with our local repository of <code>practical3</code>. Make sure your CWD is the Git repository <code>practical3</code> in your local disk and follow the instructions in the GitHub page under the title <strong>&quot;... or push an existing repository from the command line&quot;</strong>. They consist of the following three steps:</p>
+<ol style="list-style-type: decimal">
+<li><p>Create a new connection to your remote GitHub repo with <code>git remote add</code>, <strong>replacing</strong> the <code>fcbstudent</code> word below by your own username):</p>
+<pre><code>$ git remote add origin https://github.com/fcbstudent/practical3.git</code></pre>
+<p>You can check whether this connection has been successfully established by using the <code>-v</code> option with the <code>remote</code> command:</p>
+<pre><code>$ git remote -v
+origin  https://github.com/fcbstudent/practical3.git (fetch)
+origin  https://github.com/fcbstudent/practical3.git (push)</code></pre>
+<p>If you see <strong>no</strong> URL connection specified to the right of the word <code>origin</code>, then you have probably misspecified the repo URL. Before you try to add again the remote connection, you should remove this <em>bogus</em> one by typing:</p>
+<pre><code>$ git remote remove origin</code></pre></li>
+<li><p>Create the default branch under the name <code>main</code>:</p>
+<pre><code>$ git branch -M main</code></pre></li>
+<li><p>Push the contents of the current branch in the local Git repo to the upstream main branch in the GitHub repo:</p>
+<pre><code>$ git push -u origin main
 Enumerating objects: 4, done.
 Counting objects: 100% (4/4), done.
 Delta compression using up to 4 threads
@@ -110,6 +120,8 @@ remote: Resolving deltas: 100% (1/1), done.
 To https://github.com/fcbstudent/practical3.git
  * [new branch]      main -&gt; main
 Branch &#39;main&#39; set up to track remote branch &#39;main&#39; from &#39;origin&#39;.</code></pre>
+<p>If in this step instead of the previous output you get an error, then probably the connection to the remote GitHub repo has not been correctly established. Got back to step 1, use the given command to remove this current connection and try to add it again, making sure that the GitHub URL is correct.</p></li>
+</ol>
 <p>Click now on the link to the private repo on the top-left of your GitHub account to go to the page of the repo and check that the files have been successfully uploaded to GitHub.</p>
 <div class="figure">
 <img src="./GHnewrepo3.png" />
