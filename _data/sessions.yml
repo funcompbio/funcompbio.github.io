@@ -27,3 +27,9 @@
   dirname: lecture4
   slides: Lecture4
   desc: "Version control and social coding."
+
+- title: "Practical 3"
+  dirname: practical3
+  slides: Practical3
+  desc: "Version control with Git and Github."
+
