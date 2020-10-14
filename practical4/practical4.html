@@ -1,0 +1,136 @@
+<h1 id="objectives">Objectives</h1>
+<p>The learning objectives for this practical are:</p>
+<ul>
+<li>Run your first Python program from the Unix shell.</li>
+<li>Read data from the keyboard into a Python program.</li>
+<li>Implement in Python several programs doing basic arithmetic.</li>
+<li>Implement in Python a program to decide if a natural number is perfect.</li>
+<li>Make syntax errors in Python.</li>
+<li>Correct syntax errors in Python.</li>
+<li>How to debug your program by watching variables.</li>
+</ul>
+<p>For the problems in which you have to implement a program that solves some arithmetic problem that we have solved in class at the blackboard, you should have already one working solution on paper from that class. If you don't, please ask a colleague for one. Try to focus the time of this practical in addressing the technical challenges of running a Python program and correcting run-time errors.</p>
+<p>Whenever you are stuck with an error, please consult the last section entitled &quot;Debugging&quot;.</p>
+<h1 id="setup-and-background">Setup and background</h1>
+<p>To do this practical we need an installation of Python version 3. You can find the instructions in the <a href="/setup/">setup</a> link on how to install Python version 3 in your system. Once Python is installed, you should be able to call it from the shell in the terminal window. You can check whether that is possible by typing:</p>
+<pre><code>$ which python
+$ python --version</code></pre>
+<p>It may happen that you have two Python installations, one corresponding to version 2.x and another to version 3.x. In that situation the previous command by say that your Python version is 2.x and to access the version 3 you need to call the executable <code>python3</code>. Try then for instance:</p>
+<pre><code>$ python3 --version</code></pre>
+<p>If this is your case, then whenever the executable <code>python</code> is invoked in the rest of this practical, please use <code>python3</code> instead.</p>
+<h1 id="run-your-first-python-program-from-the-unix-shell">Run your first Python program from the Unix shell</h1>
+<p>Make a directory for this practical, called <code>practical4</code>. Open a text editor, starting a new empty text file called file called <code>hello.py</code>, which should be stored within the directory <code>practical4</code>. Inside this empty file <code>hello.py</code>, please write the following line:</p>
+<pre><code>print(&quot;Hello World!&quot;)</code></pre>
+<p>Make sure this text file is stored within your directory <code>practical4</code> by typing the Unix list command within that directory and verifying that the file <code>hello.py</code> is right there:</p>
+<pre><code>$ ls
+hello.py</code></pre>
+<p>Once you have your file stored with the previous <code>print()</code> line, make sure the file contains exactly what you have typed in the text editor by exploring its contents with the <code>cat</code> command:</p>
+<pre><code>$ cat hello.py
+print(&quot;Hello World!&quot;)</code></pre>
+<p>If the contents are different, then probably you have not saved what you typed in the text editor. Go to the text editor and save the file. Once we have typed this Python one-liner program, saved and made sure the file is in our CWD and contains the expected source code, we can run it by calling the command <code>python</code> with the filename of our program as argument:</p>
+<pre><code>$ python hello.py 
+Hello World!</code></pre>
+<p>We should be getting the message &quot;Hello World!&quot; on the screen.</p>
+<h1 id="read-data-from-the-keyboard-into-a-python-program.">Read data from the keyboard into a Python program.</h1>
+<p>Create a new Python program called <code>inputoutput.py</code> with the following contents:</p>
+<pre><code>x = input(&quot;Enter a value: &quot;)
+print(x)</code></pre>
+<p>Store it on disk and call it from the command line by doing:</p>
+<pre><code>$ python inputoutput.py</code></pre>
+<p>The program will ask you to enter a value. Enter any value, for instance a numerical value 10, or a character string &quot;hello&quot; (without the quotes), and press the <code>Enter</code> key. If you have been able to run this without an error, think about what has happened. Look at the source code. Try to understand how the value you typed came back on the terminal window?</p>
+<h1 id="adding-two-numbers">Adding two numbers</h1>
+<p>Here we are going to implement a Python program that reads two numbers from the keyboard, adds them and prints the result on the terminal window. Open a new file in the text editor called <code>add.py</code> and type the following code:</p>
+<pre><code>x = input(&quot;Enter one value: &quot;)
+y = input(&quot;Enter another value: &quot;)
+z = int(x) + int(y)
+print(z)</code></pre>
+<p>Execute <code>add.py</code> in the terminal window, enter two integer numbers and check out that it is correctly adding them up. In this program we have used the function <code>int()</code> over each of the variables that read the input numbers because, by default, the function <code>input()</code> returns a character string and applying the addition operator <code>+</code> over two character strings leads to their concatenation, instead of the arithmetic operation we want to do. The function <code>int()</code> coerces a character string of a number into its corresponding numeric-type value.</p>
+<p>Now replace the last line with the call to the <code>print()</code> function, by this other one:</p>
+<pre><code>print(&quot;The sum of %s and %s is %d&quot; %(x, y, z))</code></pre>
+<p>In this call to the <code>print()</code> function we are using the symbols <code>%s</code> and <code>%d</code> to, respectively, indicate that in those places of the sentence we are going to put a character string and an integer number. The actual values are written next to the character string of the sentence by using the syntax <code>%(x, y, z)</code>, which contains a comma-separated vector of the variables whose values we want to print.</p>
+<p>Save now the file and execute the program again. Note that the output is now a sentence like:</p>
+<pre><code>The sum of 3 and 4 is 7</code></pre>
+<p>Copy the file of this program <code>add.py</code> into another file called <code>mean.py</code>. Open <code>mean.py</code> with the text editor and modify the code to provide the calculation of the arithmetic mean of two values.</p>
+<h1 id="even-and-odd-numbers">Even and odd numbers</h1>
+<p>Implement a program in Python that asks for a positive integer number and prints a message saying whether the number is even or odd.</p>
+<h1 id="factorial-of-an-integer-number.">Factorial of an integer number.</h1>
+<p>Implement a program in Python that asks for an integer number and calculates its <a href="https://en.wikipedia.org/wiki/Factorial">factorial</a> product.</p>
+<h1 id="calculation-of-a-base-raised-to-a-power.">Calculation of a base raised to a power.</h1>
+<p>Implement a program in Python that asks for two numbers, a positive integer number, which will be the base, and a non-negative integer number, which will be the power, and calculates the base raised to the power.</p>
+<h1 id="perfect-numbers">Perfect numbers</h1>
+<p>The Wikipedia <a href="https://en.wikipedia.org/wiki/Perfect_number">page</a> for perfect numbers says:</p>
+<blockquote>
+<p>In number theory, a perfect number is a positive integer that is equal to the sum of its positive divisors, excluding the number itself. For instance, 6 has divisors 1, 2 and 3 (excluding itself), and 1 + 2 + 3 = 6, so 6 is a perfect number.</p>
+</blockquote>
+<p>Implement a program in Python that asks for a positive integer number and says whether the given number is perfect or not providing some message with the <code>print()</code> function.</p>
+<h1 id="debugging">Debugging</h1>
+<p><a href="https://en.wikipedia.org/wiki/Debugging">Debugging</a> is the process of finding and correcting bugs in computer programs. A <a href="https://en.wikipedia.org/wiki/Software_bug">bug</a> in this context is an unintended error in a computer program that produces an incorrect or unexpected result. Bugs can be caused by as little as a single letter causing a syntax error. This was the case, for instance, in 1988 of the failed mission to Mars by the <a href="https://en.wikipedia.org/wiki/Phobos_1">Phobos 1</a> space probe, which lost communication with ground control by a missing hyphen (<code>-</code>) in one of the commands that was unintentionally left out by a technician.</p>
+<p>Debugging can be time consuming but the more you debug, the faster you do it. It is a detective kind of task. Here we illustrate how to do start debugging your Python programs.</p>
+<p>Let's say that in the first line of the <code>add.py</code> Python program we forget closing the double quotes of the character string:</p>
+<pre><code>x = input(&quot;Enter one value: )</code></pre>
+<p>This will cause the following syntax error:</p>
+<pre><code>$ python add.py 
+  File &quot;add.py&quot;, line 1
+    x = input(&quot;Enter one value: )
+                                ^
+SyntaxError: EOL while scanning string literal</code></pre>
+<p>Note that in the first line of the message, Python is telling us the name of the file and the line in this file that <em>Python thinks</em> that it contains the syntax error. Then, that line is printed and underneath, a caret character (<code>^</code>) indicates the place where <em>Python thinks</em> the error takes place. Below that printed line, Python provides the type of error that is taking place:</p>
+<pre><code>SyntaxError: EOL while scanning string literal</code></pre>
+<p>Here, EOL means <em>end of line</em> and the message suggests that while reading the string literal that started with double quotes, it found the end of line before finding the closing pair of double quotes.</p>
+<p>Another error, a bit more dificult to understand occurs if in the Python program <code>add.py</code> we remove the last character <code>)</code> from the third line:</p>
+<pre><code>z = int(x) + int(y</code></pre>
+<p>Because when we run the program, we get the following message:</p>
+<pre><code>$ python add.py 
+  File &quot;add.py&quot;, line 4
+    print(&quot;The sum of %s and %s is %d&quot; %(x, y, z))
+    ^
+SyntaxError: invalid syntax</code></pre>
+<p>Python thinks that the error is in the fourth line and shows it to us, but that line is perfect. When this happens, you should always suspect that the problem lies in the previous line, as it happens here.</p>
+<h2 id="watching-variables">Watching variables</h2>
+<p>If we execute a Python program and it does not give any error but it also does not end, we shoud suspect that it has become trapped in an infinite loop. An infinite loop occurs when in a loop statement the end condition is never met, that is, the condition that the loop evaluates at each iteration is always true in the case, for instance, of a <code>while</code> loop. In that kind of situation you should first interrupt the execution of the program by typing the key combination <code>Ctrl+c</code> on the shell where the program is running. Once you have recovered the control of the shell, then you should modify your program to watch the contents of the variables that you think might be more relevant to the problem.</p>
+<p>For instance, consider the following program that add up the first ten natural numbers:</p>
+<pre><code>x = int(input(&quot;Enter one value: &quot;))
+s = 0
+i = 1
+while (i &lt;= x) :
+    s = s + i
+    i = i + 1
+
+print(s)</code></pre>
+<p>Now, let's say we unintentionally leave the instruction that increases the variable <code>i</code> outside the loop statement:</p>
+<pre><code>x = int(input(&quot;Enter one value: &quot;))
+s = 0
+i = 1
+while (i &lt;= x) :
+    s = s + i
+
+i = i + 1
+
+print(s)</code></pre>
+<p>This will cause an infinite loop but we might not understand why this is happening. One way to find it out is to watch the contents of variables during looping. We can do that by adding printing statements of the variables, for instance:</p>
+<pre><code>x = int(input(&quot;Enter one value: &quot;))
+s = 0
+i = 1
+while (i &lt;= x) :
+    print(&quot;i=%d s=%d&quot; %(i, s))
+    s = s + i
+
+i = i + 1
+
+print(s)</code></pre>
+<p>When we execute this program we will see the following output going on and on indefinitely through our terminal window:</p>
+<pre><code>i=1 s=0
+i=1 s=1
+i=1 s=2
+i=1 s=3
+i=1 s=4
+i=1 s=5
+i=1 s=6
+i=1 s=7
+i=1 s=8
+i=1 s=9
+i=1 s=10
+i=1 s=11
+i=1 s=12
+...</code></pre>
+<p>From this output, we should be able to figure out two facts: (1) the variable <code>i</code> is not changing; and (2) the variable <code>s</code> is infinitely growing by one. These two facts will help us drawing the conclusion that the assignment <code>i = i + 1</code> should be part of the loop statement.</p>
