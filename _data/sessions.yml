@@ -33,3 +33,8 @@
   slides: Practical3
   desc: "Version control with Git and Github."
 
+- title: "Practical 4"
+  dirname: practical4
+  slides: Practical4
+  desc: "Running our first Python programs on the computer."
+
