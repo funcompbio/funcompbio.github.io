@@ -9,13 +9,13 @@
 <li>Correct syntax errors in Python.</li>
 <li>How to debug your program by watching variables.</li>
 </ul>
-<p>For the problems in which you have to implement a program that solves some arithmetic problem that we have solved in class at the blackboard, you should have already one working solution on paper from that class. If you don't, please ask a colleague for one. Try to focus the time of this practical in addressing the technical challenges of running a Python program and correcting run-time errors.</p>
+<p>For the problems in which you have to implement a program that solves some arithmetic problem that we have solved in class at the blackboard, you should have already one working solution from that class on paper. If you don't, please ask a colleague for one. Try to focus the time of this practical in addressing the technical challenges of running a Python program and correcting run-time errors.</p>
 <p>Whenever you are stuck with an error, please consult the last section entitled &quot;Debugging&quot;.</p>
 <h1 id="setup-and-background">Setup and background</h1>
-<p>To do this practical we need an installation of Python version 3. You can find the instructions in the <a href="/setup/">setup</a> link on how to install Python version 3 in your system. Once Python is installed, you should be able to call it from the shell in the terminal window. You can check whether that is possible by typing:</p>
+<p>To do this practical you need an installation of Python version 3. You can find the instructions in the <a href="/setup/">setup</a> link on how to install Python version 3 in your system. Once Python is installed, you should be able to call it from the shell in the terminal window. You can check whether that is possible by typing:</p>
 <pre><code>$ which python
 $ python --version</code></pre>
-<p>It may happen that you have two Python installations, one corresponding to version 2.x and another to version 3.x. In that situation the previous command by say that your Python version is 2.x and to access the version 3 you need to call the executable <code>python3</code>. Try then for instance:</p>
+<p>It may happen that you have two Python installations, one corresponding to version 2.x and another to version 3.x. In that situation the previous command may say that your Python version is 2.x and to access the version 3 you need to call the executable <code>python3</code>. Try then for instance:</p>
 <pre><code>$ python3 --version</code></pre>
 <p>If this is your case, then whenever the executable <code>python</code> is invoked in the rest of this practical, please use <code>python3</code> instead.</p>
 <h1 id="run-your-first-python-program-from-the-unix-shell">Run your first Python program from the Unix shell</h1>
@@ -24,20 +24,20 @@ $ python --version</code></pre>
 <p>Make sure this text file is stored within your directory <code>practical4</code> by typing the Unix list command within that directory and verifying that the file <code>hello.py</code> is right there:</p>
 <pre><code>$ ls
 hello.py</code></pre>
-<p>Once you have your file stored with the previous <code>print()</code> line, make sure the file contains exactly what you have typed in the text editor by exploring its contents with the <code>cat</code> command:</p>
+<p>Once you have your file stored with the previous <code>print()</code> line, make sure the file contains exactly what you have typed in the text editor by exploring its contents with the Unix <code>cat</code> command:</p>
 <pre><code>$ cat hello.py
 print(&quot;Hello World!&quot;)</code></pre>
-<p>If the contents are different, then probably you have not saved what you typed in the text editor. Go to the text editor and save the file. Once we have typed this Python one-liner program, saved and made sure the file is in our CWD and contains the expected source code, we can run it by calling the command <code>python</code> with the filename of our program as argument:</p>
+<p>If the contents are different, then probably you have not saved what you typed in the text editor. Go to the text editor and save the file. Once we have typed this Python one-liner program, saved it and made sure the file is in your CWD, containing the expected source code, you can run it by calling the command <code>python</code> with the filename of the program as argument:</p>
 <pre><code>$ python hello.py 
 Hello World!</code></pre>
-<p>We should be getting the message &quot;Hello World!&quot; on the screen.</p>
+<p>We should be getting the message &quot;Hello World!&quot; on the terminal window.</p>
 <h1 id="read-data-from-the-keyboard-into-a-python-program.">Read data from the keyboard into a Python program.</h1>
 <p>Create a new Python program called <code>inputoutput.py</code> with the following contents:</p>
 <pre><code>x = input(&quot;Enter a value: &quot;)
 print(x)</code></pre>
 <p>Store it on disk and call it from the command line by doing:</p>
 <pre><code>$ python inputoutput.py</code></pre>
-<p>The program will ask you to enter a value. Enter any value, for instance a numerical value 10, or a character string &quot;hello&quot; (without the quotes), and press the <code>Enter</code> key. If you have been able to run this without an error, think about what has happened. Look at the source code. Try to understand how the value you typed came back on the terminal window?</p>
+<p>The program will ask you to enter a value. Enter any value, for instance a numerical value 10, or a character string &quot;hello&quot; (without the quotes), and press the <code>Enter</code> key. If you have been able to run this without an error, think about what has happened. Look at the source code. Try to understand how the value you typed came back on the terminal window.</p>
 <h1 id="adding-two-numbers">Adding two numbers</h1>
 <p>Here we are going to implement a Python program that reads two numbers from the keyboard, adds them and prints the result on the terminal window. Open a new file in the text editor called <code>add.py</code> and type the following code:</p>
 <pre><code>x = input(&quot;Enter one value: &quot;)
@@ -56,7 +56,7 @@ print(z)</code></pre>
 <h1 id="factorial-of-an-integer-number.">Factorial of an integer number.</h1>
 <p>Implement a program in Python that asks for an integer number and calculates its <a href="https://en.wikipedia.org/wiki/Factorial">factorial</a> product.</p>
 <h1 id="calculation-of-a-base-raised-to-a-power.">Calculation of a base raised to a power.</h1>
-<p>Implement a program in Python that asks for two numbers, a positive integer number, which will be the base, and a non-negative integer number, which will be the power, and calculates the base raised to the power.</p>
+<p>Implement a program in Python that asks for two numbers, a positive integer number, which will be the base, and a non-negative integer number, which will be the power, and calculates the <a href="https://en.wikipedia.org/wiki/Exponentiation">base raised to the power</a>.</p>
 <h1 id="perfect-numbers">Perfect numbers</h1>
 <p>The Wikipedia <a href="https://en.wikipedia.org/wiki/Perfect_number">page</a> for perfect numbers says:</p>
 <blockquote>
@@ -64,8 +64,9 @@ print(z)</code></pre>
 </blockquote>
 <p>Implement a program in Python that asks for a positive integer number and says whether the given number is perfect or not providing some message with the <code>print()</code> function.</p>
 <h1 id="debugging">Debugging</h1>
-<p><a href="https://en.wikipedia.org/wiki/Debugging">Debugging</a> is the process of finding and correcting bugs in computer programs. A <a href="https://en.wikipedia.org/wiki/Software_bug">bug</a> in this context is an unintended error in a computer program that produces an incorrect or unexpected result. Bugs can be caused by as little as a single letter causing a syntax error. This was the case, for instance, in 1988 of the failed mission to Mars by the <a href="https://en.wikipedia.org/wiki/Phobos_1">Phobos 1</a> space probe, which lost communication with ground control by a missing hyphen (<code>-</code>) in one of the commands that was unintentionally left out by a technician.</p>
-<p>Debugging can be time consuming but the more you debug, the faster you do it. It is a detective kind of task. Here we illustrate how to do start debugging your Python programs.</p>
+<p><a href="https://en.wikipedia.org/wiki/Debugging">Debugging</a> is the process of finding and correcting bugs in computer programs. A <a href="https://en.wikipedia.org/wiki/Software_bug">bug</a> in this context is an unintended error in a computer program that produces an incorrect or unexpected result. Bugs can be caused by as little as a single letter causing a syntax error. This was the case, for instance, in 1988 of the failed mission to Mars by the <a href="https://en.wikipedia.org/wiki/Phobos_1">Phobos 1</a> space probe, which lost communication with ground control by a missing hyphen (<code>-</code>) in one of the commands that was unintentionally left out by a technician (remember this guy next time you think you had a bad day in front of the computer).</p>
+<p>Debugging can be time consuming but the more you debug, the faster you do it. It is a kind of detective task, so pay attention to the clues that Python will give you when printing error messages, <strong>read them carefully</strong>. Here we illustrate how to start debugging your Python programs.</p>
+<h2 id="a-straightforward-syntax-error">A straightforward syntax error</h2>
 <p>Let's say that in the first line of the <code>add.py</code> Python program we forget closing the double quotes of the character string:</p>
 <pre><code>x = input(&quot;Enter one value: )</code></pre>
 <p>This will cause the following syntax error:</p>
@@ -77,7 +78,8 @@ SyntaxError: EOL while scanning string literal</code></pre>
 <p>Note that in the first line of the message, Python is telling us the name of the file and the line in this file that <em>Python thinks</em> that it contains the syntax error. Then, that line is printed and underneath, a caret character (<code>^</code>) indicates the place where <em>Python thinks</em> the error takes place. Below that printed line, Python provides the type of error that is taking place:</p>
 <pre><code>SyntaxError: EOL while scanning string literal</code></pre>
 <p>Here, EOL means <em>end of line</em> and the message suggests that while reading the string literal that started with double quotes, it found the end of line before finding the closing pair of double quotes.</p>
-<p>Another error, a bit more dificult to understand occurs if in the Python program <code>add.py</code> we remove the last character <code>)</code> from the third line:</p>
+<h2 id="a-cryptic-syntax-error">A cryptic syntax error</h2>
+<p>An error slightly more dificult to identify occurs if in the Python program <code>add.py</code> we remove the last character <code>)</code> from the third line:</p>
 <pre><code>z = int(x) + int(y</code></pre>
 <p>Because when we run the program, we get the following message:</p>
 <pre><code>$ python add.py 
@@ -134,3 +136,4 @@ i=1 s=11
 i=1 s=12
 ...</code></pre>
 <p>From this output, we should be able to figure out two facts: (1) the variable <code>i</code> is not changing; and (2) the variable <code>s</code> is infinitely growing by one. These two facts will help us drawing the conclusion that the assignment <code>i = i + 1</code> should be part of the loop statement.</p>
+<p>Watching variables can help also debugging our programs when they do end but do not provide the expected result. They should help us to identify the place in the program where they are taking the wrong value.</p>
