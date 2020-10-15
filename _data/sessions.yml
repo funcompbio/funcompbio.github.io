@@ -38,3 +38,8 @@
   slides: Practical4
   desc: "Running our first Python programs on the computer."
 
+- title: "Lecture 5"
+  dirname: lecture5
+  slides: Lecture5
+  desc: "Programming with Python (2)."
+
