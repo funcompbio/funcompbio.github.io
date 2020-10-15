@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FCB - Programming with Python (2)</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Courier'; }
+    </style>
+    <link rel="stylesheet" href="upf.css">
+  </head>
+  <body>
+    <textarea id="source">
+
+class: title-slide, center, middle
+
+# Programming with Python (2)
+## Robert Castelo
+### Dept. of Experimental and Health Sciences
+### Universitat Pompeu Fabra
+.footnote[[robert.castelo@upf.edu](mailto:robert.castelo@upf.edu)]
+
+## Fundamentals of Computational Biology
+### BSc on Human Biology
+### UPF School of Health and Life Sciences
+### Academic Year 2020-2021
+
+---
+
+## Vectors
+
+* A vector, or [array](https://en.wikipedia.org/wiki/Array_data_structure) is a
+type of object (variable) that can store more than one single value and allows for an
+indexed access to its values.
+
+* We can set a constant vector into a Python variable using an assignment:
+
+```
+v = [1, 2, 3, 4, 5]
+```
+
+* We can access its values by referring to one of its **valid positions** in the vector.
+
+* Given a vector with $n$ elements, the **valid positions** of a vector in Python (and
+in many other programming languages) go from 0 to $n-1$, that is, positions follow a
+[zero-based numbering](https://en.wikipedia.org/wiki/Zero-based_numbering).
+
+![:scale 40%](dozeneggs.jpg)
+
+.footer[
+Image adapted from [Comp 101 Arrays: Overview](https://comp101.org/topics/arrays/arrays-overview).
+]
+
+---
+
+## Vectors
+
+* Given the vector:
+
+```
+v = [1, 2, 3, 4, 5]
+```
+
+* To access the values of `v` using one of its **valid positions**, we will
+use the notation `v[i]`, where `i` is a **valid position**, for instance:
+
+```
+print(v[0])
+v[0]+v[1]
+i=4
+v[i]
+v[i-1]
+```
+
+* Vectors are containers for sequences of values contiguous in memory.
+
+* Vectors in programming are analogous to vectors in [mathematics](https://en.wikipedia.org/wiki/Vector_%28mathematics_and_physics%29).
+
+* Filling up vectors with values enables re-using algorithms that operate
+on the vector space. This requires looping over valid positions of a vector.
+
+---
+
+## Looping over valid positions
+
+* Using an iterative statement, we generate a sequence of valid positions of
+vector that enable looping over valid positions and consequently the access
+to their associated values.
+
+.left-column[
+  <pre>
+  v = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  i = 0
+  s = 0
+
+  while (i < 10) :
+  &nbsp;&nbsp;s = s + v[i]
+  &nbsp;&nbsp;i = i + 1
+
+  print(s)
+  </pre>
+]
+
+.right-column[
+  <br>
+  <br>
+  <br>
+  <img src="sumvector1to10.png" style="float:right;" width="100%">
+]
+
+---
+
+## Looping over valid positions
+
+* Assume we have in the vector `v` a DNA sequence and we want to count
+how many nucleotides `T` we have in this sequence.
+
+  <pre>
+  v = ['A', 'T', 'T', 'G', 'C', 'C', 'T', 'A']
+  i = 0
+  n = 0
+
+  while (i < 8) :
+  &nbsp;&nbsp;if (v[i] == 'T') :
+  &nbsp;&nbsp;&nbsp;&nbsp;n = n + 1
+  &nbsp;&nbsp;i = i + 1
+
+  print("there are %d nucleotides T" %(n))
+  </pre>
+
+---
+
+## Compound conditionals
+
+* Let's say we want to count the number of dinucleotides `TT` in the
+DNA sequence. This requires comparing two consecutive positions in the
+vector, both of which should have the nucleotide `T`.
+
+* We can always implement a more complex logic by nesting
+[conditional statements](https://en.wikipedia.org/wiki/Conditional_%28computer_programming%29).
+However, we can write more compact code with compound conditionals using
+[logical operators](https://en.wikipedia.org/wiki/Logical_connective).
+
+* In Python we have the following three logical operators:
+
+|   Operator          |  Type          | Description                   |
+|-------------------- | -------------- | ------------------------------|
+|   _cond1_ `and` _cond2_   |  conjunction   | True if both operands are true|
+|   _cond1_ `or` _cond2_    |  disjunction   | True if either operand is true|
+|   `not` _cond_          |  negation      | True if operand is false      |
+
+* Here _cond_, _cond1_ and _cond2_ refer to logical conditions such as:
+
+```
+a == 2
+v[i] eq 'T'
+i < 10
+```
+
+---
+
+## Compound conditionals
+
+* We can implement the Python program that counts dinucleotides `TT` as follows:
+                                                     
+  <pre>
+  v = ['A', 'T', 'T', 'G', 'C', 'C', 'T', 'A']
+  i = 1
+  n = 0
+
+  while (i < 8) :
+  &nbsp;&nbsp;if (v[i] == 'T' and v[i-1] == 'T') :
+  &nbsp;&nbsp;&nbsp;&nbsp;n = n + 1
+  &nbsp;&nbsp;i = i + 1
+
+  print("there are %d dinucleotides TT" %(n))
+  </pre>
+
+---
+
+## Concluding remarks
+
+* Vectors allow one to store multiple values in a single variable.
+
+* Values in a vector are accessed by their position in the vector.
+
+* Valid positions in a vector in Python start at 0 and consequently end
+at the number of elements minus one.
+
+* Looping over valid positions enables developing algorithms that
+can be re-used by replacing the values of the vector.
+
+
+      </textarea>
+      <script src="remark-latest.min.js"></script>
+      <script src="external-link.js"></script> 
+      <script src="remark-macros.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+      <script type="text/javascript">
+      var slideshow = remark.create();
+      // Setup MathJax
+      MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [['$', '$'], ['\\(','\\)']],
+                    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+              });
+      MathJax.Hub.Configured();
+      </script>
+      <script>
+        var slideshow = remark.create()
+      </script>
+    </body>
+  </html>
