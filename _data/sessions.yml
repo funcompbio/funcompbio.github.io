@@ -42,3 +42,9 @@
   dirname: lecture5
   slides: Lecture5
   desc: "Programming with Python (2)."
+
+- title: "Practical 5"
+  dirname: practical5
+  slides: Practical5
+  desc: "Practising Python programming and taking arguments from the command-line."
+
