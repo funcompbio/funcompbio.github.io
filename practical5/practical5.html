@@ -28,20 +28,20 @@ $ python --version</code></pre>
 <p>We say that a positive integer number <code>x</code> is <strong>cool</strong> if this number is equal to the sum of any sequence of increasing consecutive positive integer numbers smaller or equal than <code>x</code>, starting on 1. For instance, number 1 is cool because the only positive integer number smaller or equal than 1 is 1 itself; number 2 is not cool because neither 1 nor 1+2 are equal to 2; number 3 is cool because 3=1+2. Until 10, numbers 4, 5, 7, 8 and 9 are not cool. However, 6=1+2+3 and 10=1+2+3+4 are indeed cool.</p>
 <p>Implement a program in Python that asks for one positive integer number and says whether the given number is cool or not, providing some message with the <code>print()</code> function.</p>
 <h1 id="execution-modes-in-python">Execution modes in Python</h1>
-<p>This section requires to read first slides 9 to 16 from the lecture on <a href="/lecture5/">Programming with Python (2)</a>.</p>
+<p>This section requires to first read slides 9 to 16 from the lecture on <a href="/lecture5/">Programming with Python (2)</a>.</p>
 <p>There are three main ways in which you can run a Python program:</p>
 <ol style="list-style-type: decimal">
 <li><p>Running it from the Unix shell command line.</p></li>
 <li><p>Interactively, through the Python shell interpreter.</p></li>
 <li><p>Importing Python code into another Python program.</p></li>
 </ol>
-<p>Actually, the first two ways are equivalent and only the third one is qualitatively different from them. To understand that difference we need to learn that Python defines for us a variable called <a href="https://docs.python.org/3/library/__main__.html"><code>__name__</code></a>, in which Python stores the name of the <em>scope</em> in which top-level code executes. This <em>scope</em> will be either the name of the module to which the code belongs to when running in the previously described situation (3), or the value <code>__main__</code>, when running in the previously described situations (1) or (2).</p>
+<p>Actually, the first two ways are equivalent and only the third one is qualitatively different from the first two. To understand that difference we need to learn that Python defines for us a variable called <a href="https://docs.python.org/3/library/__main__.html"><code>__name__</code></a>, in which Python stores the name of the <em>scope</em> in which top-level code executes. This <em>scope name</em> will be either the name of the module to which the code belongs to when running in the previously described situation (3), or the value <code>__main__</code>, when running in the previously described situations (1) or (2).</p>
 <p>Create a text file called <code>thismodule.py</code> and put the following line on it:</p>
-<pre><code>print(&quot;__name__: &quot;, __name__)</code></pre>
+<pre><code>print(&quot;__name__: %s&quot; %(__name__))</code></pre>
 <p>Now let's call this Python script from the Unix shell command line:</p>
 <pre><code>$ python thismodule.py 
 __name__: __main__</code></pre>
-<p>So, we see that when calling the Python script <code>thismodule.py</code> from the Unix shell command line, the <code>__name__</code> variable takes the value <code>__main__</code>. Now start the Python shell interpreter and directly type the <code>__name__</code> variable name and hit the <code>Enter</code> key:</p>
+<p>We can see that when calling the Python script <code>thismodule.py</code> from the Unix shell command line, the <code>__name__</code> variable takes the value <code>__main__</code>. Now start the Python shell interpreter (calling <code>python</code> or <code>python3</code> from the Unix command line without arguments), directly type the <code>__name__</code> variable and hit the <code>Enter</code> key:</p>
 <pre><code>&gt;&gt;&gt; __name__
 `__main__`</code></pre>
 <p>We also see here that in the Python interactive prompt <code>__name__</code> takes the value <code>__main__</code>. Finally, from this same prompt let's import the code in <code>thismodule.py</code> as if we were importing it in some other Python script:</p>
@@ -67,10 +67,10 @@ argument vector position 3: 5</code></pre>
 <p>Make a new version of the Python program that decides whether two positive integer numbers are relatively prime with the following characteristics:</p>
 <ol style="list-style-type: decimal">
 <li><p>Instead of asking the user to enter two values, it should take them from the Unix command-line arguments.</p></li>
-<li><p>The code doing the actual calculation on whether two given numbers are relatively prime should be encapsulated into a function called <code>main(x, y)</code> with two arguments <code>x</code> and <code>y</code> corresponding to the two numbers to be evaluated. This function should return a character string value set to <code>yes</code> when <code>x</code> and <code>y</code> are relatively prime and <code>no</code> when they are not.</p></li>
+<li><p>The code doing the actual calculation on whether two given numbers are relatively prime should be encapsulated into a function called <code>main(x, y)</code> with two arguments <code>x</code> and <code>y</code> corresponding to the two numbers to be evaluated. This function should return a character string value set to <code>yes</code> when <code>x</code> and <code>y</code> are relatively prime and <code>no</code> when they are not. This function should not print anything on the screen.</p></li>
 <li><p>When the script is called from the command line without the two arguments corresponding to the two positive integer values to evaluate, then the user should get a message like:</p></li>
 </ol>
-<p><code>relprime.py &lt;x&gt; &lt;y&gt;</code> for a script called <code>relprime.py</code>.</p>
+<p><code>$ python relprime.py    error: relprime.py &lt;x&gt; &lt;y&gt;</code> for a script called <code>relprime.py</code>.</p>
 <ol start="4" style="list-style-type: decimal">
-<li>When the script is properly called from the command line with the two arguments corresponding to the two positive integer values to evaluate, then the script should call the previously defined <code>main(x, y)</code> function and print the result in the terminal screen.</li>
+<li>When the script is properly called from the command line with the two arguments corresponding to the two positive integer values to evaluate, then the script should call the previously defined <code>main(x, y)</code> function, take its result and print it in the terminal screen.</li>
 </ol>
