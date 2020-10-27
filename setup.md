@@ -243,6 +243,11 @@ follow these steps:
   python3 --version
   ``` 
 
+In some versions of Windows, after following the previous steps, you may encounter
+the following error:
+
+![pythonpermissiondenied](/_images/python3permissiondenied.png)
+
 ### macOS
 
 If you have an [Apple](https://apple.com) computer running the macOS operating
