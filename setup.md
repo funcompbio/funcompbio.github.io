@@ -252,7 +252,7 @@ In such as case you need to find the control panel for managing app execution al
 and switch off the aliases for `python.exe` and `python3.exe`, as shown in the captured
 images below.
 
-<div class="sbys-row">
+<div class="sybs-row">
   <div class="sbys-column">
     <img src="/_images/ChangeExecAliasesWindows1.png" style="width:80%"/>
   </div>
@@ -263,6 +263,12 @@ images below.
     <img src="/_images/ChangeExecAliasesWindows3.png" style="width:80%"/>
   </div>
 </div>
+
+Restart the Git Bash terminal window and try again:
+
+```
+$ python3 --version
+```
 
 ### macOS
 
