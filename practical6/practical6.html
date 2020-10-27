@@ -1,18 +1,13 @@
 <h1 id="objectives">Objectives</h1>
-<p>The learning objectives for this practical are:</p>
+<p>This practical has been developed in collaboration with Dr. Javier Macia to strengthen some of the concepts and methods developed in the Mathematics subject, jointly with FCB. The learning objectives for this practical are:</p>
 <ul>
-<li>Implement a program in Python that decides if two given numbers are relatively primes.</li>
-<li>Implement a program in Python that decides if a given number is cool.</li>
-<li>Execution modes in Python.</li>
-<li>How to take arguments from the command line.</li>
+<li>Implement in Python the SIR model of spreading infectious diseases.</li>
+<li>Parametrize the Python implementation from the command line.</li>
+<li>Use the implemented model to explore effect of different parameters.</li>
 <li>Make syntax errors in Python.</li>
 <li>Correct syntax errors in Python.</li>
 <li>Debug your program when it doesn't work.</li>
 </ul>
-
-$$ y_{n+1} = y_n + f(y_n, t_n)(t_{n+1}-t_n) $$
-
-<p>For the problems in which you have to implement a program that solves some arithmetic problem that we have solved in class at the blackboard, you should have already one working solution from that class on paper. If you don't, please ask a colleague for one. Try to focus the time of this practical in addressing the technical challenges of running a Python program and correcting run-time errors.</p>
 <p>Whenever you are stuck with an error, please consult the section entitled &quot;Debugging&quot; from <a href="/practical4/">practical 4</a>.</p>
 <h1 id="setup-and-background">Setup and background</h1>
 <p>To do this practical you need an installation of Python version 3. You can find the instructions in the <a href="/setup/">setup</a> link on how to install Python version 3 in your system. Once Python is installed, you should be able to call it from the shell in the terminal window. You can check whether that is possible by typing:</p>
@@ -21,60 +16,6 @@ $ python --version</code></pre>
 <p>It may happen that you have two Python installations, one corresponding to version 2.x and another to version 3.x. In that situation the previous command may say that your Python version is 2.x and to access the version 3 you need to call the executable <code>python3</code>. Try then for instance:</p>
 <pre><code>$ python3 --version</code></pre>
 <p>If this is your case, then whenever the executable <code>python</code> is invoked in the rest of this practical, please use <code>python3</code> instead.</p>
-<h1 id="relatively-prime-numbers">Relatively prime numbers</h1>
-<p>The Wikipedia <a href="https://en.wikipedia.org/wiki/Coprime_integers">page</a> for relatively prime numbers says:</p>
-<blockquote>
-<p>In number theory, two integers a and b are relatively prime, mutually prime, or coprime if the only positive integer that evenly divides (is a divisor of) both of them is 1. One says also a is prime to b or a is coprime with b. Consequently, any prime number that divides one of a or b does not divide the other. This is equivalent to their greatest common divisor (gcd) being 1.</p>
-</blockquote>
-<p>Implement a program in Python that asks for two positive integer numbers and says whether they are relatively prime or not, providing some message with the <code>print()</code> function.</p>
-<h1 id="cool-numbers">Cool numbers</h1>
-<p>We say that a positive integer number <code>x</code> is <strong>cool</strong> if this number is equal to the sum of any sequence of increasing consecutive positive integer numbers smaller or equal than <code>x</code>, starting on 1. For instance, number 1 is cool because the only positive integer number smaller or equal than 1 is 1 itself; number 2 is not cool because neither 1 nor 1+2 are equal to 2; number 3 is cool because 3=1+2. Until 10, numbers 4, 5, 7, 8 and 9 are not cool. However, 6=1+2+3 and 10=1+2+3+4 are indeed cool.</p>
-<p>Implement a program in Python that asks for one positive integer number and says whether the given number is cool or not, providing some message with the <code>print()</code> function.</p>
-<h1 id="execution-modes-in-python">Execution modes in Python</h1>
-<p>This section requires to first read slides 9 to 16 from the lecture on <a href="/lecture5/">Programming with Python (2)</a>.</p>
-<p>There are three main ways in which you can run a Python program:</p>
-<ol style="list-style-type: decimal">
-<li><p>Running it from the Unix shell command line.</p></li>
-<li><p>Interactively, through the Python shell interpreter.</p></li>
-<li><p>Importing Python code into another Python program.</p></li>
-</ol>
-<p>Actually, the first two ways are equivalent and only the third one is qualitatively different from the first two. To understand that difference we need to learn that Python defines for us a variable called <a href="https://docs.python.org/3/library/__main__.html"><code>__name__</code></a>, in which Python stores the name of the <em>scope</em> in which top-level code executes. This <em>scope name</em> will be either the name of the module to which the code belongs to when running in the previously described situation (3), or the value <code>__main__</code>, when running in the previously described situations (1) or (2).</p>
-<p>Create a text file called <code>thismodule.py</code> and put the following line on it:</p>
-<pre><code>print(&quot;__name__: %s&quot; %(__name__))</code></pre>
-<p>Now let's call this Python script from the Unix shell command line:</p>
-<pre><code>$ python thismodule.py 
-__name__: __main__</code></pre>
-<p>We can see that when calling the Python script <code>thismodule.py</code> from the Unix shell command line, the <code>__name__</code> variable takes the value <code>__main__</code>. Now start the Python shell interpreter (calling <code>python</code> or <code>python3</code> from the Unix command line without arguments), directly type the <code>__name__</code> variable and hit the <code>Enter</code> key:</p>
-<pre><code>&gt;&gt;&gt; __name__
-`__main__`</code></pre>
-<p>We also see here that in the Python interactive prompt <code>__name__</code> takes the value <code>__main__</code>. Finally, from this same prompt let's import the code in <code>thismodule.py</code> as if we were importing it in some other Python script:</p>
-<pre><code>&gt;&gt;&gt; import thismodule
-__name__: thismodule</code></pre>
-<p>Differentely to the previous two execution modes, when importing Python code as a module, the <code>__name__</code> variable takes the value of the module name.</p>
-<h1 id="how-to-take-arguments-from-the-command-line.">How to take arguments from the command line.</h1>
-<p>We have seen in the previous section that the <code>__name__</code> variable allows us to detect in our Python code when it is executing from the Unix shell command line. In this particular execution mode, we can use the Python module <code>sys</code> to fetch argument values given by the user in the command line. To illustrate this functionality, edit the previous file <code>thismodule.py</code> and add the following lines:</p>
-<pre><code>if __name__ == &quot;__main__&quot; :
-  import sys
-  i = 0
-  while i &lt; len(sys.argv) :
-    print(&quot;argument vector position %d: %s&quot; %(i, sys.argv[i]))
-    i = i + 1</code></pre>
-<p>If you call this script in the Unix command line with the arguments <code>give me 5</code> you should be getting the following output:</p>
-<pre><code>$ python thismodule.py give me 5
-__name__: __main__
-argument vector position 0: thismodule.py
-argument vector position 1: give
-argument vector position 2: me
-argument vector position 3: 5</code></pre>
-<p>Try to understand what are the contents of the vector <code>argv</code> in the module <code>sys</code> in the previous execution mode. Once you have understood that, try to complete the following exercise.</p>
-<p>Make a new version of the Python program that decides whether two positive integer numbers are relatively prime with the following characteristics:</p>
-<ol style="list-style-type: decimal">
-<li><p>Instead of asking the user to enter two values, it should take them from the Unix command-line arguments.</p></li>
-<li><p>The code doing the actual calculation on whether two given numbers are relatively prime should be encapsulated into a function called <code>main(x, y)</code> with two arguments <code>x</code> and <code>y</code> corresponding to the two numbers to be evaluated. This function should return a character string value set to <code>yes</code> when <code>x</code> and <code>y</code> are relatively prime and <code>no</code> when they are not. This function should not print anything on the screen.</p></li>
-<li><p>When the script is called from the command line without the two arguments corresponding to the two positive integer values to evaluate, then for a script called, e.g., <code>relprime.py</code>, the user should get a message like:</p></li>
-</ol>
-<pre><code>$ python relprime.py
-error: relprime.py &lt;x&gt; &lt;y&gt;</code></pre>
-<ol start="4" style="list-style-type: decimal">
-<li>When the script is properly called from the command line with the two arguments corresponding to the two positive integer values to evaluate, then the script should call the previously defined <code>main(x, y)</code> function, take its result and print it in the terminal screen.</li>
-</ol>
+<h1 id="the-sir-model-of-spreading-infectious-diseases">The SIR model of spreading infectious diseases</h1>
+<p>A simple <a href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology">SIR model</a> of spreading an infection can be described with the following differential equation:</p>
+<p><br /><span class="math display">$$\frac{dI}{dt}=\rho\cdot I \cdot (1 - I) - \alpha \cdot I\.$$</span><br /></p>
