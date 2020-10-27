@@ -248,6 +248,14 @@ the following error:
 
 ![pythonpermissiondenied](/_images/python3permissiondenied.png)
 
+In such as case you need to find the control panel for managing app execution aliases
+and switch off the aliases for `python.exe` and `python3.exe`, as shown in the captured
+images below.
+
+![changeexecaliaseswindows1](/_images/ChangeExecAliasesWindows1.png)
+![changeexecaliaseswindows2](/_images/ChangeExecAliasesWindows2.png)
+![changeexecaliaseswindows3](/_images/ChangeExecAliasesWindows3.png)
+
 ### macOS
 
 If you have an [Apple](https://apple.com) computer running the macOS operating
