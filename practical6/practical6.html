@@ -18,4 +18,9 @@ $ python --version</code></pre>
 <p>If this is your case, then whenever the executable <code>python</code> is invoked in the rest of this practical, please use <code>python3</code> instead.</p>
 <h1 id="the-sir-model-of-spreading-infectious-diseases">The SIR model of spreading infectious diseases</h1>
 <p>A simple <a href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology">SIR model</a> of spreading an infection can be described with the following differential equation:</p>
-<p><br /><span class="math display">$$\frac{dI}{dt}=\rho\cdot I \cdot (1 - I) - \alpha \cdot I$$</span><br /></p>
+<p><br /><span class="math display">$$\frac{dI}{dt}=\rho\cdot I \cdot (1 - I) - \alpha \cdot I$$</span><br /> where:</p>
+<ul>
+<li><p><span class="math inline"><em>I</em></span> is the fraction (<span class="math inline">0 ≤ <em>I</em> ≤ 1</span>) of infected population. We split the entire population in two fractions, infected (<span class="math inline"><em>I</em></span>) and uninfected (<span class="math inline">1 − <em>I</em></span>).</p></li>
+<li><p><span class="math inline"><em>ρ</em></span> is the average number of people who will get infected with a contagious disease from one person with that disease, also known as <span class="math inline"><em>R</em><sub>0</sub></span> or <a href="https://en.wikipedia.org/wiki/Basic_reproduction_number">basic reproduction number</a>.</p></li>
+<li><p><span class="math inline"><em>a</em><em>l</em><em>p</em><em>h</em><em>a</em></span> is the average number of people who recovers from the disease.</p></li>
+</ul>
