@@ -475,12 +475,37 @@ to create numpy arrays, here are some of them:
 
 ## Numeric vectors (1-d arrays) with numpy
 
-* The numpy library provides _vectorized_ operations over arrays:
+* The numpy library provides _vectorized_ operations over arrays.
+
+* Let's say we want to multiply the previous numpy array `v0to1by01` by
+the number 10. This would be the classical (non-vectorized) operation:
+```
+ >>> v0to1by01
+array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1. ])
+>>> i = 0
+>>> v = np.zeros(len(v0to1by01))
+>>> while (i < len(v0to1by01)) :
+...  v[i] = v0to1by01[i] * 10
+...  i = i + 1
+>>> v
+array([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10.])
+```
+
+* This is the vectorized operation with numpy:
+```
+>>> v = v0to1by01 * 10
+>>> v
+array([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10.])
+```
+
+
+---
+
+## Numeric vectors (1-d arrays) with numpy
+
+*  Basic mathematical operations are _vectorized_ over arrays with numpy:
 
    ```
-   >>> v0to1by01
-   array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1. ])
-   >>> v = v0to1by01 * 10
    >>> v
    array([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10.])
    >>> sum(v)
@@ -503,44 +528,6 @@ to create numpy arrays, here are some of them:
    array([ 5.,  6.,  7.,  8.,  9., 10.])
    ```
 
----
-
-## Numeric vectors (1-d arrays) with numpy
-
-* An important distinction between numpy arrays and built-in lists is that
-subsetting in numpy arrays creates _views_ from the original object:
-
-   ```
-   >>> v0s
-   array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
-   >>> subv0s = v0s[3:6] ## subset positions 3 to 5
-   >>> subv0s
-   array([0., 0., 0.])
-   >>> subv0s[:] = 1 ## set values to 1 in this sub-array *view*
-   >>> subv0s
-   array([1., 1., 1.])
-   >>> v0s ## changes have been propagated to the original array
-   array([0., 0., 0., 1., 1., 1., 0., 0., 0., 0.])
-   ```
-
----
-
-## Numeric vectors (1-d arrays) with numpy
-* To have a subset of an array that is a **copy**, and not a _view_, of the
-original array, we should call the `copy()` function on the subsetted object:
-
-   ```
-   >>> v0s
-   array([0., 0., 0., 1., 1., 1., 0., 0., 0., 0.])
-   >>> subv0s = v0s[3:6].copy() ## subset and *copy* positions 3 to 5
-   >>> subv0s
-   array([1., 1., 1.])
-   >>> subv0s[:] = 0 ## set values to 0 in this sub-array *copy*
-   >>> subv0s
-   array([0., 0., 0.])
-   >>> v0s ## the original array remains intact
-   array([0., 0., 0., 1., 1., 1., 0., 0., 0., 0.])
-   ```
 
 ---
 
@@ -628,14 +615,12 @@ we want to subset.
 intervals where the last item is located one position before the
 specified end.
 
-* Numerical calculations are elementwise, which enables vectorized
-operations.
+* Subsetting vectors (1-d arrays) and matrices (2-d arrays) can be
+performed using indexing operations or logical masks.
 
-* Subsetting in numpy provides _views_ of the original object, which
-propagate changes from the subsetted object to the original one.
+* Numerical calculations can be performed over entire arrays and
+matrices with one single instruction, enabling _vectorized operations_.
 
-* To alter a subsetted object without changing the original one, you
-need to explictily copy it first.
 
 ---
 
@@ -771,11 +756,11 @@ the `iloc` attribute with a row index.
 the `loc` attribute with a logical mask, as follows.
 
    ```
-   mask = dat["RESIDENCIA"] == "No"
-   mask.sum()
+   >>> mask = dat["RESIDENCIA"] == "No"
+   >>> mask.sum()
    231
-   dat_general = dat.loc[mask, :]
-   dat_general.shape
+   >>> dat_general = dat.loc[mask, :]
+   >>> dat_general.shape
    (231, 15)
    ```
 
