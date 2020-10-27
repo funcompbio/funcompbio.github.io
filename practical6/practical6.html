@@ -22,6 +22,7 @@ $ python --version</code></pre>
 <ul>
 <li><p><span class="math inline"><em>I</em></span> is the fraction (<span class="math inline">0 ≤ <em>I</em> ≤ 1</span>) of infected population. We split the entire population in two fractions, infected (<span class="math inline"><em>I</em></span>) and uninfected (<span class="math inline">1 − <em>I</em></span>).</p></li>
 <li><p><span class="math inline"><em>ρ</em></span> is the average number of people who will get infected with a contagious disease from one person with that disease, also known as <span class="math inline"><em>R</em><sub>0</sub></span> or <a href="https://en.wikipedia.org/wiki/Basic_reproduction_number">basic reproduction number</a>.</p></li>
-<li><p><span class="math inline"><em>a</em><em>l</em><em>p</em><em>h</em><em>a</em></span> is the average number of people who recovers from the disease.</p></li>
+<li><p><span class="math inline"><em>α</em></span> is the average number of people who recovers from the disease.</p></li>
 </ul>
-<p>Implement a script in Python that takes the previous three terms as arguments in the command line and prints the calculation for <span class="math inline">$\frac{dI}{dt}$</span> using the above formula.</p>
+<p>Implement a script in Python called <code>sir.py</code> that takes the previous three terms as arguments in the command line and prints the calculation for <span class="math inline"><em>d</em><em>I</em>/<em>d</em><em>t</em></span> using the above formula. For instance, the following call should give the reported output when <span class="math inline"><em>I</em> = 0.1</span>, <span class="math inline"><em>ρ</em> = 1.5</span> and <span class="math inline"><em>α</em> = 0.9</span>.</p>
+<pre><code>$ python sir 0.1 1.5 0.9</code></pre>
