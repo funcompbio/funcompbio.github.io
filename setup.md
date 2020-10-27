@@ -254,13 +254,13 @@ images below.
 
 <div class="sybs-row">
   <div class="sbys-column">
-    <img src="/_images/ChangeExecAliasesWindows1.png" style="width:80%"/>
+    <img src="/_images/ChangeExecAliasesWindows1.png" style="width:100%"/>
   </div>
   <div class="sbys-column">
-    <img src="/_images/ChangeExecAliasesWindows2.png" style="width:80%"/>
+    <img src="/_images/ChangeExecAliasesWindows2.png" style="width:100%"/>
   </div>
   <div class="sbys-column">
-    <img src="/_images/ChangeExecAliasesWindows3.png" style="width:80%"/>
+    <img src="/_images/ChangeExecAliasesWindows3.png" style="width:100%"/>
   </div>
 </div>
 
