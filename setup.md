@@ -252,9 +252,17 @@ In such as case you need to find the control panel for managing app execution al
 and switch off the aliases for `python.exe` and `python3.exe`, as shown in the captured
 images below.
 
-![changeexecaliaseswindows1](/_images/ChangeExecAliasesWindows1.png)
-![changeexecaliaseswindows2](/_images/ChangeExecAliasesWindows2.png)
-![changeexecaliaseswindows3](/_images/ChangeExecAliasesWindows3.png)
+<div class="sbys-row">
+  <div class="sbys-column">
+    <img src="_images/ChangeExecAliasesWindows1.png" style="width:100%">
+  </div>
+  <div class="sbys-column">
+    <img src="_images/ChangeExecAliasesWindows2.png" style="width:100%">
+  </div>
+  <div class="sbys-column">
+    <img src="_images/ChangeExecAliasesWindows3.png" style="width:100%">
+  </div>
+</div>
 
 ### macOS
 
