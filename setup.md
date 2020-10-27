@@ -250,7 +250,8 @@ the following error:
 
 In such as case you need to find the control panel for managing app execution aliases
 and switch off the aliases for `python.exe` and `python3.exe`, as shown in the captured
-images below.
+images below. A quick way to find that control panel is by typing `manage app execution
+aliases` into the Windows search prompt.
 
 <div class="sbys-row">
   <div class="sbys-column">
