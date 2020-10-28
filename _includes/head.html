@@ -29,22 +29,7 @@
     display: table;
   }
   </style>
-  <script type="text/javascript">
-    MathJax.Hub.Config({
-          TeX: {
-            equationNumbers: { autoNumber: "ALL" },
-            tagSide: "right"
-          },
-          tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true
-          }
-    });
-    MathJax.Hub.Configured()
-  </script>
-  <script type="text/javascript" charset="utf-8"
-  src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS_CHTML">
-  </script>
-
+  {% if page.use_math %}
+    {% include mathjax_support.html %}
+  {% endif %}
 </head>
