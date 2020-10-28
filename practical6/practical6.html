@@ -16,6 +16,11 @@ $ python --version</code></pre>
 <p>It may happen that you have two Python installations, one corresponding to version 2.x and another to version 3.x. In that situation the previous command may say that your Python version is 2.x and to access the version 3 you need to call the executable <code>python3</code>. Try then for instance:</p>
 <pre><code>$ python3 --version</code></pre>
 <p>If this is your case, then whenever the executable <code>python</code> is invoked in the rest of this practical, please use <code>python3</code> instead.</p>
+<p>We will be also using the Python libraries <em>numpy</em>, <em>pandas</em> and <em>matplotlib</em>. To install them type on the command line the following instructions:</p>
+<pre><code>pip install numpy
+pip install pandas
+pip install matplotlib</code></pre>
+<p>If your Python 3.x installation is available through the <code>python3</code> command, replace the <code>pip</code> executable by <code>pip3</code>.</p>
 <h1 id="the-differential-equation-for-a-simplified-sir-model">The differential equation for a simplified SIR model</h1>
 <p>A simplified <a href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology">SIR model</a> of spreading an infection can be described with the following ordinary differential equation:</p>
 <p><br /><span class="math display">$$\begin{equation}
@@ -27,12 +32,12 @@ $ python --version</code></pre>
 <li><p><span class="math inline"><em>ρ</em></span> is the average number of people who will get infected with a contagious disease from one person with that disease, also known as <span class="math inline"><em>R</em><sub>0</sub></span> or <a href="https://en.wikipedia.org/wiki/Basic_reproduction_number">basic reproduction number</a>.</p></li>
 <li><p><span class="math inline"><em>α</em></span> is the average number of people who recovers from the disease.</p></li>
 </ul>
-<p>Implement a script in Python called <code>sir.py</code> that takes the previous three terms as arguments in the command line and prints the calculation for <span class="math inline"><em>d</em><em>I</em>/<em>d</em><em>t</em></span> using Equation <span class="math inline">$\eqref{eq:sir}$</span>. For instance, the following call should give <code>0.045</code> as a result when <span class="math inline"><em>I</em> = 0.1</span>, <span class="math inline"><em>ρ</em> = 1.5</span> and <span class="math inline"><em>α</em> = 0.9</span>.</p>
-<pre><code>$ python sir.py 0.1 1.5 0.9
+<p>Implement a script in Python called <code>sir.py</code> that takes the two previous terms <span class="math inline"><em>ρ</em></span> and <span class="math inline"><em>α</em></span> as arguments in the command line and prints the calculation for <span class="math inline"><em>d</em><em>I</em>/<em>d</em><em>t</em></span> using Equation <span class="math inline">$\eqref{eq:sir}$</span> and a fixed value of <span class="math inline"><em>I</em> = 0.1</span>. For instance, the following call should give <code>0.045</code> as a result when calling this script with <span class="math inline"><em>ρ</em> = 1.5</span> and <span class="math inline"><em>α</em> = 0.9</span>.</p>
+<pre><code>$ python sir.py 1.5 0.9
 0.045</code></pre>
 <p>Moreover, when the script is called without arguments or with the wrong number of arguments, the following message should be shown:</p>
 <pre><code>$ python sir.py 
-error: sir.py &lt;I&gt; &lt;rho&gt; &lt;alpha&gt;</code></pre>
+error: sir.py &lt;rho&gt; &lt;alpha&gt;</code></pre>
 <h1 id="solving-a-ordinary-differential-equation-with-the-euler-method">Solving a ordinary differential equation with the Euler method</h1>
 <p>A simple ordinary differential equation (ODE) of the form</p>
 <p><br /><span class="math display">$$
@@ -75,10 +80,12 @@ $$</span><br /></p>
 <p>We are going to illustrate the Euler's method by implementing it in Python for the previous example Equation <span class="math inline">$\eqref{eq:cx}$</span>. In a file called <code>euler.py</code> enter the following code:</p>
 <pre><code>import numpy as np
 
+## ODE that we want to integrate
 def f(X, c) :
     dX = c*X
     return(dX)
 
+## Euler&#39;s method for numerical integration of the f() function
 def euler(X0, c, t) :
     X = np.zeros(len(t))
     X[0] = X0
@@ -127,8 +134,32 @@ t,dX
 &gt;&gt;&gt; ode2xh01 = pd.read_csv(&quot;ode2xh01.out&quot;)
 &gt;&gt;&gt; plt.plot(ode2xh01[&#39;t&#39;], ode2xh01[&#39;dX&#39;], &#39;-bo&#39;)
 &gt;&gt;&gt; plt.plot(ode2xh01[&#39;t&#39;], np.exp(2*ode2xh01[&#39;t&#39;]), &#39;-ro&#39;)</code></pre>
-<p>The resulting plot should look like this one below.</p>
+<p>The resulting plot should look like this one below, where the red line corresponds to the exact solution and the blue line with dots to the approximate solution obtained by doing numerical integration with the Euler's method.</p>
 <div class="figure">
 <img src="dXEuler.png" />
 
 </div>
+<p>Change the size of the steps (<span class="math inline"><em>h</em></span>) from 0.1 to a smaller size such as 0.05, calculate the approximate curve again and plot it next to the exact curve. Is this new approximation better or worse than the previous one? Could you think about why?</p>
+<h1 id="solving-the-simplified-sir-model">Solving the simplified SIR model</h1>
+<p>Finally, we are going to solve the simplified SIR model of Equation  by taking the code in <code>euler.py</code> and integrating it into our script <code>sir.py</code>. As part of this integration, please set the initial value of I at <span class="math inline"><em>t</em><sub>0</sub></span> to <code>0.001</code> and the time points from <span class="math inline"><em>t</em><sub>0</sub> = 0</span> to <span class="math inline"><em>t</em><sub><em>n</em></sub> = 30</span> in steps of <span class="math inline"><em>h</em> = 1</span> unit.</p>
+<p>Please also pay attention to the following points:</p>
+<ol style="list-style-type: decimal">
+<li><p>What should be the function <code>f()</code> from the <code>euler.py</code> script?</p></li>
+<li><p>What arguments should take now the function <code>euler()</code>? Should the code of this function change?</p></li>
+<li><p>What should be doing the <code>main()</code> function in our script <code>sir.py</code>?</p></li>
+</ol>
+<p>Once you have done the intregation of the code, you should be able to call the script <code>sir.py</code> in an analogous way we were doing it with the script <code>euler.py</code>, redirecting the output to a CSV file and being able to change the parameters <span class="math inline"><em>ρ</em></span> and <span class="math inline"><em>α</em></span> in the command line. More concretely, please run the simulation with the following values of <span class="math inline"><em>ρ</em></span> and <span class="math inline"><em>α</em></span>:</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline"><em>ρ</em></span></th>
+<th><span class="math inline"><em>α</em></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.5</td>
+<td>1.9</td>
+</tr>
+</tbody>
+</table>
