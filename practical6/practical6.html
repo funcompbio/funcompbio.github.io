@@ -20,7 +20,7 @@ $ python --version</code></pre>
 <p>A simplified <a href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology">SIR model</a> of spreading an infection can be described with the following ordinary differential equation:</p>
 <p><br /><span class="math display">$$\begin{equation}
     \frac{dI}{dt}=\rho\cdot I \cdot (1 - I) - \alpha \cdot I
-  \end{equation} $$</span><br /> where:</p>
+  \end{equation} $$</span><br /> where</p>
 <ul>
 <li><p><span class="math inline"><em>I</em></span> is the fraction (<span class="math inline">0 ≤ <em>I</em> ≤ 1</span>) of infected population. We split the entire population in two fractions, infected (<span class="math inline"><em>I</em></span>) and uninfected (<span class="math inline">1 − <em>I</em></span>).</p></li>
 <li><p><span class="math inline"><em>ρ</em></span> is the average number of people who will get infected with a contagious disease from one person with that disease, also known as <span class="math inline"><em>R</em><sub>0</sub></span> or <a href="https://en.wikipedia.org/wiki/Basic_reproduction_number">basic reproduction number</a>.</p></li>
@@ -36,15 +36,15 @@ error: sir.py &lt;I&gt; &lt;rho&gt; &lt;alpha&gt;</code></pre>
 <p>A simple ordinary differential equation (ODE) of the form</p>
 <p><br /><span class="math display">$$
 \begin{equation}
-\frac{dX}{dt} = c\cdot X
 \label{eq:cx}
+\frac{dX}{dt} = c\cdot X
 \end{equation}
 $$</span><br /></p>
 <p>where <span class="math inline"><em>X</em></span> changes with <span class="math inline"><em>t</em></span> and <span class="math inline"><em>c</em></span> is some constant value, it can be analytically solved by moving terms and integrating separately both sides of the equality as follows (see a <a href="https://en.wikipedia.org/wiki/Lists_of_integrals">list of integrals</a>)</p>
 <p><br /><span class="math display">$$ \begin{eqnarray}
-   \frac{1}{X}\cdot dX &amp; = &amp; c\cdot dt \\
-   ln(X) &amp; = &amp; c\cdot t \\
-   X &amp; = &amp; e^{ct}
+   \frac{1}{X}\cdot dX &amp; = &amp; c\cdot dt \nonumber \\
+   ln(X) &amp; = &amp; c\cdot t \nonumber \\
+   X &amp; = &amp; e^{ct} \nonumber 
    \end{eqnarray} $$</span><br /></p>
 <p>However, such an exact solution often does not exist and we need to rely on numerical integration methods to find an approximate solution. The simplest of such methods is the <a href="https://en.wikipedia.org/wiki/Euler_method">Euler's method</a>, which is based on calculating the slope of the tangent line to the curve corresponding to the differential equation that we want to approximate.</p>
 <div class="figure">
@@ -54,18 +54,18 @@ $$</span><br /></p>
 <p>Given a generic (first-order) ODE of the form</p>
 <p><br /><span class="math display">$$ \frac{dX}{dt} = f(t, X) $$</span><br /></p>
 <p>and equally-spaced time points</p>
-<p><br /><span class="math display">$$ \begin{eqnarray}
-     t &amp; = &amp; \{t_0, t_1, ..., t_n\}
+<p><br /><span class="math display">$$ \begin{equation}
+     t = \{t_0, t_1, ..., t_n\} \nonumber
    \end{eqnarray} $$</span><br /> so that for any two given time points</p>
+<p><br /><span class="math display">$$ \begin{equation}
+     h =  t_i - t_{i-1} \nonumber
+   \end{equation} $$</span><br /> the Euler's method approximates the next value of <span class="math inline"><em>X</em></span> using the following recurrence</p>
 <p><br /><span class="math display">$$ \begin{eqnarray}
-     h &amp; = &amp; t_i - t_{i-1}
-   \end{eqnarray} $$</span><br /> the Euler's method approximates the next value of <span class="math inline"><em>X</em></span> using the following recurrence</p>
-<p><br /><span class="math display">$$ \begin{eqnarray}
-     X_1 &amp; = &amp; X_0 + h\cdot f(t_0, X_0) \\
-     X_2 &amp; = &amp; X_1 + h\cdot f(t_1, X_1) \\
-     X_3 &amp; = &amp; X_2 + h\cdot f(t_2, X_2) \\
-     \vdots &amp; = &amp; \vdots \\
-     X_n &amp; = &amp; X_{n-1} + h\cdot f(t_{n-1}, X_{n-1})
+     X_1 &amp; = &amp; X_0 + h\cdot f(t_0, X_0) \nonumber \\
+     X_2 &amp; = &amp; X_1 + h\cdot f(t_1, X_1) \nonumber \\
+     X_3 &amp; = &amp; X_2 + h\cdot f(t_2, X_2) \nonumber \\
+     \vdots &amp; = &amp; \vdots \nonumber \\
+     X_n &amp; = &amp; X_{n-1} + h\cdot f(t_{n-1}, X_{n-1}) \nonumber 
    \end{eqnarray} $$</span><br /></p>
 <p>for some initial (condition) value <span class="math inline"><em>X</em><sub>0</sub></span>. This can be compactly written using the following recurrence formula</p>
 <p><br /><span class="math display">$$ \begin{eqnarray}
