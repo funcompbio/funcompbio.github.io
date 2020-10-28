@@ -32,7 +32,7 @@ $ python --version</code></pre>
 error: sir.py &lt;I&gt; &lt;rho&gt; &lt;alpha&gt;</code></pre>
 <h1 id="solving-a-ordinary-differential-equation-with-the-euler-method">Solving a ordinary differential equation with the Euler method</h1>
 <p>A simple ordinary differential equation (ODE) of the form</p>
-<p><br /><span class="math display">$$ \frac{dX}{dt} = c\cdot X $$</span><br /></p>
+
 <p>where <span class="math inline"><em>X</em></span> changes with <span class="math inline"><em>t</em></span> and <span class="math inline"><em>c</em></span> is some constant value, it can be analytically solved by moving terms and integrating separately both sides of the equality as follows (see a <a href="https://en.wikipedia.org/wiki/Lists_of_integrals">list of integrals</a>)</p>
 <p><br /><span class="math display">$$ \begin{eqnarray}
    \frac{1}{X}\cdot dX &amp; = &amp; c\cdot dt \\
@@ -50,7 +50,9 @@ error: sir.py &lt;I&gt; &lt;rho&gt; &lt;alpha&gt;</code></pre>
 <p><br /><span class="math display">$$ \begin{eqnarray}
      t &amp; = &amp; \{t_0, t_1, ..., t_n\}
    \end{eqnarray} $$</span><br /> so that for any two given time points</p>
-<p><br /><span class="math display"><em>h</em> = <em>t</em><sub><em>i</em></sub> − <em>t</em><sub><em>i</em> − 1</sub></span><br /> the Euler's method approximates the next value of <span class="math inline"><em>X</em></span> using the following recurrence</p>
+<p><br /><span class="math display">$$ \begin{eqnarray}
+     h &amp; = &amp; t_i - t_{i-1}
+   \end{eqnarray} $$</span><br /> the Euler's method approximates the next value of <span class="math inline"><em>X</em></span> using the following recurrence</p>
 <p><br /><span class="math display">$$ \begin{eqnarray}
      X_1 &amp; = &amp; X_0 + h\cdot f(t_0, X_0) \\
      X_2 &amp; = &amp; X_1 + h\cdot f(t_1, X_1) \\
@@ -58,5 +60,8 @@ error: sir.py &lt;I&gt; &lt;rho&gt; &lt;alpha&gt;</code></pre>
      \vdots &amp; = &amp; \vdots \\
      X_n &amp; = &amp; X_{n-1} + h\cdot f(t_{n-1}, X_{n-1})
    \end{eqnarray} $$</span><br /></p>
-<p>which can be compactly written as</p>
-<p><br /><span class="math display"><em>X</em><sub><em>i</em></sub> = <em>X</em><sub><em>i</em> − 1</sub> + <em>h</em> ⋅ <em>f</em>(<em>t</em><sub><em>i</em> − 1</sub>, <em>X</em><sub><em>i</em> − 1</sub>)</span><br /></p>
+<p>for some initial (condition) value <span class="math inline"><em>X</em><sub>0</sub></span>. This can be compactly written using the following recurrence formula</p>
+<p><br /><span class="math display">$$ \begin{eqnarray}
+     X_i &amp; = &amp; X_{i-1} + h\cdot f(t_{i-1}, X_{i-1})
+   \end{eqnarray} $$</span><br /></p>
+<p>We are going to illustrate the Euler's method by implementing it in Python for the previous example Equation ().</p>
