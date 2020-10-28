@@ -48,3 +48,7 @@
   slides: Practical5
   desc: "Practising Python programming and taking arguments from the command-line."
 
+- title: "Practical 6"
+  dirname: practical6
+  slides: Practical6
+  desc: "Implement in Python a simplified SIR model of spreading infectious diseases."
