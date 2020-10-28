@@ -31,7 +31,7 @@ $ python --version</code></pre>
 <pre><code>$ python sir.py 
 error: sir.py &lt;I&gt; &lt;rho&gt; &lt;alpha&gt;</code></pre>
 <h1 id="solving-a-ordinary-differential-equation-with-the-euler-method">Solving a ordinary differential equation with the Euler method</h1>
-<p>A simple ordinary differential equation of the form</p>
+<p>A simple ordinary differential equation (ODE) of the form</p>
 <p><br /><span class="math display">$$ \frac{dX}{dt} = c\cdot X $$</span><br /></p>
 <p>where <span class="math inline"><em>X</em></span> changes with <span class="math inline"><em>t</em></span> and <span class="math inline"><em>c</em></span> is some constant value, it can be analytically solved by moving terms and integrating separately both sides of the equality as follows (see a <a href="https://en.wikipedia.org/wiki/Lists_of_integrals">list of integrals</a>)</p>
 <p><br /><span class="math display">$$ \begin{eqnarray}
@@ -39,8 +39,19 @@ error: sir.py &lt;I&gt; &lt;rho&gt; &lt;alpha&gt;</code></pre>
    ln(X) &amp; = &amp; c\cdot t \\
    X &amp; = &amp; e^{ct}
    \end{eqnarray} $$</span><br /></p>
-<p>However, such an exact solution often does not exist and we need to rely on numerical integration methods to find an approximate solution. The simplest of such methods is the <a href="https://en.wikipedia.org/wiki/Euler_method">Euler's method</a>, which is based on ...</p>
+<p>However, such an exact solution often does not exist and we need to rely on numerical integration methods to find an approximate solution. The simplest of such methods is the <a href="https://en.wikipedia.org/wiki/Euler_method">Euler's method</a>, which is based on calculating the slope of the tangent line to the curve corresponding to the differential equation that we want to approximate.</p>
 <div class="figure">
 <img src="Euler_method.png" alt="Image taken from Wikipedia" />
 <p class="caption">Image taken from <a href="https://en.wikipedia.org/wiki/Euler_method">Wikipedia</a></p>
 </div>
+<p>Given a generic (first-order) ODE of the form</p>
+<p><br /><span class="math display">$$ \frac{dX}{dt} = f(t, X) $$</span><br /></p>
+<p>and equally-spaced time points</p>
+<p><br /><span class="math display"><em>t</em> = {<em>t</em><sub>0</sub>, <em>t</em><sub>1</sub>, ..., <em>t</em><sub><em>n</em></sub>}</span><br /></p>
+<p>so that for any two given time points</p>
+<p><br /><span class="math display"><em>h</em> = <em>t</em><sub><em>i</em></sub> − <em>t</em><sub><em>i</em> − 1</sub></span><br /></p>
+<p>the Euler's method approximates the next value of <span class="math inline"><em>X</em></span> using the following recurrence</p>
+$$
+
+<p>which can be compactly written as</p>
+<p>$$ X_i = X_{i-1} + hf(t_{i-1}, X_{i-1})</p>
