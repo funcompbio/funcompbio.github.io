@@ -133,7 +133,9 @@ t,dX
 &gt;&gt;&gt; import matplotlib.pyplot as plt
 &gt;&gt;&gt; ode2xh01 = pd.read_csv(&quot;ode2xh01.out&quot;)
 &gt;&gt;&gt; plt.plot(ode2xh01[&#39;t&#39;], ode2xh01[&#39;dX&#39;], &#39;-bo&#39;)
-&gt;&gt;&gt; plt.plot(ode2xh01[&#39;t&#39;], np.exp(2*ode2xh01[&#39;t&#39;]), &#39;-ro&#39;)</code></pre>
+&gt;&gt;&gt; plt.plot(ode2xh01[&#39;t&#39;], np.exp(2*ode2xh01[&#39;t&#39;]), &#39;-ro&#39;)
+&gt;&gt;&gt; plt.show()</code></pre>
+<p>The last three instructions are the ones to plot the results using the Python library <a href="https://matplotlib.org">matplotlib</a>, where the first two prepare the plotting layout and graphical parameters and the third one executes de plot on the screen. While this is happening the Python prompt will be waiting for the plotting window to close. Therefore, to continue using the Python interpreter you need to close the plotting window first.</p>
 <p>The resulting plot should look like this one below, where the red line corresponds to the exact solution and the blue line with dots to the approximate solution obtained by doing numerical integration with the Euler's method.</p>
 <div class="figure">
 <img src="dXEuler.png" />
