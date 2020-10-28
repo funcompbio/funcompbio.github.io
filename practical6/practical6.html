@@ -50,11 +50,11 @@ error: sir.py &lt;I&gt; &lt;rho&gt; &lt;alpha&gt;</code></pre>
 <p><br /><span class="math display"><em>t</em> = {<em>t</em><sub>0</sub>, <em>t</em><sub>1</sub>, ..., <em>t</em><sub><em>n</em></sub>}</span><br /> so that for any two given time points</p>
 <p><br /><span class="math display"><em>h</em> = <em>t</em><sub><em>i</em></sub> − <em>t</em><sub><em>i</em> − 1</sub></span><br /> the Euler's method approximates the next value of <span class="math inline"><em>X</em></span> using the following recurrence</p>
 <p><br /><span class="math display">$$ \begin{eqnarray}
-     X_1 &amp; = &amp; X_0 + h\cdot f(t_0, X_0)
-     X_2 &amp; = &amp; X_1 + h\cdot f(t_1, X_1)
-     X_3 &amp; = &amp; X_2 + h\cdot f(t_2, X_2)
-     \vdots &amp; = &amp; \vdots
+     X_1 &amp; = &amp; X_0 + h\cdot f(t_0, X_0) \\
+     X_2 &amp; = &amp; X_1 + h\cdot f(t_1, X_1) \\
+     X_3 &amp; = &amp; X_2 + h\cdot f(t_2, X_2) \\
+     \vdots &amp; = &amp; \vdots \\
      X_n &amp; = &amp; X_{n-1} + h\cdot f(t_{n-1}, X_{n-1})
    \end{eqnarray} $$</span><br /></p>
 <p>which can be compactly written as</p>
-<p><br /><span class="math display"><em>X</em><sub><em>i</em></sub> = <em>X</em><sub><em>i</em> − 1</sub> + <em>h</em> ⋅ <em>f</em>(<em>t</em><sub><em>i</em> − 1</sub>, <em>X</em><sub><em>i</em> − 1</sub>)</span><br /></p>
+<p>[ X_i = X_{i-1} + hf(t_{i-1}, X_{i-1}) ]</p>
