@@ -113,7 +113,7 @@ X = euler(X0, c, t)
 print(&quot;t,dX&quot;)
 i = 0
 while (i &lt; len(X)) :
-    print(&quot;%.2f,%.2f&quot; %(t[i], X[i]))
+    print(&quot;%.3f,%.3f&quot; %(t[i], X[i]))
     i = i + 1</code></pre>
 <p>This Python script approximates the solution for the ODE <span class="math inline">$\eqref{eq:cx}$</span> using an initial value <span class="math inline"><em>X</em><sub>0</sub> = 1</span>, a constant <span class="math inline"><em>c</em> = 2</span> and equally spaced time points of size <span class="math inline"><em>h</em> = 0.1</span> between <span class="math inline"><em>t</em><sub>0</sub> = 0</span> and <span class="math inline"><em>t</em><sub><em>n</em></sub> = 2</span>. Run it in the following way from the Unix shell to store the results in a file called <code>ode2xh01.out</code>:</p>
 <pre><code>$ python euler.py &gt; ode2xh01.out
@@ -157,5 +157,9 @@ t,dX
 
 </div>
 <ul>
-<li><span class="math inline"><em>ρ</em> = 1.5, <em>α</em> = 1.9</span>:</li>
+<li><span class="math inline"><em>ρ</em> = 1.5, <em>α</em> = 1.9</span>: Because <span class="math inline"><em>ρ</em> &lt; <em>α</em></span> the stable equilibrium point of <span class="math inline"><em>I</em><sup>*</sup></span> should be at 0, does it match? The plot should be similar to this one below.</li>
 </ul>
+<div class="figure">
+<img src="sirrho15alpha19.png" />
+
+</div>
