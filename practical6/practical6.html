@@ -19,6 +19,7 @@ $ python --version</code></pre>
 <h1 id="the-differential-equation-for-a-simplified-sir-model">The differential equation for a simplified SIR model</h1>
 <p>A simplified <a href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology">SIR model</a> of spreading an infection can be described with the following ordinary differential equation:</p>
 <p><br /><span class="math display">$$\begin{equation}
+    \label{eq:sir}
     \frac{dI}{dt}=\rho\cdot I \cdot (1 - I) - \alpha \cdot I
   \end{equation} $$</span><br /> where</p>
 <ul>
@@ -26,7 +27,7 @@ $ python --version</code></pre>
 <li><p><span class="math inline"><em>ρ</em></span> is the average number of people who will get infected with a contagious disease from one person with that disease, also known as <span class="math inline"><em>R</em><sub>0</sub></span> or <a href="https://en.wikipedia.org/wiki/Basic_reproduction_number">basic reproduction number</a>.</p></li>
 <li><p><span class="math inline"><em>α</em></span> is the average number of people who recovers from the disease.</p></li>
 </ul>
-<p>Implement a script in Python called <code>sir.py</code> that takes the previous three terms as arguments in the command line and prints the calculation for <span class="math inline"><em>d</em><em>I</em>/<em>d</em><em>t</em></span> using the above formula. For instance, the following call should give <code>0.045</code> as a result when <span class="math inline"><em>I</em> = 0.1</span>, <span class="math inline"><em>ρ</em> = 1.5</span> and <span class="math inline"><em>α</em> = 0.9</span>.</p>
+<p>Implement a script in Python called <code>sir.py</code> that takes the previous three terms as arguments in the command line and prints the calculation for <span class="math inline"><em>d</em><em>I</em>/<em>d</em><em>t</em></span> using Equation <span class="math inline">$\eqref{eq:sir}$</span>. For instance, the following call should give <code>0.045</code> as a result when <span class="math inline"><em>I</em> = 0.1</span>, <span class="math inline"><em>ρ</em> = 1.5</span> and <span class="math inline"><em>α</em> = 0.9</span>.</p>
 <pre><code>$ python sir.py 0.1 1.5 0.9
 0.045</code></pre>
 <p>Moreover, when the script is called without arguments or with the wrong number of arguments, the following message should be shown:</p>
@@ -71,4 +72,4 @@ $$</span><br /></p>
 <p><br /><span class="math display">$$ \begin{eqnarray}
      X_i &amp; = &amp; X_{i-1} + h\cdot f(t_{i-1}, X_{i-1})
    \end{eqnarray} $$</span><br /></p>
-<p>We are going to illustrate the Euler's method by implementing it in Python for the previous example Equation (<span class="math inline">$\eqref{eq:cx}$</span>).</p>
+<p>We are going to illustrate the Euler's method by implementing it in Python for the previous example Equation <span class="math inline">$\eqref{eq:cx}$</span>.</p>
