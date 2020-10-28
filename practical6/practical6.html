@@ -33,9 +33,10 @@ error: sir.py &lt;I&gt; &lt;rho&gt; &lt;alpha&gt;</code></pre>
 <h1 id="solving-a-ordinary-differential-equation-with-the-euler-method">Solving a ordinary differential equation with the Euler method</h1>
 <p>A simple ordinary differential equation of the form</p>
 <p><br /><span class="math display">$$ \frac{dX}{dt} = c\cdot X $$</span><br /></p>
-<p>can be analytically solved as follows</p>
+<p>can be analytically solved by moving terms and integrating separately both sides of the equality as follows (see the <a href="https://en.wikipedia.org/wiki/Lists_of_integrals">list of integrals</a>)</p>
 <p><br /><span class="math display">$$ \begin{eqnarray}
    \frac{1}{x}\cdot dX &amp; = &amp; c\cdot dt \\
    ln(x) &amp; = &amp; c\cdot t \\
    x &amp; = &amp; e^{ct}
    \end{eqnarray} $$</span><br /></p>
+<p>However, it is often not possible to find such an exact solution and we need to rely on numerical integration methods to find an approximate solution. The simplest of such methods is the <a href="https://en.wikipedia.org/wiki/Euler_method">Euler's method</a>.</p>
