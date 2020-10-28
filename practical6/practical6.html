@@ -45,7 +45,7 @@ $$</span><br /></p>
 <p><br /><span class="math display">$$ \begin{eqnarray}
    \frac{1}{X}\cdot dX &amp; = &amp; c\cdot dt \nonumber \\
    ln(X) &amp; = &amp; c\cdot t \nonumber \\
-   X &amp; = &amp; e^{ct} \nonumber 
+   X &amp; = &amp; e^{ct} \label{eq:ect}
    \end{eqnarray} $$</span><br /></p>
 <p>However, such an exact solution often does not exist and we need to rely on numerical integration methods to find an approximate solution. The simplest of such methods is the <a href="https://en.wikipedia.org/wiki/Euler_method">Euler's method</a>, which is based on calculating the slope of the tangent line to the curve corresponding to the differential equation that we want to approximate.</p>
 <div class="figure">
@@ -72,4 +72,63 @@ $$</span><br /></p>
 <p><br /><span class="math display">$$ \begin{eqnarray}
      X_i &amp; = &amp; X_{i-1} + h\cdot f(t_{i-1}, X_{i-1})
    \end{eqnarray} $$</span><br /></p>
-<p>We are going to illustrate the Euler's method by implementing it in Python for the previous example Equation <span class="math inline">$\eqref{eq:cx}$</span>.</p>
+<p>We are going to illustrate the Euler's method by implementing it in Python for the previous example Equation <span class="math inline">$\eqref{eq:cx}$</span>. In a file called <code>euler.py</code> enter the following code:</p>
+<pre><code>import numpy as np
+
+def f(X, c) :
+    dX = c*X
+    return(dX)
+
+def euler(X0, c, t) :
+    X = np.zeros(len(t))
+    X[0] = X0
+    h = t[1] - t[0]
+    i = 0
+    while (i &lt; (len(t)-1)) :
+        X[i+1] = X[i] + h * f(X[i], c)
+        i = i + 1
+
+    return(X)
+
+## set time points between 0 and 2 in steps (h) of 0.1
+t = np.arange(0, 2, 0.1)
+
+## initial value
+X0 = 1
+
+## constant for dX = c X
+c = 2
+
+## integrate dX = c X with Euler&#39;s method
+X = euler(X0, c, t)
+
+## print resulting values for each time point
+print(&quot;t,dX&quot;)
+i = 0
+while (i &lt; len(X)) :
+    print(&quot;%.2f,%.2f&quot; %(t[i], X[i]))
+    i = i + 1</code></pre>
+<p>This Python script approximates the solution for the ODE <span class="math inline">$\eqref{eq:cx}$</span> using an initial value <span class="math inline"><em>X</em><sub>0</sub> = 1</span>, a constant <span class="math inline"><em>c</em> = 2</span> and equally spaced time points of size <span class="math inline"><em>h</em> = 0.1</span> between <span class="math inline"><em>t</em><sub>0</sub> = 0</span> and <span class="math inline"><em>t</em><sub><em>n</em></sub> = 2</span>. Run it in the following way from the Unix shell to store the results in a file called <code>ode2xh01.out</code>:</p>
+<pre><code>$ python euler.py &gt; ode2xh01.out
+$ head ode2xh01.out 
+t,dX
+0.00,1.00
+0.10,1.20
+0.20,1.44
+0.30,1.73
+0.40,2.07
+0.50,2.49
+0.60,2.99
+0.70,3.58</code></pre>
+<p>Now, let's visualize the calculated curve next to the exact solution from Equation <span class="math inline"><em>e</em><em>q</em><em>r</em><em>e</em><em>f</em><em>e</em><em>q</em> : <em>e</em><em>c</em><em>t</em></span> by running the Python interpreter and interactively typing the following instructions:</p>
+<pre><code>&gt;&gt;&gt; import numpy as np
+&gt;&gt;&gt; import pandas as pd
+&gt;&gt;&gt; import matplotlib.pyplot as plt
+&gt;&gt;&gt; ode2xh01 = pd.read_csv(&quot;ode2xh01.out&quot;)
+&gt;&gt;&gt; plt.plot(ode2xh01[&#39;t&#39;], ode2xh01[&#39;dX&#39;], &#39;-bo&#39;)
+&gt;&gt;&gt; plt.plot(ode2xh01[&#39;t&#39;], np.exp(2*ode2xh01[&#39;t&#39;]), &#39;-ro&#39;)</code></pre>
+<p>The resulting plot should look like this one below.</p>
+<div class="figure">
+<img src="dXEuler.png" />
+
+</div>
