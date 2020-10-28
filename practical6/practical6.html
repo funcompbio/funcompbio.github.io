@@ -32,7 +32,12 @@ $ python --version</code></pre>
 error: sir.py &lt;I&gt; &lt;rho&gt; &lt;alpha&gt;</code></pre>
 <h1 id="solving-a-ordinary-differential-equation-with-the-euler-method">Solving a ordinary differential equation with the Euler method</h1>
 <p>A simple ordinary differential equation (ODE) of the form</p>
-
+<p><br /><span class="math display">$$
+\begin{equation}
+\frac{dX}{dt} = c\cdot X
+\label{eq:cx}
+\end{equation}
+$$</span><br /></p>
 <p>where <span class="math inline"><em>X</em></span> changes with <span class="math inline"><em>t</em></span> and <span class="math inline"><em>c</em></span> is some constant value, it can be analytically solved by moving terms and integrating separately both sides of the equality as follows (see a <a href="https://en.wikipedia.org/wiki/Lists_of_integrals">list of integrals</a>)</p>
 <p><br /><span class="math display">$$ \begin{eqnarray}
    \frac{1}{X}\cdot dX &amp; = &amp; c\cdot dt \\
