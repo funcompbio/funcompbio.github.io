@@ -24,7 +24,7 @@ $ some command to type
 ```
 You should **NOT** type the starting dollar sign (`$`), because it is just a convention,
 called the
-[command prompt](https://en.wikipedia.org/wiki/command-line_interface#command_prompt)
+[command prompt](https://en.wikipedia.org/wiki/command-line_interface#command_prompt),
 to indicate that you should write the given commands in the
 [Unix shell](https://en.wikipedia.org/wiki/Unix_shell) running within
 the [terminal window](https://en.wikipedia.org/wiki/Terminal_emulator) application.
