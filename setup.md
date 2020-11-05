@@ -327,7 +327,7 @@ $ pip install <modulename>
 ```
 where you should replace `<modulename>` by the name of the module you want to install
 (e.g., `numpy`, `pandas` or `matplotlib`). Note that if you installation of Python
-version 3.x is available in your system through the executation `python3`, then you
+version 3.x is available in your system through the executable `python3`, then you
 will have to use also the `pip3` tool, by doing:
 
 ```
@@ -348,7 +348,7 @@ Second, install every other module as follows:
 
 ```
 $ python -m pipwin install <modulename>
-``
+```
 where you should replace `<modulename>` by the name of the module you want to install
 (e.g., `numpy`, `pandas` or `matplotlib`). Remember to replace `python` by `python3`
 in the previous instruction if your Python version 3.x installation is available through
