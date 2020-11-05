@@ -16,16 +16,16 @@ for such devices but at some point it may become easier for you to work
 with a computer. In any case, it is recommended that you use some external
 keyboard with your tablet.
 
-**Very important:** Whenever we show below instructions that we ask you to
-type starting with a dollar sign (`$`), such as:
+**Very important:** whenever you find below instructions that ask you to
+type some commands starting with a dollar sign (`$`), such as:
 
 ```
-$ some instruction to type
+$ some command to type
 ```
 You should **NOT** type the starting dollar sign (`$`), because it is just a convention,
 called the
 [command prompt](https://en.wikipedia.org/wiki/command-line_interface#command_prompt)
-to indicate that you should write the given instructions in the
+to indicate that you should write the given commands in the
 [Unix shell](https://en.wikipedia.org/wiki/Unix_shell) running within
 the [terminal window](https://en.wikipedia.org/wiki/Terminal_emulator) application.
 
@@ -42,7 +42,7 @@ alredy have direct access to the Unix shell through the terminal window.
 
 If you have a computer running the Windows operating system, then you can
 install [GitForWindows](https://gitforwindows.org/), which will provide you a
-Unix shell within Windows through its tool Git BASH.
+Unix shell within Windows through its tool _Git Bash_.
 
 ### macOS
 
@@ -61,7 +61,7 @@ to facilitate working and installing additional software from the command line:
   because we do not need it for this course. You may be getting a popup window like
   this one here below.
 
-  [!xcode-select-dialog](_images/xcode-select-dialog.png)
+[!xcode-select-dialog](_images/xcode-select-dialog.png)
 
   In such a case, press the default `Install` button.
 
@@ -109,9 +109,6 @@ following in the shell:
 ```
 $ which git
 ```
-
-You should *not* type the dollar sign above (`$`) because it is just a convention,
-calld the [command prompt](https://en.wikipedia.org/wiki/command-line_interface#command_prompt) to indicate that you should write the instruction in the terminal app.
 
 If typing the previous instruction gives no answer, then the git version-control
 software is not installed in your Unix system. To install it go to the
@@ -222,10 +219,6 @@ Check it out by opening a terminal window and typing the following in the shell:
 ```
 $ which python3
 ```
-
-You should *not* type the dollar sign above (`$`) because it is just a convention,
-calld the [command prompt](https://en.wikipedia.org/wiki/command-line_interface#command_prompt) to indicate that you should write the instruction in the terminal app.
-
 If typing the previous instruction gives no answer, then the Python 3.x
 software is not installed in your Unix system. The specific package manager software
 that you can use to install Python 3.x depends on your specific Unix distribution.
