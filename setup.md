@@ -296,8 +296,7 @@ this reason, it is recommended to use a package manager software such as Homebre
 to install Python 3.x and Jupyter Notebook, through the following two steps:
 
   1. Install Python3 using Homebrew as follows:
-     ```
-     $ brew install python3
+     ``` $ brew install python3
      ```
      You can check whether the installation has been successful by typing
      ```
@@ -317,6 +316,44 @@ to install Python 3.x and Jupyter Notebook, through the following two steps:
      $ which jupyter
      /usr/local/bin/jupyter
      ```
+
+## Python modules
+
+To install additional modules in Python, such as `numpy`, `pandas` or `matplotlib`,
+you can use the `pip` tool as follows:
+
+```
+$ pip install <modulename>
+```
+where you should replace `<modulename>` by the name of the module you want to install
+(e.g., `numpy`, `pandas` or `matplotlib`). Note that if you installation of Python
+version 3.x is available in your system through the executation `python3`, then you
+will have to use also the `pip3` tool, by doing:
+
+```
+$ pip3 install <modulename>
+```
+
+If you are on **Windows**, using the _Git Bash_ Unix shell, you may encounter the
+error below when using the `pip` or `pip3` tool.
+
+![pip3installerrorwindows](/_images/pip3installerrorwindows.png)
+
+In such a case, first install the `pipwin` module as follows:
+
+```
+$ python -m pip install pipwin
+```
+Second, install every other module as follows:
+
+```
+$ python -m pipwin install <modulename>
+``
+where you should replace `<modulename>` by the name of the module you want to install
+(e.g., `numpy`, `pandas` or `matplotlib`). Remember to replace `python` by `python3`
+in the previous instruction if your Python version 3.x installation is available through
+the `python3` executable.
+
 
 ## R and RStudio
 
