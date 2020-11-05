@@ -52,36 +52,37 @@ system, then you already have a Unix shell available through the
 to facilitate working and installing additional software from the command line:
 
   1. [Xcode Command-Line Tools (CLT)](https://developer.apple.com/xcode/features).
-  Open the Terminal app and type the following instruction:
-  ```
-  $ xcode-select --install
-  ```
-  Do not misinterpret this step as installing the _whole_ of Xcode, which is the MacOS suite of
-  developer tools and in any case **do not** attempt to install the _whole_ of Xcode,
-  because we do not need it for this course. You may be getting a popup window like
-  this one here below.
+     Open the Terminal app and type the following instruction:
+     ```
+     $ xcode-select --install
+     ```
+     Do not misinterpret this step as installing the _whole_ of Xcode, which is the MacOS suite of
+     developer tools and in any case **do not** attempt to install the _whole_ of Xcode,
+     because we do not need it for this course. You may be getting a popup window like
+     this one here below.
 
-  ![xcode-select-dialog](_images/xcode-select-dialog.png)
+     ![xcode-select-dialog](_images/xcode-select-dialog.png)
 
-  In such a case, press the default `Install` button. If you get an error about not
-  being able to install the software because it is not currently avaiable from the
-  _Software Update Server_ in another popup window similar to this one here below.
+     In such a case, press the default `Install` button.
 
-  ![xcodeCLTupdateservererror](_images/xcodeCLTupdateservererror.png)
+     **If** you get an error about not
+     being able to install the software because it is not currently available from the
+     _Software Update Server_ in another popup window similar to this one here below.
 
-  Then, you should go to the following link:
+     ![xcodeCLTupdateservererror](_images/xcodeCLTupdateservererror.png)
 
-  [https://developer.apple.com/download/more/?=command%20line%20tools](https://developer.apple.com/download/more/?=command%20line%20tools)
+     Then, you should go to the Apple developer site with your Apple user credentials,
+     by following this link:
 
-  enter at the Apple developer site with your Apple user credentials, click on
-  "Command Line Tools for Xcode <version>", where `version` should be the latest
-  _non-beta_ version, and you will see a pull-down menu similar to the one here
-  below.
+     [https://developer.apple.com/download/more/?=command%20line%20tools](https://developer.apple.com/download/more/?=command%20line%20tools)
 
-  ![xcodeCLTdmgdownload](_images/xcodeCLTdmgdownload.png)
+     Click on "Command Line Tools for Xcode _version_", where _version_ should be the
+     latest _non-beta_ version, and you will see a pull-down menu similar to the one here below.
 
-  Click and download the `.dmg` file link. This is an _Apple installer_ file that,
-  once opened, it should install the Xcode CLT software in your system.
+     ![xcodeCLTdmgdownload](_images/xcodeCLTdmgdownload.png)
+
+     Click and download the `.dmg` file link. This is an _Apple installer_ file that,
+     once opened, it should install the Xcode CLT software in your system.
 
   2. [Homebrew](https://brew.sh). Type the following instruction in the terminal window:
      ```
