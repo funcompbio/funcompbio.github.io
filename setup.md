@@ -16,6 +16,19 @@ for such devices but at some point it may become easier for you to work
 with a computer. In any case, it is recommended that you use some external
 keyboard with your tablet.
 
+**Very important:** Whenever we show below instructions that we ask you to
+type starting with a dollar sign (`$`), such as:
+
+```
+$ some instruction to type
+```
+You should **NOT** type the starting dollar sign (`$`), because it is just a convention,
+called the
+[command prompt](https://en.wikipedia.org/wiki/command-line_interface#command_prompt)
+to indicate that you should write the given instructions in the
+[Unix shell](https://en.wikipedia.org/wiki/Unix_shell) running within
+the [terminal window](https://en.wikipedia.org/wiki/Terminal_emulator) application.
+
 ## Unix shell
 
 ### Unix
@@ -43,13 +56,14 @@ to facilitate working and installing additional software from the command line:
   ```
   $ xcode-select --install
   ```
-  you should *not* type the dollar sign above (`$`) because it is just a convention,
-  called the
-  [command prompt](https://en.wikipedia.org/wiki/command-line_interface#command_prompt)
-  to indicate that you should write the instruction in the terminal app. Do not
-  misinterpret this step as installing the _whole_ of Xcode, which is the MacOS suite of
+  Do not misinterpret this step as installing the _whole_ of Xcode, which is the MacOS suite of
   developer tools and in any case **do not** attempt to install the _whole_ of Xcode,
-  because we do not need it for this course.
+  because we do not need it for this course. You may be getting a popup window like
+  this one here below.
+
+  [!xcode-select-dialog](_images/xcode-select-dialog.png)
+
+  In such a case, press the default `Install` button.
 
   2. [Homebrew](https://brew.sh). Type the following instruction in the terminal window:
      ```
