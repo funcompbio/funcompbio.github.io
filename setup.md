@@ -61,9 +61,27 @@ to facilitate working and installing additional software from the command line:
   because we do not need it for this course. You may be getting a popup window like
   this one here below.
 
-[!xcode-select-dialog](_images/xcode-select-dialog.png)
+  ![xcode-select-dialog](_images/xcode-select-dialog.png)
 
-  In such a case, press the default `Install` button.
+  In such a case, press the default `Install` button. If you get an error about not
+  being able to install the software because it is not currently avaiable from the
+  _Software Update Server_ in another popup window similar to this one here below.
+
+  ![xcodeCLTupdateservererror](_images/xcodeCLTupdateservererror.png)
+
+  Then, you should go to the following link:
+
+  [https://developer.apple.com/download/more/?=command%20line%20tools](https://developer.apple.com/download/more/?=command%20line%20tools)
+
+  enter at the Apple developer site with your Apple user credentials, click on
+  "Command Line Tools for Xcode <version>", where `version` should be the latest
+  _non-beta_ version, and you will see a pull-down menu similar to the one here
+  below.
+
+  ![xcodeCLTdmgdownload](_images/xcodeCLTdmgdownload.png)
+
+  Click and download the `.dmg` file link. This is an _Apple installer_ file that,
+  once opened, it should install the Xcode CLT software in your system.
 
   2. [Homebrew](https://brew.sh). Type the following instruction in the terminal window:
      ```
