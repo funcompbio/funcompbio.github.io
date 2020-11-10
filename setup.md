@@ -10,6 +10,8 @@ steps. Here, you will find those steps separately for Unix, Windows and macOS
 when necessary. It is recommended that you install the software tools in the
 order given here.
 
+* [Unix shell](#unix)
+
 If you have a tablet device, then it is probably running either Android
 (Samsung Galaxy Tab, etc.) or iOS (iPad). You will also find below instructions
 for such devices but at some point it may become easier for you to work
@@ -29,7 +31,7 @@ to indicate that you should write the given commands in the
 [Unix shell](https://en.wikipedia.org/wiki/Unix_shell) running within
 the [terminal window](https://en.wikipedia.org/wiki/Terminal_emulator) application.
 
-## Unix shell
+## [Unix shell]
 
 ### Unix
 
