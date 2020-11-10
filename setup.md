@@ -451,7 +451,10 @@ follow the steps 2 and 3 from these
 Currently, there is no support to run RStudio on a mobile device (see this
 [link](https://support.rstudio.com/hc/en-us/articles/217801028-Can-I-run-RStudio-IDE-Shiny-Server-on-a-mobile-device-or-Chromebook-)). One alternative, is to run RStudio
 on the cloud provided by the [UPF](https://www.upf.edu) and called
-[myapps](https://www.upf.edu/web/biblioteca-informatica/serveis-estudiants/-/asset_publisher/dNcgaWd7vT3B/content/id/214123264/maximized)
+[myapps](https://www.upf.edu/web/biblioteca-informatica/serveis-estudiants/-/asset_publisher/dNcgaWd7vT3B/content/id/214123264/maximized). If you use the _myapps_ cloud,
+you don't need then to follow the previous instructions to install R in your
+device, unless you want to have the possibility to run R commands without an
+internet connection.
 
 ### iOS
 
@@ -469,6 +472,9 @@ $ apk add R-doc
 Currently, there is no support to run RStudio on a mobile device (see this
 [link](https://support.rstudio.com/hc/en-us/articles/217801028-Can-I-run-RStudio-IDE-Shiny-Server-on-a-mobile-device-or-Chromebook-)). One alternative, is to run RStudio
 on the cloud provided by the [UPF](https://www.upf.edu) and called
-[myapps](https://www.upf.edu/web/biblioteca-informatica/serveis-estudiants/-/asset_publisher/dNcgaWd7vT3B/content/id/214123264/maximized)
+[myapps](https://www.upf.edu/web/biblioteca-informatica/serveis-estudiants/-/asset_publisher/dNcgaWd7vT3B/content/id/214123264/maximized) If you use the _myapps_ cloud,
+you don't need then to follow the previous instructions to install R in your
+device, unless you want to have the possibility to run R commands without an
+internet connection.
 
 
