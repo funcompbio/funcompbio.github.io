@@ -390,10 +390,51 @@ the `python3` executable.
 
 ## R and RStudio
 
-To install R go to [https://cran.r-project.org](https://cran.r-project.org)
-and follow the corresponding download link according to your operating system
-(Linux, Windows or macOS) at the top of the page.
+To install R and RStudio you must first install R and then RStudio.
 
-To install RStudio go to
-[https://rstudio.com/products/rstudio/download](https://rstudio.com/products/rstudio/download)
-and select the download link under _RStudio Desktop (Free)_.
+### Unix
+
+To install R in a Unix (Linux) OS, go to
+[https://cran.r-project.org](https://cran.r-project.org),
+follow the link "[Download R for Linux](https://cran.r-project.org/bin/linux)", select
+the linux distribution and follow the given instructions. If you get a list of files,
+follow the link of the file called `README.html` to obtain the instructions.
+
+To install RStudio in a Unix (Linux) OS, go to
+[https://rstudio.com/products/rstudio/download](https://rstudio.com/products/rstudio/download),
+select the download link under _RStudio Desktop (Free)_, and finally download the
+installer file for your Linux distribution and install it according to the corresponding
+package manager. For instance, in the case of a Debian/Ubuntu distribution, once the
+`.deb` file is downloaded, you should be able to install it in your system by typing:
+
+```
+sudo dpkg -i rstudio-x.y.z-arch.deb
+```
+where `x.y.z` refer to the RStudio version and `arch` to the processor architecture
+(`x86_64` or `amd64`).
+
+### Windows
+
+To install R in a Windows OS, go to
+[https://cran.r-project.org](https://cran.r-project.org),
+follow the links "[Download R for Windows](https://cran.r-project.org/bin/windows)", and
+in the next page "[install R for the first time](https://cran.r-project.org/bin/windows/base)".
+Finally, follow the instructions in the loaded page, which essentially consist of downloading
+an installer program (a `.exe` file) and executing it in your computer to install R.
+
+To install RStudio in a Windows OS, go to
+[https://rstudio.com/products/rstudio/download](https://rstudio.com/products/rstudio/download),
+select the download link under _RStudio Desktop (Free)_, and finally download and run the
+installer file (`RStudio-x.y.z.exe`) for Windows.
+
+### macOS
+
+To install R in macOS, go to
+[https://cran.r-project.org](https://cran.r-project.org),
+follow the link "[Download R for (Mac) OS X](https://cran.r-project.org/bin/macosx)" and
+download the `.pkg` installer file for the latest release of R.
+
+To install RStudio in macOS, go to
+[https://rstudio.com/products/rstudio/download](https://rstudio.com/products/rstudio/download),
+select the download link under _RStudio Desktop (Free)_, and finally download and run the
+installer file (`RStudio-x.y.z.dmg`) for macOS.
