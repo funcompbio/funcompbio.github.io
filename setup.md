@@ -421,7 +421,15 @@ To install R in a Windows OS, go to
 follow the links "[Download R for Windows](https://cran.r-project.org/bin/windows)", and
 in the next page "[install R for the first time](https://cran.r-project.org/bin/windows/base)".
 Finally, follow the instructions in the loaded page, which essentially consist of downloading
-an installer program (a `.exe` file) and executing it in your computer to install R.
+an installer program (a `.exe` file) and executing it in your computer to install R. If you want
+to be able to use R from the Unix command line, you should edit a file called `.bashrc` in your
+_home_ directory and add the following line:
+
+```
+export PATH="/c/Program Files/R/R-4.0.3/bin":$PATH
+```
+where you should replace the added path `/c/Program Files/R/R-4.0.3/bin` by the path in the
+filesystem where the R executables have been stored.
 
 To install RStudio in a Windows OS, go to
 [https://rstudio.com/products/rstudio/download](https://rstudio.com/products/rstudio/download),
