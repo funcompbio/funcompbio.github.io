@@ -10,12 +10,12 @@ steps. Here, you will find those steps separately for Unix, Windows and macOS
 when necessary. It is recommended that you install the software tools in the
 order given here.
 
-* [Unix shell](#unix-shell)
-* [Git version-control system](#git-version-control-system)
-* [Text editor](#text-editor)
-* [Python and Jupyter Notebook](#python-and-jupyter-notebook)
-* [Python modules](#python-modules)
-* [R and RStudio](#r-and-rstudio)
+* [**Unix shell**](#unix-shell)
+* [**Git version-control system**](#git-version-control-system)
+* [**Text editor**](#text-editor)
+* [**Python and Jupyter Notebook**](#python-and-jupyter-notebook)
+* [**Python modules**](#python-modules)
+* [**R and RStudio**](#r-and-rstudio)
 
 If you have a tablet device, then it is probably running either Android
 (Samsung Galaxy Tab, etc.) or iOS (iPad). You will also find below instructions
