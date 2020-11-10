@@ -405,10 +405,11 @@ To install RStudio in a Unix (Linux) OS, go to
 select the download link under _RStudio Desktop (Free)_, and finally download the
 installer file for your Linux distribution and install it according to the corresponding
 package manager. For instance, in the case of a Debian/Ubuntu distribution, once the
-`.deb` file is downloaded, you should be able to install it in your system by typing:
+`.deb` file is downloaded, you should be able to install it in your system by typing
+the following on the Unix shell:
 
 ```
-sudo dpkg -i rstudio-x.y.z-arch.deb
+$ sudo dpkg -i rstudio-x.y.z-arch.deb
 ```
 where `x.y.z` refer to the RStudio version and `arch` to the processor architecture
 (`x86_64` or `amd64`).
@@ -438,3 +439,16 @@ To install RStudio in macOS, go to
 [https://rstudio.com/products/rstudio/download](https://rstudio.com/products/rstudio/download),
 select the download link under _RStudio Desktop (Free)_, and finally download and run the
 installer file (`RStudio-x.y.z.dmg`) for macOS.
+
+### Android
+
+To install R in an Android device you need first to install
+[Termux](https://play.google.com/store/apps/details?id=com.termux) (see previous
+instructions about installing a [Unix shell](#unix-shell) in Android) and then
+follow the steps 2 and 3 from these
+[instructions](https://conr.ca/post/installing-r-on-android-via-termux).
+
+Currently, there is no support to run RStudio on a mobile device (see this
+[link](https://support.rstudio.com/hc/en-us/articles/217801028-Can-I-run-RStudio-IDE-Shiny-Server-on-a-mobile-device-or-Chromebook-).
+
+### iOS
