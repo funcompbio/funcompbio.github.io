@@ -193,7 +193,7 @@ device in this
 ### iOS
 
 If you have a tablet running iOS, once you have installed the
-iSH app (see previous section), open the terminal window and
+[iSH](https://ish.spp) app (see previous section), open the terminal window and
 type:
 
 ```
@@ -449,6 +449,26 @@ follow the steps 2 and 3 from these
 [instructions](https://conr.ca/post/installing-r-on-android-via-termux).
 
 Currently, there is no support to run RStudio on a mobile device (see this
-[link](https://support.rstudio.com/hc/en-us/articles/217801028-Can-I-run-RStudio-IDE-Shiny-Server-on-a-mobile-device-or-Chromebook-).
+[link](https://support.rstudio.com/hc/en-us/articles/217801028-Can-I-run-RStudio-IDE-Shiny-Server-on-a-mobile-device-or-Chromebook-)). One alternative, is to run RStudio
+on the cloud provided by the [UPF](https://www.upf.edu) and called
+[myapps](https://www.upf.edu/web/biblioteca-informatica/serveis-estudiants/-/asset_publisher/dNcgaWd7vT3B/content/id/214123264/maximized)
 
 ### iOS
+
+To install R in an iOS device you need first to install
+[iSH](https://ish.app) (see previous instructions about installing a
+[Unix shell](#unix-shell) in iOS) and then type the following commands
+on the Unix shell:
+
+```
+$ apk add R
+$ apk add R-dev
+$ apk add R-doc
+```
+
+Currently, there is no support to run RStudio on a mobile device (see this
+[link](https://support.rstudio.com/hc/en-us/articles/217801028-Can-I-run-RStudio-IDE-Shiny-Server-on-a-mobile-device-or-Chromebook-)). One alternative, is to run RStudio
+on the cloud provided by the [UPF](https://www.upf.edu) and called
+[myapps](https://www.upf.edu/web/biblioteca-informatica/serveis-estudiants/-/asset_publisher/dNcgaWd7vT3B/content/id/214123264/maximized)
+
+
