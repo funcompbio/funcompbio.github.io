@@ -52,3 +52,8 @@
   dirname: practical6
   slides: Practical6
   desc: "Implement in Python a simplified SIR model of spreading infectious diseases."
+
+- title: "Lecture 7"
+  dirname: lecture7
+  slides: Lecture7
+  desc: "Programming with data: the R language."

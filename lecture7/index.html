@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FCB - R Programming</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Courier'; }
+    </style>
+    <link rel="stylesheet" href="upf.css">
+  </head>
+  <body>
+    <textarea id="source">
+
+class: title-slide, center, middle
+
+# Programming with data: the R language
+## Robert Castelo
+### Dept. of Experimental and Health Sciences
+### Universitat Pompeu Fabra
+.footnote[[robert.castelo@upf.edu](mailto:robert.castelo@upf.edu)]
+
+## Fundamentals of Computational Biology
+### BSc on Human Biology
+### UPF School of Health and Life Sciences
+### Academic Year 2020-2021
+
+---
+
+## The R project
+
+* The R project at [http://www.r-project.org](http://www.r-project.org) is an open-source community effort to develop a free software environment, called R, for statistical computing and graphics.
+
+--
+
+* R is also a [programming language](http://en.wikipedia.org/wiki/R_%28programming_language%29)
+  and currently the _lingua franca_ for statistical research and data analysis.
+
+--
+
+* It was started in 1993 by the statisticians [Ross Ihaka](http://en.wikipedia.org/wiki/Ross_Ihaka)
+  and [Robert Gentleman](http://en.wikipedia.org/wiki/Robert_Gentleman_%28statistician%29)
+  and has become extremely popular in both academy and industry with an estimated
+  users base of one million people worldwide; see
+  [this](https://www.nytimes.com/2009/01/07/technology/business-computing/07program.html) 2009 article
+  about R in the New York Times.
+
+--
+
+* The R software can be freely downloaded and installed in Linux, Windows and Mac computers from [http://cran.r-project.org](http://cran.r-project.org)
+
+--
+
+* A new stable version is released every year about march/april and development versions are updated on daily basis. Last major release (version 4.0.0) took place on April, 2020.
+
+---
+
+## Running R in the command line
+
+* You can run R on the terminal window by typing `R` on the Unix shell.
+
+![:scale 90%](Rterminal.png)
+
+---
+
+## Running R in its default GUI
+
+* You can run R using the default graphical user interface (GUI). 
+
+![:scale 90%](RdefaultGUI.png)
+
+---
+
+## Running R in RStudio
+
+* You can run R using the [RStudio](https://rstudio.com) application.
+
+![:scale 90%](RStudio.png)
+
+---
+
+## R packages
+
+* The R functionality is implemented through a number of software add-on
+  [_packages_](https://en.wikipedia.org/wiki/R_package), which divide R
+  in two conceptual parts:
+  1. The "base" R system with a handful of pre-installed packages.
+  2. Everything else: packages written by others or by ourselves.
+
+* To use a package one needs to:
+  1. Install the package, just once.
+  2. Load the package with the function call `library()`.
+
+* There are thousands of packages contributed by the community and freely available.
+
+* Packages are one of the keys in the success of R, because they are often
+  written by the experts who developed the undelying methodology.
+
+---
+
+## R packages
+
+* R Packages can be downloaded and installed from repositories such as
+
+  1. The Comprehensive R Archive Network (CRAN) at [https://cran.r-project.org](http://cran.r-project.org)
+  2. The Bioconductor project at [https://bioconductor.org](https://bioconductor.org)
+  3. GitHub at [https://github.com](https://github.com)
+
+* CRAN and Bioconductor can be considered _trusted_ repositories, because
+they provide some minimum standards of
+[versioning](https://en.wikipedia.org/wiki/Software_versioning),
+[archiving](https://en.wikipedia.org/wiki/Legacy_system),
+[licensing](https://en.wikipedia.org/wiki/Software_license)
+and
+[testing](https://en.wikipedia.org/wiki/Software_testing).
+
+* Relying on a package from an _untrusted_ repository, such as a GitHub repo from any given
+developer, has the potential pitfall that it may dissapear from one day to the next.
+
+---
+
+## R packages
+
+* R GUIs provide point-and-click interfaces to install packages from trusted repositories.
+
+* The most commonly reported way to install package is by giving the corresponding instruction
+in the R shell.
+
+  o For [CRAN](https://cran.r-project.org), e.g., package [knitr](https://cran.r-project.org/web/packages/knitr/index.html):
+
+    ```
+    > install.packages("knitr")
+    ```
+    
+  o For [Bioconductor](https://bioconductor.org), e.g., package [GenomicScores](https://bioconductor.org/packages/GenomicScores):
+
+    ```
+    > library(BiocManager) ## install first 'BiocManager' from CRAN
+    > install("GenomicScores")
+    ```
+
+  o For [GitHub](https://github.com), e.g., package [vilaweb](https://github.com/joebrew/vilaweb) from
+    [Joe Brew](https://github.com/joebrew):
+
+    ```
+    > library(remotes) ## install first 'remotes' from CRAN
+    > install_github("joebrew/vilaweb")
+    ```
+
+---
+
+## Session information
+
+* To facilitate reproducing results or reporting errors, it is necessary to
+know the specific versions of R and the packages involved in a given data analysis.
+
+* The function `sessionInfo()` reports versions of R and currently loaded and attached
+packages:
+
+  ![:scale 90%](sessioninfo.png)
+
+---
+
+## Concluding remarks (The R project and R packages)
+
+* The R project provides one of the most popular free and open-source platforms for
+  analysing data.
+
+* R packages provide a modular and flexible way to extend R's functionality.
+
+* The installation of most R packages is straightforward, however, one should pay
+attention to whether the installed package is available in a trusted repository.
+
+* R and its packages are under continuous development. To facilitate error reporting
+and reproducibility we should keep track of the R and package versions being used.
+
+      </textarea>
+      <script src="remark-latest.min.js"></script>
+      <script src="external-link.js"></script> 
+      <script src="remark-macros.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+      <script type="text/javascript">
+      var slideshow = remark.create();
+      // Setup MathJax
+      MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [['$', '$'], ['\\(','\\)']],
+                    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+              });
+      MathJax.Hub.Configured();
+      </script>
+      <script>
+        var slideshow = remark.create()
+      </script>
+    </body>
+  </html>
