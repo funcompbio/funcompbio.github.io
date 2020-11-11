@@ -1,0 +1,48 @@
+<h1 id="objectives">Objectives</h1>
+<p>The learning objectives for this practical are:</p>
+<ul>
+<li>Start and quit R and RStudio.</li>
+<li>Get familiar with the RStudio interface.</li>
+</ul>
+<h1 id="setup-and-background">Setup and background</h1>
+<p>To do this practical you need an installation of R and RStudio. You can find the instructions in the <a href="/setup/">setup</a> link on how to install R and RStudio in your system. Once R and RStudio are installed, you should be able to start RStudio by double-clicking on an icon like the one here below.</p>
+<div class="figure">
+<img src="RStudioIcon.png" alt="RStudioIcon.png" />
+<p class="caption">RStudioIcon.png</p>
+</div>
+<p>We will download some COVID19 data to illustrate the use of R and RStudio. Please follow the next two steps:</p>
+<ol style="list-style-type: decimal">
+<li>Go to the Catalan Health Departament COVID data portal at <a href="https://dadescovid.cat" class="uri">https://dadescovid.cat</a> and switch the language to &quot;ENGLISH&quot; using the pull-down menu on the top-right corner of the page.</li>
+<li>Follow the downloads link and on the next page click and download the file corresponding to the &quot;7 DAY AGGREGATION&quot; for &quot;COUNTIES&quot; (&quot;COMARQUES&quot; in Catalan). Make sure you know exactly where in your filesystem this file has been downloaded. <strong>Tip:</strong> some browsers automatically download files into a folder called &quot;Downloads&quot; or under a name corresponding to the translation of &quot;Downloads&quot; to the default language of your operating system.</li>
+<li>Make a directory in your filesystem, for instance at your <em>home</em> directory, called <code>practical 8</code> and copy in it the downloaded file.</li>
+<li>Since the downloaded file is a ZIP file, uncompress as you did in <a href="/practical1/">practical 1</a> so that you finally have a file called <code>comarques_setmanal.csv</code> in the directory <code>practical8</code>.</li>
+</ol>
+<h1 id="starting-r-and-rstudio">Starting R and RStudio</h1>
+<p>RStudio is the most popular graphical user interface (GUI), or rather the most popular <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">integrated development environment (IDE)</a>, for working <strong>with</strong> R. However, RStudio <strong>is not</strong> R. RStudio <strong>runs</strong> R. You can also run and work with R <strong>without</strong> RStudio. In fact, if you need to work with R in a remote server to which you only have a text-based connection through a terminal window, then you <strong>cannot</strong> use RStudio. If for whatever reason, you cannot use RStudio, you can still follow this practical, skipping the parts that specifically refer to the GUI of RStudio.</p>
+<p>Once you have started RStudio, you should see its application window, which should be similar to this one below.</p>
+<div class="figure">
+<img src="RStudioFreshStart.png" alt="RStudioFreshStart" />
+<p class="caption">RStudioFreshStart</p>
+</div>
+<p>The RStudio window is initially divided in three main panes:</p>
+<ul>
+<li><strong>R shell:</strong> where you can interactively type R commands.</li>
+<li><strong>Environment / history:</strong> where you can browse through the objects that are being created and the commands that you have typed in the R shell.</li>
+<li><strong>Files / plots / pkgs / help:</strong> where you can navigate through the filesystem where RStudio is running and change the working directory, visualize plotting output, browse through the loaded packages and read help pages.</li>
+</ul>
+<p>If you cannot start RStudio but you have installed R, you still can start R by typing on the Unix shell command line:</p>
+<pre><code>$ R</code></pre>
+<p>Your terminal window should then be running R and looking similar to the the one below.</p>
+<div class="figure">
+<img src="Rterminal.png" alt="Rterminal" />
+<p class="caption">Rterminal</p>
+</div>
+<h1 id="quitting-r-and-rstudio">Quitting R and RStudio</h1>
+<p>To quit R and RStudio you should type the following instruction in the R shell:</p>
+<pre><code>&gt; q()</code></pre>
+<p>You should <strong>not</strong> type the <code>&gt;</code> character, since it corresponds to the R prompt and only indicates that the given instruction to the right of that character should be typed in the R shell. Normally, after that instruction R will ask:</p>
+<pre><code>&gt; q()
+Save workspace image? [y/n/c]:</code></pre>
+<p>If you answer <code>y</code> then R will store all the objects you have created in a hidden file called <code>.RData</code> and next time you start R, all those objects will be automatically loaded. In such a case, R will show you the next message at startup:</p>
+<pre><code>[Previously saved workspace restored]</code></pre>
+<p>In general, there is no reason to save the workspace when you quit R, so you should always answer <code>n</code> to that question. The answer <code>c</code> <em>cancels</em> the quitting instruction. In RStudio you can also quit R and RStudio by either closing the application window or through the <code>Quit</code> option in the file or RStudio top-level menu.</p>
