@@ -45,5 +45,9 @@
 Save workspace image? [y/n/c]:</code></pre>
 <p>If you answer <code>y</code> then R will store all the objects you have created in a hidden file called <code>.RData</code> and next time you start R, all those objects will be automatically loaded. In such a case, R will show you the next message at startup:</p>
 <pre><code>[Previously saved workspace restored]</code></pre>
-<p>In general, there is no reason to save the workspace when you quit R, so you should always answer <code>n</code> to that question. The answer <code>c</code> <em>cancels</em> the quitting instruction. In RStudio you can also quit R and RStudio by either closing the application window or through the <code>Quit</code> option in the file or RStudio top-level menu.</p>
-<h1 id="setting-the-working-directory">Setting the working directory</h1>
+<p>In general, there is no reason to save the workspace when you quit R, so you should always answer <code>n</code> to that question. The answer <code>c</code> <em>cancels</em> the quitting instruction. In RStudio you can also quit R and RStudio by either closing the application window or through the <code>Quit</code> option in the <em>File</em> or <em>RStudio</em> top-level menu.</p>
+<h1 id="getting-and-setting-the-working-directory">Getting and setting the working directory</h1>
+<p>Whenever we want to read or write data files to a specific working directory, we need to make sure that the default directory access or R is pointing to that directory. To find out the default working directory of R, you should call the <code>getwd()</code> function in the R shell:</p>
+<pre><code>&gt; getwd()</code></pre>
+<p>If the return path is not the working directory that we want, we can change it with the function <code>setwd(dir)</code> where <em>dir</em> should be the path that we want to set as working directory.</p>
+<p>Using the function <code>getwd()</code> set the working directory to the path <code>practical8</code> that you should have created at the beginning of this practical and where you have downloaded the file <code>comarques_setmanal.csv</code>.</p>
