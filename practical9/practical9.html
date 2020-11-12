@@ -3,7 +3,9 @@
 <ul>
 <li>Writing R scripts.</li>
 <li>How to manipulate dates in data.</li>
-<li>Factors.</li>
+<li>How to create and use factor objects.</li>
+<li>How to create and use list objects.</li>
+<li>Learn visualizing data in different ways.</li>
 </ul>
 <h1 id="setup-and-background">Setup and background</h1>
 <p>To do this practical you need an installation of R and RStudio. You can find the instructions in the <a href="/setup/">setup</a> link on how to install R and RStudio in your system. For a smooth development of this practical, it is strongly recommended that you follow and finish the previous <a href="/practical8/">practical 8</a>.</p>
@@ -114,22 +116,16 @@ mf
 Feb Mar Apr May Jun Jul Aug Sep Oct Nov 
  18  93  90  93  90  93  93  90  93   3 </code></pre>
 <p>Add the necessary lines of code to the script <code>covid19analysis.R</code> to create a factor object with the months in which each data row was recorded in the general population, i.e., excluding data from geriatric residences. Using this factor we can easily visualize the distribution of the columns <code>R0_CONFIRMAT_M</code> (R0 basic reproduction number) and <code>IEPG_CONFIRMAT</code> (risk of outbreak) in the general population, as function of the month, calling plot with the formula notation <code>x ~ y</code>:</p>
-<pre><code>plot(datg$R0_CONFIRMAT_M ~ mf)
-``
-where here `datg` refers to the subset of the original `data.frame`
-object `dat`, excluding data from geriatric residences, and `mf` refers
-to the factor object with the months from that subset of data.
+<pre><code>plot(datg$R0_CONFIRMAT_M ~ mf)</code></pre>
+<p>where here <code>datg</code> refers to the subset of the original <code>data.frame</code> object <code>dat</code>, excluding data from geriatric residences, and <code>mf</code> refers to the factor object with the months from that subset of data.</p>
+<p>Once you have obtained the plot, look up in the help page of the <code>plot()</code> function, how can you change the labels for the <code>x</code> and <code>y</code> axes to a more readable label. The resulting plot should be similar to the one below.</p>
+<div class="figure">
+<img src="R0byMonth.png" />
 
-Once you have obtained the plot, look up in the help page of the `plot()`
-function, how can you change the labels for the `x` and `y` axes to a more
-readable label. The resulting plot should be similar to the one below.
-
-![](R0byMonth.png)
-
-We can see that February has no data points for the column `R0_CONFIRMAT_M`
-despite there are data rows for that month. To find out why we do not see
-any data on the plot we can inspect the values of `R0_CONFIRMAT_M` for
-the month of February as follows:
-</code></pre>
-<p>datg$R0_CONFIRMAT_M[mf == &quot;Feb&quot;][1] NA NA NA NA NA NA ``<code>The value</code>NA<code>in R means _not available_ and R treats it in a special way depending on the operation that is performing. In the case of plots,</code>NA` values are ignored.</p>
+</div>
+<p>We can see that February has no data points for the column <code>R0_CONFIRMAT_M</code> despite there are data rows for that month. To find out why we do not see any data on the plot we can inspect the values of <code>R0_CONFIRMAT_M</code> for the month of February as follows:</p>
+<pre><code>datg$R0_CONFIRMAT_M[mf == &quot;Feb&quot;]
+[1] NA NA NA NA NA NA</code></pre>
+<p>The value <code>NA</code> in R means <em>not available</em> and R treats it in a special way depending on the operation that is performing. In the case of plots, <code>NA</code> values are ignored.</p>
 <p>Plot now the risk of outbreak as function of the month, can you identify the month in which this risk has increased the most? Add the two plotting instructions to the <code>covid19analysis.R</code> script.</p>
+<h1 id="lists-and-implicit-looping">Lists and implicit looping</h1>
