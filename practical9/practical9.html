@@ -3,6 +3,7 @@
 <ul>
 <li>Writing R scripts.</li>
 <li>How to manipulate dates in data.</li>
+<li>Factors.</li>
 </ul>
 <h1 id="setup-and-background">Setup and background</h1>
 <p>To do this practical you need an installation of R and RStudio. You can find the instructions in the <a href="/setup/">setup</a> link on how to install R and RStudio in your system. For a smooth development of this practical, it is strongly recommended that you follow and finish the previous <a href="/practical8/">practical 8</a>.</p>
@@ -70,22 +71,52 @@ dat &lt;- read.csv(&quot;catalunya_setmanal.csv&quot;)</code></pre>
 Time differences in days
 [1] 7 7 7 7 7 7</code></pre>
 <p>or extracting the month of each date:</p>
-<pre><code>&gt; month &lt;- months.Date(startdate))
-&gt; head(month)
-[1] &quot;November&quot; &quot;November&quot; &quot;November&quot; &quot;October&quot;  &quot;October&quot;  &quot;October&quot; 
-&gt; class(month)
+<pre><code>&gt; m &lt;- months(startdate, abbreviate=TRUE))
+&gt; head(m)
+[1] &quot;Nov&quot; &quot;Nov&quot; &quot;Nov&quot; &quot;Oct&quot; &quot;Oct&quot; &quot;Oct&quot;
+&gt; class(m)
 [1] &quot;character&quot;</code></pre>
+<p>where we have use the argument <code>abbreviate=TRUE</code> in the <code>months()</code> function to obtain a vector of equally sized character strings, which may be useful for visualization purposes.</p>
 <h1 id="factors">Factors</h1>
 <p>Factors in R are a class of objects that serves the purpose of storing what is known in statistics as a <a href="https://en.wikipedia.org/wiki/Categorical_variable">categorical variable</a>, which is a variable that takes values from a limited number of <em>categories</em>, also known as <em>levels</em>. So factors are pretty much like vectors of character strings, but with additional information about what are the different values that may ocurr on those vectors.</p>
 <p>Not all vectors of character strings are suitable to become factors. For instance, a vector of character strings corresponding to gene identifiers tipically should not become a factor in R, because those identifiers do not represent any kind of <em>category</em> grouping observations.</p>
-<p>Factors are useful, however, in the context of a statistical analysis and data visualization, involving categorical variables. To create a factor object we should call the function <code>factor()</code> giving a vector of character strings as argument. Let's consider converting the previous vector <code>month</code> of character strings to a factor.</p>
-<pre><code>&gt; monthf &lt;- factor(month)
-&gt; head(monthf)
-[1] November November November October  October  October 
-10 Levels: April August February July June March May November ... September</code></pre>
+<p>Factors are useful, however, in the context of a statistical analysis and data visualization, involving categorical variables. To create a factor object we should call the function <code>factor()</code> giving a vector of character strings as argument. Let's consider converting the previous vector <code>m</code> of character strings to a factor.</p>
+<pre><code>&gt; mf &lt;- factor(m)
+&gt; head(mf)
+[1] Nov Nov Nov Oct Oct Oct
+Levels: Apr Aug Feb Jul Jun Mar May Nov Oct Sep</code></pre>
 <p>We can see that R displays factors differently to character strings, by showing the values without double quotes (<code>&quot;</code>) and providing additional information about the possible <em>levels</em> of that factor. We can access the level information from a factor object with the functions <code>levels()</code> and <code>nlevels()</code>.</p>
-<pre><code>&gt; levels(monthf)
- [1] &quot;April&quot;     &quot;August&quot;    &quot;February&quot;  &quot;July&quot;      &quot;June&quot;      &quot;March&quot;    
- [7] &quot;May&quot;       &quot;November&quot;  &quot;October&quot;   &quot;September&quot;
-&gt; nlevels(monthf)
+<pre><code>&gt; levels(mf)
+ [1] &quot;Apr&quot; &quot;Aug&quot; &quot;Feb&quot; &quot;Jul&quot; &quot;Jun&quot; &quot;Mar&quot; &quot;May&quot; &quot;Nov&quot; &quot;Oct&quot; &quot;Sep&quot;
+&gt; nlevels(mf)
 [1] 10</code></pre>
+<p>Sometimes, we may want the levels of a factor to comprise a set of specific values or to be ordered in a specific way. This could be the case of the previous factor <code>mf</code>, where we would like for instance to have the levels corresponding to the months of the year. We can do that as follows:</p>
+<pre><code>&gt; mf &lt;- factor(m, levels=c(&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Apr&quot;, &quot;May&quot;, &quot;Jun&quot;,
+                           &quot;Jul&quot;, &quot;Aug&quot;, &quot;Sep&quot;, &quot;Oct&quot;, &quot;Nov&quot;, &quot;Dec&quot;))
+&gt; head(mf)
+[1] Nov Nov Nov Oct Oct Oct
+Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+&gt; levels(mf)
+ [1] &quot;Jan&quot; &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; &quot;May&quot; &quot;Jun&quot; &quot;Jul&quot; &quot;Aug&quot; &quot;Sep&quot; &quot;Oct&quot; &quot;Nov&quot; &quot;Dec&quot;
+&gt; nlevels(mf)
+[1] 12</code></pre>
+<p>We can build a contingency table of the level occurrences of a factor using the function <code>table()</code>.</p>
+<pre><code>&gt; table(mf)
+mf
+Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec 
+  0  18  93  90  93  90  93  93  90  93   3   0</code></pre>
+<p>We can see, there is no data in 2020 for the months of January (because data was not yet recorded) and December (because it was November at the time of elaborating this practical). We can remove levels of a factor for which there is no data with the function <code>droplevels()</code>.</p>
+<pre><code>&gt; mf &lt;- droplevels(mf)
+&gt; levels(mf)
+ [1] &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; &quot;May&quot; &quot;Jun&quot; &quot;Jul&quot; &quot;Aug&quot; &quot;Sep&quot; &quot;Oct&quot; &quot;Nov&quot;
+&gt; table(mf)
+mf
+Feb Mar Apr May Jun Jul Aug Sep Oct Nov 
+ 18  93  90  93  90  93  93  90  93   3 </code></pre>
+<p>Add the necessary lines of code to the script <code>covid19analysis.R</code> to create a factor object with the months in which each data row was recorded in the general population, i.e., excluding data from geriatric residences. Using this factor we can easily visualize the distribution of the columns <code>R0_CONFIRMAT_M</code> (R0 basic reproduction number) and <code>IEPG_CONFIRMAT</code> (risk of outbreak) in the general population, as function of the month, calling plot with the formula notation <code>x ~ y</code>:</p>
+<p>`<code>plot(datg$R0_CONFIRMAT_M ~ mf)</code> where here <code>datg</code> refers to the subset of the original <code>data.frame</code> object <code>dat</code>, excluding data from geriatric residences, and <code>mf</code> refers to the factor object with the months from that subset of data.</p>
+<p>Once you have obtained the plot, look up in the help page of the <code>plot()</code> function, how can you change the labels for the <code>x</code> and <code>y</code> axes to a more readable label. The resulting plot should be similar to the one below.</p>
+<div class="figure">
+<img src="R0byMonth.png" />
+
+</div>
