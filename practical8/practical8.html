@@ -13,7 +13,7 @@
 </div>
 <p>We will download some COVID19 data to illustrate the use of R and RStudio. Please follow the next two steps:</p>
 <ol style="list-style-type: decimal">
-<li>Go to the Catalan Health Departament COVID data portal at <a href="https://dadescovid.cat" class="uri">https://dadescovid.cat</a> and switch the language to &quot;ENGLISH&quot; using the pull-down menu on the top-right corner of the page.</li>
+<li>Go to the Catalan Health Departament COVID19 data portal at <a href="https://dadescovid.cat" class="uri">https://dadescovid.cat</a> and switch the language to &quot;ENGLISH&quot; using the pull-down menu on the top-right corner of the page.</li>
 <li>Follow the downloads link and on the next page click and download the file corresponding to the &quot;7 DAY AGGREGATION&quot; for &quot;CATALUNYA&quot;. Make sure you know exactly where in your filesystem this file has been downloaded. <strong>Tip:</strong> some browsers automatically download files into a folder called &quot;Downloads&quot; or under a name corresponding to the translation of &quot;Downloads&quot; to the default language of your operating system.</li>
 <li>Make a directory in your filesystem, for instance at your <em>home</em> directory, called <code>practical 8</code> and copy in it the downloaded file.</li>
 <li>Since the downloaded file is a ZIP file, uncompress as you did in <a href="/practical1/">practical 1</a> so that you finally have a file called <code>catalunya_setmanal.csv</code> in the directory <code>practical8</code>.</li>
@@ -73,8 +73,8 @@ Save workspace image? [y/n/c]:</code></pre>
 <p>Using the function <code>setwd()</code>, or the RStudio <em>Files</em> pane, change the working directory to the path <code>practical8</code> that you should have created at the beginning of this practical and where you have downloaded the file <code>catalunya_setmanal.csv</code>.</p>
 <h1 id="reading-csv-files">Reading CSV files</h1>
 <p>We can read CSV files in R using the function <code>read.csv()</code>. Let's read the CSV file <code>catalunya_setmanal.csv</code> as follows:</p>
-<pre><code>&gt; dat &lt;- read.csv(&quot;catalunya_setmanal.csv&quot;, sep=&quot;;&quot;)</code></pre>
-<p>Note that when writing the first letters of the filename, you can <em>autocomplete</em> the rest of the filename by pressing the <code>TAB</code> key.</p>
+<pre><code>&gt; dat &lt;- read.csv(&quot;catalunya_setmanal.csv&quot;, sep=&quot;;&quot;, stringsAsFactors=TRUE)</code></pre>
+<p>Note that when writing the first letters of the filename, you can <em>autocomplete</em> the rest of the filename by pressing the <code>TAB</code> key. Next to the filename as a first argument, we also specified that the column delimiter in <code>comarques_setmanal.csv</code> is a semicolon <code>;</code> and that we want R to treat character columns as a special kind of object called <em>factor</em>.</p>
 <p>The <code>read.csv()</code> function returns a <code>data.frame</code> object. You can verify it by typing</p>
 <pre><code>&gt; class(dat)
 [1] &quot;data.frame&quot;</code></pre>
@@ -82,45 +82,44 @@ Save workspace image? [y/n/c]:</code></pre>
 <p>Examine the first and last rows of this <code>data.frame</code> object with the functions <code>head()</code> and <code>tail()</code>. If you are running RStudio, go to the <code>Environment</code> pane and click on the small right triangle icon next to the object name and then over the object name.</p>
 <p>A quick way to get a summary of the data stored in a <code>data.frame</code> object is by calling the function <code>summary()</code> with that object as argument. Call <code>summary()</code> on the previous <code>data.frame</code> object and you should be getting an output similar to this one:</p>
 <pre><code>&gt; summary(dat)
-     NOM                CODI             DATA_INI           DATA_FI         
- Length:756         Length:756         Length:756         Length:756        
- Class :character   Class :character   Class :character   Class :character  
- Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-                                                                            
-                                                                            
-                                                                            
-                                                                            
-  RESIDENCIA        IEPG_CONFIRMAT    R0_CONFIRMAT_M        IA14        
- Length:756         Min.   :  11.25   Min.   :0.6378   Min.   :    0.0  
- Class :character   1st Qu.:  33.50   1st Qu.:0.9355   1st Qu.:    0.0  
- Mode  :character   Median : 170.31   Median :1.0803   Median :   93.5  
-                    Mean   : 208.45   Mean   :1.2490   Mean   :  640.0  
-                    3rd Qu.: 221.46   3rd Qu.:1.3392   3rd Qu.:  474.3  
-                    Max.   :1045.88   Max.   :5.0000   Max.   :10867.6  
-                    NA&#39;s   :517       NA&#39;s   :517                       
- TAXA_CASOS_CONFIRMAT CASOS_CONFIRMAT  TAXA_PCR_TAR          PCR          
- Min.   :   0.00      Min.   :    0   Min.   :    0.0   Min.   :     0.0  
- 1st Qu.:   0.00      1st Qu.:   82   1st Qu.:    0.0   1st Qu.:   812.8  
- Median :  44.24      Median :  234   Median :  526.8   Median :  4099.0  
- Mean   : 328.19      Mean   : 2421   Mean   : 3214.0   Mean   : 25724.0  
- 3rd Qu.: 231.08      3rd Qu.: 2035   3rd Qu.: 5447.2   3rd Qu.: 32643.0  
- Max.   :6214.35      Max.   :32208   Max.   :27398.1   Max.   :228917.0  
-                                                                          
-      TAR          PERC_PCR_TAR_POSITIVES INGRESSOS_TOTAL   INGRESSOS_CRITIC
- Min.   :    0.0   Min.   :  0.000        Min.   :   0.00   Min.   :  0.00  
- 1st Qu.:    0.0   1st Qu.:  3.239        1st Qu.:   4.75   1st Qu.:  0.00  
- Median :    0.0   Median :  6.247        Median :  38.00   Median :  2.00  
- Mean   :  825.3   Mean   :  9.904        Mean   : 156.18   Mean   : 23.41  
- 3rd Qu.:    0.0   3rd Qu.:  9.176        3rd Qu.: 124.25   3rd Qu.: 19.00  
- Max.   :61154.0   Max.   :100.000        Max.   :1866.00   Max.   :357.00  
-                                                                            
-     EXITUS       
- Min.   :   0.00  
- 1st Qu.:   1.00  
- Median :  24.00  
- Mean   : 134.32  
- 3rd Qu.:  66.25  
- Max.   :1637.00  </code></pre>
+        NOM             CODI           DATA_INI         DATA_FI    RESIDENCIA
+ CATALUNYA:756   CATALUNYA:756   2020-02-24:  3   2020-03-01:  3   --:252    
+                                 2020-02-25:  3   2020-03-02:  3   No:252    
+                                 2020-02-26:  3   2020-03-03:  3   Si:252    
+                                 2020-02-27:  3   2020-03-04:  3             
+                                 2020-02-28:  3   2020-03-05:  3             
+                                 2020-02-29:  3   2020-03-06:  3             
+                                 (Other)   :738   (Other)   :738             
+ IEPG_CONFIRMAT    R0_CONFIRMAT_M        IA14         TAXA_CASOS_CONFIRMAT
+ Min.   :  11.25   Min.   :0.6378   Min.   :    0.0   Min.   :   0.00     
+ 1st Qu.:  33.50   1st Qu.:0.9355   1st Qu.:    0.0   1st Qu.:   0.00     
+ Median : 170.31   Median :1.0803   Median :   93.5   Median :  44.24     
+ Mean   : 208.45   Mean   :1.2490   Mean   :  640.0   Mean   : 328.19     
+ 3rd Qu.: 221.46   3rd Qu.:1.3392   3rd Qu.:  474.3   3rd Qu.: 231.08     
+ Max.   :1045.88   Max.   :5.0000   Max.   :10867.6   Max.   :6214.35     
+ NA&#39;s   :517       NA&#39;s   :517                                            
+ CASOS_CONFIRMAT  TAXA_PCR_TAR          PCR                TAR         
+ Min.   :    0   Min.   :    0.0   Min.   :     0.0   Min.   :    0.0  
+ 1st Qu.:   82   1st Qu.:    0.0   1st Qu.:   812.8   1st Qu.:    0.0  
+ Median :  234   Median :  526.8   Median :  4099.0   Median :    0.0  
+ Mean   : 2421   Mean   : 3214.0   Mean   : 25724.0   Mean   :  825.3  
+ 3rd Qu.: 2035   3rd Qu.: 5447.2   3rd Qu.: 32643.0   3rd Qu.:    0.0  
+ Max.   :32208   Max.   :27398.1   Max.   :228917.0   Max.   :61154.0  
+                                                                       
+ PERC_PCR_TAR_POSITIVES INGRESSOS_TOTAL   INGRESSOS_CRITIC     EXITUS       
+ Min.   :  0.000        Min.   :   0.00   Min.   :  0.00   Min.   :   0.00  
+ 1st Qu.:  3.239        1st Qu.:   4.75   1st Qu.:  0.00   1st Qu.:   1.00  
+ Median :  6.247        Median :  38.00   Median :  2.00   Median :  24.00  
+ Mean   :  9.904        Mean   : 156.18   Mean   : 23.41   Mean   : 134.32  
+ 3rd Qu.:  9.176        3rd Qu.: 124.25   3rd Qu.: 19.00   3rd Qu.:  66.25  
+ Max.   :100.000        Max.   :1866.00   Max.   :357.00   Max.   :1637.00  </code></pre>
 <h1 id="subsetting-the-rows-of-a-data-frame">Subsetting the rows of a data frame</h1>
 <p>Using the previously loaded <code>data.frame</code> object, build a vector of logical values (a so-called <em>logical mask</em>) in one-to-one correspondence with the rows, where a position in the vector is <code>TRUE</code> if the corresponding row contains data belonging to the general population, i.e., excluding geriatric residences. Take into account that the comparison operators in R are <code>==</code> for equality, <code>!=</code> for inequality, <code>&gt;</code> for larger than, <code>&lt;</code> for smaller than, <code>&gt;=</code> for larger or equal than and <code>&lt;=</code> for smaller or equal than`.</p>
 <p>Using that logical mask, obtain a new <code>data.frame</code> object that includes only data rows from the general population. Verify that the number of rows in the new object matches the sum of <code>TRUE</code> values in the logical mask.</p>
+<h1 id="plotting">Plotting</h1>
+<p>The main function to plot data points in (base) R is the function <code>plot()</code>. Type the following call to the <code>plot()</code> function in the R shell:</p>
+<pre><code>plot(1:10)</code></pre>
+<p>Try to understand what is this function call plotting. Now, type this other call:</p>
+<pre><code>plot(1:10, 2^(1:10))</code></pre>
+<p>Think about the difference between the two plots. Repeat again the last call with the argument <code>type=&quot;l&quot;</code>. What did this argument changed?</p>
+<p>Using the <code>data.frame</code> object with COVID19 data from the general population, try to reproduce the shape of the plots shown at the front page of the Catalan COVID19 data portal at <a href="https://dadescovid.dat" class="uri">https://dadescovid.dat</a>. It is not necessary to reproduce details such as colors, axis labels and legends.</p>
