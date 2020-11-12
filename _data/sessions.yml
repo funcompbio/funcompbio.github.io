@@ -57,3 +57,9 @@
   dirname: lecture7
   slides: Lecture7
   desc: "Programming with data: the R language."
+
+- title: "Practical 8"
+  dirname: practical8
+  slides: Practical8
+  desc: "Start using R on the computer (basic data types, read CSV files, subsetting, simple plotting)."
+

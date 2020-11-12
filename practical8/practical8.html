@@ -4,6 +4,9 @@
 <li>Start and quit R and RStudio.</li>
 <li>Get familiar with the RStudio interface.</li>
 <li>Getting and setting the working directory in R.</li>
+<li>Reading CSV files.</li>
+<li>Subsetting rows of a data frame</li>
+<li>Simple plotting</li>
 </ul>
 <h1 id="setup-and-background">Setup and background</h1>
 <p>To do this practical you need an installation of R and RStudio. You can find the instructions in the <a href="/setup/">setup</a> link on how to install R and RStudio in your system. Once R and RStudio are installed, you should be able to start RStudio by double-clicking on an icon like the one here below.</p>
@@ -113,10 +116,10 @@ Save workspace image? [y/n/c]:</code></pre>
  Mean   :  9.904        Mean   : 156.18   Mean   : 23.41   Mean   : 134.32  
  3rd Qu.:  9.176        3rd Qu.: 124.25   3rd Qu.: 19.00   3rd Qu.:  66.25  
  Max.   :100.000        Max.   :1866.00   Max.   :357.00   Max.   :1637.00  </code></pre>
-<h1 id="subsetting-the-rows-of-a-data-frame">Subsetting the rows of a data frame</h1>
+<h1 id="subsetting-rows-of-a-data-frame">Subsetting rows of a data frame</h1>
 <p>Using the previously loaded <code>data.frame</code> object, build a vector of logical values (a so-called <em>logical mask</em>) in one-to-one correspondence with the rows, where a position in the vector is <code>TRUE</code> if the corresponding row contains data belonging to the general population, i.e., excluding geriatric residences. Take into account that the comparison operators in R are <code>==</code> for equality, <code>!=</code> for inequality, <code>&gt;</code> for larger than, <code>&lt;</code> for smaller than, <code>&gt;=</code> for larger or equal than and <code>&lt;=</code> for smaller or equal than`.</p>
 <p>Using that logical mask, obtain a new <code>data.frame</code> object that includes only data rows from the general population. Verify that the number of rows in the new object matches the sum of <code>TRUE</code> values in the logical mask.</p>
-<h1 id="plotting">Plotting</h1>
+<h1 id="simple-plotting">Simple plotting</h1>
 <p>The main function to plot data points in (base) R is the function <code>plot()</code>. Type the following call to the <code>plot()</code> function in the R shell:</p>
 <pre><code>plot(1:10)</code></pre>
 <p>It should produce the following plot.</p>
