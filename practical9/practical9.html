@@ -116,16 +116,57 @@ mf
 Feb Mar Apr May Jun Jul Aug Sep Oct Nov 
  18  93  90  93  90  93  93  90  93   3 </code></pre>
 <p>Add the necessary lines of code to the script <code>covid19analysis.R</code> to create a factor object with the months in which each data row was recorded in the general population, i.e., excluding data from geriatric residences. Using this factor we can easily visualize the distribution of the columns <code>R0_CONFIRMAT_M</code> (R0 basic reproduction number) and <code>IEPG_CONFIRMAT</code> (risk of outbreak) in the general population, as function of the month, calling plot with the formula notation <code>x ~ y</code>:</p>
-<pre><code>plot(datg$R0_CONFIRMAT_M ~ mf)</code></pre>
-<p>where here <code>datg</code> refers to the subset of the original <code>data.frame</code> object <code>dat</code>, excluding data from geriatric residences, and <code>mf</code> refers to the factor object with the months from that subset of data.</p>
+<pre><code>&gt; plot(datg$R0_CONFIRMAT_M ~ mf)</code></pre>
+<p>where here <code>datg</code> refers to the subset of the original <code>data.frame</code> object <code>dat</code>, excluding data from geriatric residences, and <code>mf</code> refers to the factor object with the months from that subset of data. The resulting plot contains so-called <a href="https://en.wikipedia.org/wiki/Box_plot">box plots</a> for each month, which allow to visualize the location of the data in terms of <a href="https://en.wikipedia.org/wiki/Quartile">quartiles</a>.</p>
 <p>Once you have obtained the plot, look up in the help page of the <code>plot()</code> function, how can you change the labels for the <code>x</code> and <code>y</code> axes to a more readable label. The resulting plot should be similar to the one below.</p>
 <div class="figure">
 <img src="R0byMonth.png" />
 
 </div>
 <p>We can see that February has no data points for the column <code>R0_CONFIRMAT_M</code> despite there are data rows for that month. To find out why we do not see any data on the plot we can inspect the values of <code>R0_CONFIRMAT_M</code> for the month of February as follows:</p>
-<pre><code>datg$R0_CONFIRMAT_M[mf == &quot;Feb&quot;]
+<pre><code>&gt; datg$R0_CONFIRMAT_M[mf == &quot;Feb&quot;]
 [1] NA NA NA NA NA NA</code></pre>
 <p>The value <code>NA</code> in R means <em>not available</em> and R treats it in a special way depending on the operation that is performing. In the case of plots, <code>NA</code> values are ignored.</p>
 <p>Plot now the risk of outbreak as function of the month, can you identify the month in which this risk has increased the most? Add the two plotting instructions to the <code>covid19analysis.R</code> script.</p>
 <h1 id="lists-and-implicit-looping">Lists and implicit looping</h1>
+<p>Lists allow one to group values through their elements. Let's say we want to group the values of the risk of outbreak in the previous data, by the month in which the data belongs to. We can do that using the function <code>split()</code> to which we should give a first argument of the values we want to group and a second argument with the grouping factor.</p>
+<pre><code>&gt; iepgbymonth &lt;- split(datg$IEPG_CONFIRMAT, mf)
+&gt; class(iepgbymonth)
+[1] &quot;list&quot;
+&gt; length(iepgbymonth)
+[1] 10
+&gt; names(iepgbymonth)
+ [1] &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; &quot;May&quot; &quot;Jun&quot; &quot;Jul&quot; &quot;Aug&quot; &quot;Sep&quot; &quot;Oct&quot; &quot;Nov&quot;
+&gt; head(iepgbymonth, n=3)
+$Feb
+[1] NA NA NA NA NA NA
+
+$Mar
+ [1] 154.523 168.052 176.403 188.101 206.879 225.887 245.803 263.842 275.744
+[10] 289.553 309.236 349.668 374.001 392.650 410.941 411.181 445.455 452.179
+[19] 398.809 346.643 284.823 225.282 144.230 107.113      NA      NA      NA
+[28]      NA      NA      NA      NA
+
+$Apr
+ [1]  24.1050  26.1615  28.3733  31.1514  33.6115  36.4087  42.9276  46.9114
+ [9]  51.8729  57.1702  61.3704  64.4527  68.6624  71.0281  76.4523  78.9826
+[17]  82.4250  86.9431  87.4165  86.3060  87.9184  92.1927  98.2542 105.1500
+[25] 118.3170 121.8560 124.6690 130.1430 136.0640 144.0100</code></pre>
+<p>Grouping values can be useful in data analysis when we want to examine the data separately by groups. Let's say we want to visualize the distribution of values of the risk of outbreak for the month of April and June, next to each other. We can use the function <code>hist()</code> for that purpose, creating a grid of two plotting panes using the <code>par()</code> function, as follows:</p>
+<pre><code>&gt; par(mfrow=c(1, 2))
+&gt; hist(iepgbymonth$Apr, xlab=&quot;Risk of outbreak&quot;, main=&quot;April&quot;)
+&gt; hist(iepgbymonth$Jun, xlab=&quot;Risk of outbreak&quot;, main=&quot;June&quot;)</code></pre>
+<div class="figure">
+<img src="IEPGAprilJune.png" />
+
+</div>
+<p>Now, let's calculate the mean of the risk of outbreak for the month of April. Having built the previous <code>list</code> object, we can make that calculation applying the function <code>mean()</code> to the corresponding element of the list:</p>
+<pre><code>&gt; mean(iepgbymonth$Apr)
+[1] 76.71023</code></pre>
+<p>Let's say we want to compare this value with the mean value for the month of March:</p>
+<pre><code>&gt; mean(iepgbymonth$Mar)
+[1] NA</code></pre>
+<p>Here we got an <code>NA</code> value because the month of March has missing values for some weeks and, by default, the function <code>mean()</code> propagates that <code>NA</code> value to the result. We can ask the <code>mean()</code> function to exclude <code>NA</code> values and do the calculation on the non-missing ones using the argument <code>na.rm=TRUE</code>:</p>
+<pre><code>&gt; mean(iepgbymonth$Mar, na.rm=TRUE)
+[1] 285.2916</code></pre>
+<p>It would be tedious to do that calculation for each different month by writing one such function call for each element of the list. As an alternative, we could use a <code>while</code> or <code>for</code> loop that would iterate over the elements of the list. However, R provides ...</p>
