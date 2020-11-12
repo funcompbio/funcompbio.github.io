@@ -1,10 +1,11 @@
 <h1 id="objectives">Objectives</h1>
 <p>The learning objectives for this practical are:</p>
 <ul>
-<li>Writing R scripts</li>
+<li>Writing R scripts.</li>
+<li>How to manipulate dates in data.</li>
 </ul>
 <h1 id="setup-and-background">Setup and background</h1>
-<p>To do this practical you need an installation of R and RStudio. You can find the instructions in the <a href="/setup/">setup</a> link on how to install R and RStudio in your system. For a smooth development of this practical, it is strongly recommended that you follow and finish the previous <a href="/practical%208/">practical 8</a>.</p>
+<p>To do this practical you need an installation of R and RStudio. You can find the instructions in the <a href="/setup/">setup</a> link on how to install R and RStudio in your system. For a smooth development of this practical, it is strongly recommended that you follow and finish the previous <a href="/practical8/">practical 8</a>.</p>
 <p>We will download some COVID19 data to illustrate the use of R and RStudio. Please follow the next two steps:</p>
 <ol style="list-style-type: decimal">
 <li>Go to the Catalan Health Departament COVID19 data portal at <a href="https://dadescovid.cat" class="uri">https://dadescovid.cat</a> and switch the language to &quot;ENGLISH&quot; using the pull-down menu on the top-right corner of the page.</li>
@@ -64,7 +65,7 @@ dat &lt;- read.csv(&quot;catalunya_setmanal.csv&quot;)</code></pre>
 [1] &quot;2020-11-07&quot; &quot;2020-11-07&quot; &quot;2020-11-07&quot; &quot;2020-11-06&quot; &quot;2020-11-06&quot; &quot;2020-11-06&quot;
 &gt; class(enddate)
 [1] &quot;Date&quot;</code></pre>
-<p>Having dates stored as <code>Date</code>-class objects facilitates operations on dates such as calculating time differences:</p>
+<p>Having dates stored as <em>Date</em>-class objects facilitates operations on dates such as calculating time differences:</p>
 <pre><code>&gt; head(enddate - startdate + 1)
 Time differences in days
 [1] 7 7 7 7 7 7</code></pre>
@@ -74,3 +75,17 @@ Time differences in days
 [1] &quot;November&quot; &quot;November&quot; &quot;November&quot; &quot;October&quot;  &quot;October&quot;  &quot;October&quot; 
 &gt; class(month)
 [1] &quot;character&quot;</code></pre>
+<h1 id="factors">Factors</h1>
+<p>Factors in R are a class of objects that serves the purpose of storing what is known in statistics as a <a href="https://en.wikipedia.org/wiki/Categorical_variable">categorical variable</a>, which is a variable that takes values from a limited number of <em>categories</em>, also known as <em>levels</em>. So factors are pretty much like vectors of character strings, but with additional information about what are the different values that may ocurr on those vectors.</p>
+<p>Not all vectors of character strings are suitable to become factors. For instance, a vector of character strings corresponding to gene identifiers tipically should not become a factor in R, because those identifiers do not represent any kind of <em>category</em> grouping observations.</p>
+<p>Factors are useful, however, in the context of a statistical analysis and data visualization, involving categorical variables. To create a factor object we should call the function <code>factor()</code> giving a vector of character strings as argument. Let's consider converting the previous vector <code>month</code> of character strings to a factor.</p>
+<pre><code>&gt; monthf &lt;- factor(month)
+&gt; head(monthf)
+[1] November November November October  October  October 
+10 Levels: April August February July June March May November ... September</code></pre>
+<p>We can see that R displays factors differently to character strings, by showing the values without double quotes (<code>&quot;</code>) and providing additional information about the possible <em>levels</em> of that factor. We can access the level information from a factor object with the functions <code>levels()</code> and <code>nlevels()</code>.</p>
+<pre><code>&gt; levels(monthf)
+ [1] &quot;April&quot;     &quot;August&quot;    &quot;February&quot;  &quot;July&quot;      &quot;June&quot;      &quot;March&quot;    
+ [7] &quot;May&quot;       &quot;November&quot;  &quot;October&quot;   &quot;September&quot;
+&gt; nlevels(monthf)
+[1] 10</code></pre>
