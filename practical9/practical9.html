@@ -169,4 +169,12 @@ $Apr
 <p>Here we got an <code>NA</code> value because the month of March has missing values for some weeks and, by default, the function <code>mean()</code> propagates that <code>NA</code> value to the result. We can ask the <code>mean()</code> function to exclude <code>NA</code> values and do the calculation on the non-missing ones using the argument <code>na.rm=TRUE</code>:</p>
 <pre><code>&gt; mean(iepgbymonth$Mar, na.rm=TRUE)
 [1] 285.2916</code></pre>
-<p>It would be tedious to do that calculation for each different month by writing one such function call for each element of the list. As an alternative, we could use a <code>while</code> or <code>for</code> loop that would iterate over the elements of the list. However, R provides ...</p>
+<p>It would be tedious to do that calculation for each different month by writing one such function call for each element of the list. As an alternative, we could use a <code>while</code> or <code>for</code> loop that would iterate over the elements of the list. However, R provides a more compact way to iterating over lists, and other objects, by using functions for <em>implicit</em> <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Looping">looping</a> such as <code>lapply()</code> or <code>sapply()</code>. These functions take a list as a first argument, iterate through each element of that list, and at each iteration apply the function given in the second argument. Additional arguments can be given and will be passed to the <em>applied</em> function.</p>
+<p>The function <code>lapply()</code> returns again the input list with its elements replaced by the result given by the function on each corresponding element, while the function <code>sapply()</code> attempts to simplify the resulting data structure in that if each element of the resulting list has length 1, then it return an atomic vector.</p>
+<p>We can calculate the mean of the risk of outbreak per month with the following call to the <code>sapply()</code> function:</p>
+<pre><code>&gt; sapply(iepgbymonth, mean, na.rm=TRUE)
+      Feb       Mar       Apr       May       Jun       Jul       Aug       Sep 
+      NaN 285.29158  76.71023  25.66524  20.77437 153.58826 190.42042 207.93477 
+      Oct       Nov 
+702.40661 607.29200 </code></pre>
+<p>where here the argument <code>na.rm=TRUE</code> is passed by <code>sapply()</code> to each call to the <code>mean()</code> function. Try the same call using the <code>lapply()</code> function and notice the difference in the output.</p>
