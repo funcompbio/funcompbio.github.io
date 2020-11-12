@@ -3,6 +3,7 @@
 <ul>
 <li>Start and quit R and RStudio.</li>
 <li>Get familiar with the RStudio interface.</li>
+<li>Getting and setting the working directory in R.</li>
 </ul>
 <h1 id="setup-and-background">Setup and background</h1>
 <p>To do this practical you need an installation of R and RStudio. You can find the instructions in the <a href="/setup/">setup</a> link on how to install R and RStudio in your system. Once R and RStudio are installed, you should be able to start RStudio by double-clicking on an icon like the one here below.</p>
@@ -17,6 +18,7 @@
 <li>Make a directory in your filesystem, for instance at your <em>home</em> directory, called <code>practical 8</code> and copy in it the downloaded file.</li>
 <li>Since the downloaded file is a ZIP file, uncompress as you did in <a href="/practical1/">practical 1</a> so that you finally have a file called <code>comarques_setmanal.csv</code> in the directory <code>practical8</code>.</li>
 </ol>
+<p>If you are using the UPF <em>myapps</em> cloud to run RStudio, then you need to either use an internet browser in <em>myapps</em> to download the data file directly in the <em>myapps</em> cloud or upload to the <em>myapps</em> cloud the file that you have downloaded in your own computer.</p>
 <h1 id="starting-r-and-rstudio">Starting R and RStudio</h1>
 <p>RStudio is the most popular graphical user interface (GUI), or rather the most popular <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">integrated development environment (IDE)</a>, for working <strong>with</strong> R. However, RStudio <strong>is not</strong> R. RStudio <strong>runs</strong> R. You can also run and work with R <strong>without</strong> RStudio. In fact, if you need to work with R in a remote server to which you only have a text-based connection through a terminal window, then you <strong>cannot</strong> use RStudio. If for whatever reason, you cannot use RStudio, you can still follow this practical, skipping the parts that specifically refer to the GUI of RStudio.</p>
 <p>Once you have started RStudio, you should see its application window, which should be similar to this one below.</p>
@@ -46,8 +48,29 @@ Save workspace image? [y/n/c]:</code></pre>
 <p>If you answer <code>y</code> then R will store all the objects you have created in a hidden file called <code>.RData</code> and next time you start R, all those objects will be automatically loaded. In such a case, R will show you the next message at startup:</p>
 <pre><code>[Previously saved workspace restored]</code></pre>
 <p>In general, there is no reason to save the workspace when you quit R, so you should always answer <code>n</code> to that question. The answer <code>c</code> <em>cancels</em> the quitting instruction. In RStudio you can also quit R and RStudio by either closing the application window or through the <code>Quit</code> option in the <em>File</em> or <em>RStudio</em> top-level menu.</p>
+<h1 id="r-as-calculator">R as calculator</h1>
+<p>The R shell can be directly used as a calculator, type the following instructions and figure out what the operators do:</p>
+<pre><code>&gt; 1+1
+&gt; 5-4
+&gt; 3*2
+&gt; 6/2
+&gt; 4%%3
+&gt; 2**3
+&gt; 2^3</code></pre>
+<p>Now, type the following and press enter:</p>
+<pre><code>&gt; 1+</code></pre>
+<p>You should have obtained the following output:</p>
+<pre><code>&gt; 1+
++</code></pre>
+<p>where the cursor is next to the plus sign (<code>+</code>) that has appeared in the line below. This plus sign indicates that the expression you have written is incomplete. This often happens when there is, for instance, a missing closing parenthesis. In this situation you can do two things: (1) you complete the instruction or (2) you press the <code>Esc</code> key, which will cancel the instruction. Try cancelling this incomplete sum with the <code>Esc</code> key.</p>
+<p>Now try to calculate the natural logarithm of 10 by typing:</p>
+<pre><code>&gt; log(10)</code></pre>
+<p>If you are using RStudio, note that when you have typed the name of the function <code>log</code>, RStudio shows you a popup with contextual help, which you can use to choose among functions that have <code>log</code> as a prefix in their name.</p>
 <h1 id="getting-and-setting-the-working-directory">Getting and setting the working directory</h1>
 <p>Whenever we want to read or write data files to a specific working directory, we need to make sure that the default directory access or R is pointing to that directory. To find out the default working directory of R, you should call the <code>getwd()</code> function in the R shell:</p>
 <pre><code>&gt; getwd()</code></pre>
-<p>If the return path is not the working directory that we want, we can change it with the function <code>setwd(dir)</code> where <em>dir</em> should be the path that we want to set as working directory.</p>
-<p>Using the function <code>getwd()</code> set the working directory to the path <code>practical8</code> that you should have created at the beginning of this practical and where you have downloaded the file <code>comarques_setmanal.csv</code>.</p>
+<p>If the return path is not the working directory that we want, we can change it with the function <code>setwd(dir)</code> where <code>dir</code> should be the path that we want to set as working directory. In RStudio, using the <em>Files</em> pane, we can navigate through the file system to the directory we want to set as working directory and then click on the <code>More</code> pull-down menu and select <code>Set As Working Directory</code>.</p>
+<p>Using the function <code>setwd()</code>, or the RStudio <em>Files</em> pane, change the working directory to the path <code>practical8</code> that you should have created at the beginning of this practical and where you have downloaded the file <code>comarques_setmanal.csv</code>.</p>
+<h1 id="reading-csv-files">Reading CSV files</h1>
+<p>We can read CSV files in R using the function <code>read.csv()</code>. Let's read the CSV file <code>comarques_setmanal.csv</code> as follows:</p>
+<pre><code>dat &lt;- read.csv(&quot;comarques_setmanal.csv&quot;, sep=&quot;;&quot;)</code></pre>
