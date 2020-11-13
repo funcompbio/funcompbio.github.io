@@ -63,3 +63,8 @@
   slides: Practical8
   desc: "Start using R on the computer (basic data types, read CSV files, subsetting, simple plotting)."
 
+- title: "Practical 9"
+  dirname: practical9
+  slides: Practical9
+  desc: "Use R to work with dates, factors lists and implicit looping, while learning a few more plotting functions."
+
