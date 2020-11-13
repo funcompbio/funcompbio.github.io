@@ -80,6 +80,11 @@ Time differences in days
 &gt; class(m)
 [1] &quot;character&quot;</code></pre>
 <p>where we have use the argument <code>abbreviate=TRUE</code> in the <code>months()</code> function to obtain a vector of equally sized character strings, which may be useful for visualization purposes.</p>
+<p><strong>Important:</strong> The previous vector <code>m</code> may contain the names of the months in a different language than English when the regional configuration of your operating system, known as <a href="https://en.wikipedia.org/wiki/Locale_%28computer_software%29">locale configuration</a>, is also different to English. In such a case, it may be handy to switch at least the regional time configuration to English, to facilitate following the rest of this practical. To do that, type the following instruction on the R shell:</p>
+<pre><code>&gt; Sys.setlocale(&quot;LC_TIME&quot;, &quot;C&quot;)</code></pre>
+<p>and then type again:</p>
+<pre><code>&gt; m &lt;- months(startdate, abbreviate=TRUE))</code></pre>
+<p>Verify that now the vector <code>m</code> has the month names in English.</p>
 <h1 id="factors">Factors</h1>
 <p>Factors in R are a class of objects that serves the purpose of storing what is known in statistics as a <a href="https://en.wikipedia.org/wiki/Categorical_variable">categorical variable</a>, which is a variable that takes values from a limited number of <em>categories</em>, also known as <em>levels</em>. So factors are pretty much like vectors of character strings, but with additional information about what are the different values that may ocurr on those vectors.</p>
 <p>Not all vectors of character strings are suitable to become factors. For instance, a vector of character strings corresponding to gene identifiers tipically should not become a factor in R, because those identifiers do not represent any kind of <em>category</em> grouping observations.</p>
@@ -103,7 +108,8 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
  [1] &quot;Jan&quot; &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; &quot;May&quot; &quot;Jun&quot; &quot;Jul&quot; &quot;Aug&quot; &quot;Sep&quot; &quot;Oct&quot; &quot;Nov&quot; &quot;Dec&quot;
 &gt; nlevels(mf)
 [1] 12</code></pre>
-<p>We can build a contingency table of the level occurrences of a factor using the function <code>table()</code>.</p>
+<p><strong>Important:</strong> The previous call to the <code>factor()</code> function will <strong>only work</strong> if your regional time configuration is English. If you are working with a non-English regional time configuration, you should change the level names in the argument <code>levels</code> to the language that you are using.</p>
+<p>Now, we can build a contingency table of the level occurrences of a factor using the function <code>table()</code>.</p>
 <pre><code>&gt; table(mf)
 mf
 Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec 
