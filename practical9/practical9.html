@@ -27,7 +27,7 @@
 </div>
 <p>Type in the newly created R script (either with a text editor or with RStudio) the following two lines to read the CSV file downloaded in the previous section. The first line is a comment. Lines starting with the <code>#</code> symbol are comments in R.</p>
 <pre><code>## read COVID19 data
-dat &lt;- read.csv(&quot;catalunya_setmanal.csv&quot;)</code></pre>
+dat &lt;- read.csv(&quot;catalunya_setmanal.csv&quot;, sep=&quot;;&quot;, stringsAsFactors=TRUE)</code></pre>
 <p>Now save the R script in the directory <code>practical9</code> under the filename <code>covid19analysis.R</code>.</p>
 <p>To execute a specific line of an R script in RStudio you should move the cursor to that line in the pane with the script file and press the key combination <code>Ctrl+Enter</code>. Alternatively, you can also copy and paste the line from the script to the R shell, specially if you are not working with RStudio.</p>
 <p>The previous line may produce an error if the current working directory of R is not pointing to the directory where the file <code>catalunya_setmanal.csv</code> is; see previous <a href="/practical8/">practical 8</a> if you need to find out how to change the working directory in R and RStudio. In general, changing the working directory should be always performed in the R shell and never include the instruction that changes the working directory in an R script. The reason is because you or somebody else may want to run that script in a different computer where the directory with the data may be called differently.</p>
