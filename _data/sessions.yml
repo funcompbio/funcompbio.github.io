@@ -68,3 +68,8 @@
   slides: Practical9
   desc: "Use R to work with dates, factors lists and implicit looping, while learning a few more plotting functions."
 
+- title: "Lecture 8"
+  dirname: lecture8
+  slides: Lecture8
+  desc: "Markup languages."
+
