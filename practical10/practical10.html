@@ -1,0 +1,32 @@
+<h1 id="objectives">Objectives</h1>
+<p>The learning objectives for this practical are:</p>
+<ul>
+<li>Create HTML documents.</li>
+<li>Create Markdown documents.</li>
+<li>Create R Markdown documents.</li>
+</ul>
+<h1 id="setup-and-background">Setup and background</h1>
+<p>To do this practical you need an installation of R and RStudio. You can find the instructions in the <a href="/setup/">setup</a> link on how to install R and RStudio in your system.</p>
+<p>We will download some COVID19 data to illustrate the use of R and RStudio. Please follow the next two steps:</p>
+<ol style="list-style-type: decimal">
+<li>Go to the Catalan Health Departament COVID19 data portal at <a href="https://dadescovid.cat" class="uri">https://dadescovid.cat</a> and switch the language to &quot;ENGLISH&quot; using the pull-down menu on the top-right corner of the page.</li>
+<li>Follow the downloads link and on the next page click and download the file corresponding to the &quot;7 DAY AGGREGATION&quot; for &quot;CATALUNYA&quot;. Make sure you know exactly where in your filesystem this file has been downloaded. <strong>Tip:</strong> some browsers automatically download files into a folder called &quot;Downloads&quot; or under a name corresponding to the translation of &quot;Downloads&quot; to the default language of your operating system.</li>
+<li>Make a directory in your filesystem, for instance at your <em>home</em> directory, called <code>practical10</code> and copy in it the downloaded file.</li>
+<li>Since the downloaded file is a ZIP file, uncompress as you did in <a href="/practical1/">practical 1</a> so that you finally have a file called <code>catalunya_setmanal.csv</code> in the directory <code>practical10</code>.</li>
+</ol>
+<p>If you are using the UPF <em>myapps</em> cloud to run RStudio, then you need to either use an internet browser in <em>myapps</em> to download the data file directly in the <em>myapps</em> cloud or upload to the <em>myapps</em> cloud the file that you have downloaded in your own computer.</p>
+<h1 id="html-documents">HTML documents</h1>
+<p>The basic skeleton for an HTML document has the following form:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;html&gt;</span>
+<span class="kw">&lt;head&gt;</span>
+
+   <span class="co">&lt;!-- head definitions go here --&gt;</span>
+
+<span class="kw">&lt;/head&gt;</span>
+<span class="kw">&lt;body&gt;</span>
+
+   <span class="co">&lt;!-- the content goes here --&gt;</span>
+
+<span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
