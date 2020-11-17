@@ -73,3 +73,7 @@
   slides: Lecture8
   desc: "Markup languages."
 
+- title: "Lecture 9"
+  dirname: lecture9
+  slides: Lecture9
+  desc: "Reproducibility with literate programming."
