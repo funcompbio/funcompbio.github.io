@@ -77,3 +77,8 @@
   dirname: lecture9
   slides: Lecture9
   desc: "Reproducibility with literate programming."
+
+- title: "Practical 10"
+  dirname: practical10
+  slides: Practical10
+  desc: "Create HTML and Markdown documents and develop reproducible analyses with R Markdown."
