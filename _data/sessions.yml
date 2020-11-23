@@ -82,3 +82,9 @@
   dirname: practical10
   slides: Practical10
   desc: "Create HTML and Markdown documents and develop reproducible analyses with R Markdown."
+
+- title: "Lecture 10"
+  dirname: lecture10
+  slides: Lecture10
+  desc: "Automation."
+
