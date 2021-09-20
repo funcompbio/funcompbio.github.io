@@ -1,0 +1,3 @@
+[submodule "lecture1"]
+	path = lecture1
+	url = https://github.com/funcompbio/lecture1
