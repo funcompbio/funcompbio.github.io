@@ -4,3 +4,6 @@
 [submodule "lecture2"]
 	path = lecture2
 	url = https://github.com/funcompbio/lecture2
+[submodule "lecture3"]
+	path = lecture3
+	url = https://github.com/funcompbio/lecture3
