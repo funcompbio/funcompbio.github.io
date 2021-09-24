@@ -51,6 +51,29 @@ If you have a computer running the Windows operating system, then you can
 install [GitForWindows](https://gitforwindows.org/), which will provide you a
 Unix shell within Windows through its tool _Git Bash_.
 
+The _Git Bash_ application will open a terminal window that should look similar
+to this one below.
+
+  <img src="/_images/GitBashTerminal.png" style="width:100%"/>
+
+If we are running the _Git Bash_ terminal application in a Windows system with
+a Spanish or Catalan regional configuration, we may encountar that the Unix
+`sort` command doesn't provide a correct numerical order for numbers with
+decimal digits when those are stored in text files using dots as decimal
+separators. To fix that we should switch that regional configuration in the
+_Git Bash_ application by clicking on the _Git Bash_ logo at the top-left
+of its window and select `Options...`. A popup window should appear similar
+to this one below.
+
+  <img src="/_images/GitBashTerminalOptions.png" style="width:100%"/>
+
+In this popup window, we should first click on the section called `Text` from
+the left panel. Then, we should click on the pull-down menu called `Locale`
+and select the option `C`. Finally, we should click on `Apply`, then `Save`,
+close the _Git Bash_ application and next time we open it again, it will work
+with a regional configuration in which the dot (`.`) will now work as decimal
+separator character.
+
 ### macOS
 
 If you have an [Apple](https://apple.com) computer running the macOS operating
