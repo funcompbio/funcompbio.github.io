@@ -54,7 +54,7 @@ Unix shell within Windows through its tool _Git Bash_.
 The _Git Bash_ application will open a terminal window that should look similar
 to this one below.
 
-  <img src="/_images/GitBashTerminal.png" style="width:100%"/>
+  <img src="/_images/GitBashTerminal.png" style="width:70%"/>
 
 If we are running the _Git Bash_ terminal application in a Windows system with
 a Spanish or Catalan regional configuration, we may encountar that the Unix
@@ -65,7 +65,7 @@ _Git Bash_ application by clicking on the _Git Bash_ logo at the top-left
 of its window and select `Options...`. A popup window should appear similar
 to this one below.
 
-  <img src="/_images/GitBashTerminalOptions.png" style="width:100%"/>
+  <img src="/_images/GitBashTerminalOptions.png" style="width:70%"/>
 
 In this popup window, we should first click on the section called `Text` from
 the left panel. Then, we should click on the pull-down menu called `Locale`
