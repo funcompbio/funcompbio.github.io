@@ -107,7 +107,8 @@ to facilitate working and installing additional software from the command line:
      [https://developer.apple.com/download/more/?=command%20line%20tools](https://developer.apple.com/download/more/?=command%20line%20tools)
 
      Click on "Command Line Tools for Xcode _version_", where _version_ should be the
-     latest _non-beta_ version, and you will see a pull-down menu similar to the one here below.
+     **latest _non-beta_ version** (as of September 2021 is Xcode 13), and you will
+     see a pull-down menu similar to the one here below.
 
      ![xcodeCLTdmgdownload](_images/xcodeCLTdmgdownload.png)
 
@@ -352,7 +353,8 @@ this reason, it is recommended to use a package manager software such as Homebre
 to install Python 3.x and Jupyter Notebook, through the following two steps:
 
   1. Install Python3 using Homebrew as follows:
-     ``` $ brew install python3
+     ```
+     $ brew install python3
      ```
      You can check whether the installation has been successful by typing
      ```
