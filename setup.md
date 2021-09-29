@@ -57,7 +57,7 @@ to this one below.
   <img src="/_images/GitBashTerminal.png" style="width:70%"/>
 
 If we are running the _Git Bash_ terminal application in a Windows system with
-a Spanish or Catalan regional configuration, we may encountar that the Unix
+a Spanish or Catalan regional configuration, we may encounter that the Unix
 `sort` command doesn't provide a correct numerical order for numbers with
 decimal digits when those are stored in text files using dots as decimal
 separators. To fix that we should switch that regional configuration in the
