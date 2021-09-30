@@ -61,7 +61,7 @@
 - title: "Lecture 7"
   dirname: lecture7
   slides: Lecture7
-  desc: "Programming with data: the R language."
+  desc: "Data manipulation and plotting with R."
 
 - title: "Practical 8"
   dirname: practical8
