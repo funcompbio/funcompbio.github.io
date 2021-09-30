@@ -19,3 +19,7 @@
 	path = practical2
 	url = https://github.com/funcompbio/practical2
 	branch = docs
+[submodule "lecture6"]
+	path = lecture6
+	url = https://github.com/funcompbio/lecture6
+	branch = docs
