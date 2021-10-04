@@ -181,7 +181,7 @@ different, but the ranking of numbers below must match and the decimal point
 separator must be the dot (`.`)):
 
 <pre>
-echo -e '0.11\n2.22\n5.0' | sort -nr --debug
+$ echo -e '0.11\n2.22\n5.0' | sort -nr --debug
 Using collate rules of en_US.UTF-8 locale
 Decimal Point: <.>
 Positive sign: <+>
