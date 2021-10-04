@@ -56,8 +56,8 @@ to this one below.
 
   <img src="/_images/GitBashTerminal.png" style="width:70%"/>
 
-If we are running the _Git Bash_ terminal application in a Windows system with
-a Spanish or Catalan regional configuration, we may encounter that the Unix
+If you are running the _Git Bash_ terminal application in a Windows system with
+a Spanish or Catalan regional configuration, you may encounter that the Unix
 `sort` command doesn't provide a correct numerical order for numbers with
 decimal digits when those are stored in text files using dots as decimal
 separators. To fix that we should switch that regional configuration in the
@@ -128,6 +128,76 @@ to facilitate working and installing additional software from the command line:
      Your system is ready to brew.
      ```
      If you get the previous output message, you are ready to use Homebrew.
+
+If you are running the terminal application from a macOS system with
+a Spanish or Catalan regional configuration, you may encounter that the Unix
+`sort` command doesn't provide a correct numerical order for numbers with
+decimal digits when those are stored in text files using dots as decimal
+separators. To fix that we should add an English regional configuration and
+switch to that configuration before using the `sort` command. To that end,
+you should open the application of system preferences, click on the icon
+of `Language & Region` preferences and you should see the following popup
+window here below.
+
+  <img src="/_images/macOSsetupLanguageRegion.png" style="width:70%"/>
+
+In this image we already see two available regional configurations, English and
+Spanish. If you do not have the English one, then press on the button with the
+`+` sign and add an US English configuration.
+Once this English configuration has been added, close the terminal application
+and open it again. Then, check out on the shell whether the _locale_ configuration
+reflects and one of the following two options, either this one:
+
+<pre>
+$ locale
+LANG=""
+LC_COLLATE="en_US.UTF-8"
+LC_CTYPE="en_US.UTF-8"
+LC_MESSAGES="en_US.UTF-8"
+LC_MONETARY="en_US.UTF-8"
+LC_NUMERIC="en_US.UTF-8"
+LC_TIME="en_US.UTF-8"
+LC_ALL="en_US.UTF-8"
+</pre>
+
+or this one:
+
+<pre>
+$ locale
+LANG=""
+LC_COLLATE="C"
+LC_CTYPE="C"
+LC_MESSAGES="C"
+LC_MONETARY="C"
+LC_NUMERIC="C"
+LC_TIME="C"
+LC_ALL="C"
+</pre>
+
+If you have one of these two configurations you are all set you can verify
+that the sort command will work as expected with real numbers using the
+dot (`.`) as decimal separator, as follows (the output might be slightly
+different, but the ranking of numbers below must match and the decimal point
+separator must be the dot (`.`)):
+
+<pre>
+echo -e '0.11\n2.22\n5.0' | sort -nr --debug
+Using collate rules of en_US.UTF-8 locale
+Decimal Point: <.>
+Positive sign: <+>
+Negative sign: <->
+5.0
+2.22
+0.11
+</pre>
+
+Otherwise, try to change now the _locale_ configuration from the shell and
+verify again whether it has changed and that the `sort` command is able
+to order real numbers correctly:
+
+<pre>
+$ LC_ALL="en_US.UTF-8"
+</pre>
 
 ### Android
 
