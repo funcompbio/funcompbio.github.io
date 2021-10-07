@@ -135,13 +135,14 @@ Operating systems such as Linux, Windows or macOS, have some default
 regional configuration that establishes things such as the input language
 and keyboard layout or the
 [decimal separator](https://en.wikipedia.org/wiki/Decimal_separator) for
-real numbers. Applications such as text editor or spreadsheet software
-take that configuration into account when parsing data and the text we
-type. This is also the case of the Unix command `sort` that you may want
-to use from the Unix shell running in the Terminal window, which looks up
-what is the
-[decimal separator](https://en.wikipedia.org/wiki/Decimal_separator) when
-using the option `-n` to rank real numbers.
+real numbers. Applications such as text editors or spreadsheets take that
+configuration into account when parsing the text we type or the data files
+we open into the software. This is also the case of the Unix command `sort`
+that you may want to use from the Unix shell running in the Terminal window,
+which looks up what the
+[decimal separator](https://en.wikipedia.org/wiki/Decimal_separator) has been
+set up by the regional configuration, when using the option `-n` to rank real
+numbers.
 
 Many data sets with values corresponding to real numbers have their fractional
 part separated from the integer part using the dot (`.`) as
@@ -158,7 +159,7 @@ real numbers that use the dot (`.`) as decimal separator is with the
 following command line:
 
 ```
-echo -e '0.11\n2.22\n5.0' | sort -nr --debug
+$ echo -e '0.11\n2.22\n5.0' | sort -nr --debug
 Using collate rules of en_US.UTF-8 locale
 Decimal Point: <.>
 Positive sign: <+>
@@ -168,14 +169,15 @@ Negative sign: <->
 0.11
 ```
 
-which should show the numbers `5.0`, `2.22` and `0.11` exactly in this order.
-The `sort` option `--debug` may further explicitly tell us what caracter is
-using a decimal separator as in the example above, although in some systems it
-doesn't.
+which should show the numbers `5.0`, `2.22` and `0.11` in this order exactly.
+The `sort` option `--debug` may further explicitly tell us what character is
+being used as
+[decimal separator](https://en.wikipedia.org/wiki/Decimal_separator) just as
+in the example above, although in some systems it doesn't.
 
 In case the `sort` command does not rank correctly real numbers with the dot
 (`.`) as decimal separator, we should switch our current regional configuration
-to an the one of a country that uses that convention, such as for instance the
+to the one of a country that uses that convention, such as for instance the
 USA. This process is different depending on the operating system and terminal
 application we are using. Once you have switch the regional configuration,
 check out again with the previous command line whether the `sort` command now
@@ -184,26 +186,29 @@ ranks real numbers correctly.
 ### Unix
 
 If you are using some recent version of
-[Ubuntu Linux](https://ubuntu.com) then you should follow these steps (look up
+[Ubuntu](https://ubuntu.com) then you should follow these steps (look up
 the red arrow in the screen captures):
 
 1. Open the _Settings_ application.
 
   <img src="/_images/UbuntuConfReg1_600x450.png"/>
+  &nbsp;&nbsp;
 
 2. Go to the section _Region & Language_ and double-click on the section
    _Formats_.
 
   <img src="/_images/UbuntuConfReg2_600x450.png"/>
+  &nbsp;&nbsp;
 
 3. In the popup window, click on _United States_ and then the button _Done_.
 
   <img src="/_images/UbuntuConfReg3_600x450.png"/>
+  &nbsp;&nbsp;
 
 4. Finally, the region and language preferences window now displays a button
    with the label "Restart...", click on it and the system will log you out,
    which is necessary to have the changes taking effect. When you log in again
-   the regional configuration that handle the
+   the regional configuration that handles the
    [decimal separator](https://en.wikipedia.org/wiki/Decimal_separator) should
    have changed to use the dot (`.`) for that purpose.
 
