@@ -189,23 +189,20 @@ If you are using some recent version of
 [Ubuntu](https://ubuntu.com) then you should follow these steps (look up
 the red arrow in the screen captures):
 
-1. Open the _Settings_ application.
+&nbsp;1. Open the _Settings_ application.
 
-  <img src="/_images/UbuntuConfReg1_600x450.png"/>
-  &nbsp;&nbsp;
+  &nbsp;&nbsp;<img src="/_images/UbuntuConfReg1_600x450.png"/>
 
-2. Go to the section _Region & Language_ and double-click on the section
+&nbsp;2. Go to the section _Region & Language_ and double-click on the section
    _Formats_.
 
-  <img src="/_images/UbuntuConfReg2_600x450.png"/>
-  &nbsp;&nbsp;
+  &nbsp;&nbsp;<img src="/_images/UbuntuConfReg2_600x450.png"/>
 
-3. In the popup window, click on _United States_ and then the button _Done_.
+&nbsp;3. In the popup window, click on _United States_ and then the button _Done_.
 
-  <img src="/_images/UbuntuConfReg3_600x450.png"/>
-  &nbsp;&nbsp;
+  &nbsp;&nbsp;<img src="/_images/UbuntuConfReg3_600x450.png"/>
 
-4. Finally, the region and language preferences window now displays a button
+&nbsp;4. Finally, the region and language preferences window now displays a button
    with the label "Restart...", click on it and the system will log you out,
    which is necessary to have the changes taking effect. When you log in again
    the regional configuration that handles the
