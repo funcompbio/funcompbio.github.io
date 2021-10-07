@@ -11,6 +11,7 @@ when necessary. It is recommended that you install the software tools in the
 order given here.
 
 * [**Unix shell**](#unix-shell)
+* [**Setting up a regional configuration**](#setting-up-a-regional-configuration)
 * [**Git version-control system**](#git-version-control-system)
 * [**Text editor**](#text-editor)
 * [**Python and Jupyter Notebook**](#python-and-jupyter-notebook)
@@ -42,7 +43,7 @@ the [terminal window](https://en.wikipedia.org/wiki/Terminal_emulator) applicati
 
 If you have a computer running some flavor of the Unix operating system, such
 as [Ubuntu](https://ubuntu.com), [RedHat](https://redhat.com) or
-[CentOS](https://www.centos.org), you don't need to do anything because you're
+[CentOS](https://www.centos.org), you don't need to do anything because you
 alredy have direct access to the Unix shell through the terminal window.
 
 ### Windows
@@ -55,24 +56,6 @@ The _Git Bash_ application will open a terminal window that should look similar
 to this one below.
 
   <img src="/_images/GitBashTerminal.png" style="width:70%"/>
-
-If you are running the _Git Bash_ terminal application in a Windows system with
-a Spanish or Catalan regional configuration, you may encounter that the Unix
-`sort` command doesn't provide a correct numerical order for numbers with
-decimal digits when those are stored in text files using dots as decimal
-separators. To fix that we should switch that regional configuration in the
-_Git Bash_ application by clicking on the _Git Bash_ logo at the top-left
-of its window and select `Options...`. A popup window should appear similar
-to this one below.
-
-  <img src="/_images/GitBashTerminalOptions.png" style="width:70%"/>
-
-In this popup window, we should first click on the section called `Text` from
-the left panel. Then, we should click on the pull-down menu called `Locale`
-and select the option `C`. Finally, we should click on `Apply`, then `Save`,
-close the _Git Bash_ application and next time we open it again, it will work
-with a regional configuration in which the dot (`.`) will now work as decimal
-separator character.
 
 ### macOS
 
@@ -129,76 +112,6 @@ to facilitate working and installing additional software from the command line:
      ```
      If you get the previous output message, you are ready to use Homebrew.
 
-If you are running the terminal application from a macOS system with
-a Spanish or Catalan regional configuration, you may encounter that the Unix
-`sort` command doesn't provide a correct numerical order for numbers with
-decimal digits when those are stored in text files using dots as decimal
-separators. To fix that we should add an English regional configuration and
-switch to that configuration before using the `sort` command. To that end,
-you should open the application of system preferences, click on the icon
-of `Language & Region` preferences and you should see the following popup
-window here below.
-
-  <img src="/_images/macOSsetupLanguageRegion.png" style="width:70%"/>
-
-In this image we already see two available regional configurations, English and
-Spanish. If you do not have the English one, then press on the button with the
-`+` sign and add an US English configuration.
-Once this English configuration has been added, close the terminal application
-and open it again. Then, check out on the shell whether the _locale_ configuration
-reflects and one of the following two options, either this one:
-
-<pre>
-$ locale
-LANG=""
-LC_COLLATE="en_US.UTF-8"
-LC_CTYPE="en_US.UTF-8"
-LC_MESSAGES="en_US.UTF-8"
-LC_MONETARY="en_US.UTF-8"
-LC_NUMERIC="en_US.UTF-8"
-LC_TIME="en_US.UTF-8"
-LC_ALL="en_US.UTF-8"
-</pre>
-
-or this one:
-
-<pre>
-$ locale
-LANG=""
-LC_COLLATE="C"
-LC_CTYPE="C"
-LC_MESSAGES="C"
-LC_MONETARY="C"
-LC_NUMERIC="C"
-LC_TIME="C"
-LC_ALL="C"
-</pre>
-
-If you have one of these two configurations you are all set you can verify
-that the sort command will work as expected with real numbers using the
-dot (`.`) as decimal separator, as follows (the output might be slightly
-different, but the ranking of numbers below must match and the decimal point
-separator must be the dot (`.`)):
-
-<pre>
-$ echo -e '0.11\n2.22\n5.0' | sort -nr --debug
-Using collate rules of en_US.UTF-8 locale
-Decimal Point: <.>
-Positive sign: <+>
-Negative sign: <->
-5.0
-2.22
-0.11
-</pre>
-
-Otherwise, try to change now the _locale_ configuration from the shell and
-verify again whether it has changed and that the `sort` command is able
-to order real numbers correctly:
-
-<pre>
-$ LC_ALL="en_US.UTF-8"
-</pre>
-
 ### Android
 
 If you have a tablet running Android, then you already have a Unix system
@@ -215,6 +128,112 @@ If you have a tablet running iOS, then you already have a Unix system but
 you still need a terminal emulator app. There are a few options, but
 probably the best one for our goals here is
 [iSH](https://ish.app).
+
+## Setting up a regional configuration
+
+Operating systems such as Linux, Windows or macOS, have some default
+regional configuration that establishes things such as the input language
+and keyboard layout or the
+[decimal separator](https://en.wikipedia.org/wiki/Decimal_separator) for
+real numbers. Applications such as text editor or spreadsheet software
+take that configuration into account when parsing data and the text we
+type. This is also the case of the Unix command `sort` that you may want
+to use from the Unix shell running in the Terminal window, which looks up
+what is the
+[decimal separator](https://en.wikipedia.org/wiki/Decimal_separator) when
+using the option `-n` to rank real numbers.
+
+Many data sets with values corresponding to real numbers have their fractional
+part separated from the integer part using the dot (`.`) as
+[decimal separator](https://en.wikipedia.org/wiki/Decimal_separator). If the
+regional configuration of our operating system assumes that the
+[decimal separator](https://en.wikipedia.org/wiki/Decimal_separator) is a
+comma (`,`), which happens with systems configured with the Spanish, French
+or Catalan language, to name a few, then the Unix `sort` command is going to
+rank incorrectly those real numbers that use the dot (`.`) as
+[decimal separator](https://en.wikipedia.org/wiki/Decimal_separator).
+
+One straightforward way to test whether the `sort` command correctly ranks
+real numbers that use the dot (`.`) as decimal separator is with the
+following command line:
+
+```
+echo -e '0.11\n2.22\n5.0' | sort -nr --debug
+Using collate rules of en_US.UTF-8 locale
+Decimal Point: <.>
+Positive sign: <+>
+Negative sign: <->
+5.0
+2.22
+0.11
+```
+
+which should show the numbers `5.0`, `2.22` and `0.11` exactly in this order.
+The `sort` option `--debug` may further explicitly tell us what caracter is
+using a decimal separator as in the example above, although in some systems it
+doesn't.
+
+In case the `sort` command does not rank correctly real numbers with the dot
+(`.`) as decimal separator, we should switch our current regional configuration
+to an the one of a country that uses that convention, such as for instance the
+USA. This process is different depending on the operating system and terminal
+application we are using. Once you have switch the regional configuration,
+check out again with the previous command line whether the `sort` command now
+ranks real numbers correctly.
+
+### Unix
+
+If you are using some recent version of
+[Ubuntu Linux](https://ubuntu.com) then you should follow these steps (look up
+the red arrow in the screen captures):
+
+1. Open the _Settings_ application.
+
+  <img src="/_images/UbuntuConfReg1_600x450.png"/>
+
+2. Go to the section _Region & Language_ and double-click on the section
+   _Formats_.
+
+  <img src="/_images/UbuntuConfReg2_600x450.png"/>
+
+3. In the popup window, click on _United States_ and then the button _Done_.
+
+  <img src="/_images/UbuntuConfReg3_600x450.png"/>
+
+4. Finally, the region and language preferences window now displays a button
+   with the label "Restart...", click on it and the system will log you out,
+   which is necessary to have the changes taking effect. When you log in again
+   the regional configuration that handle the
+   [decimal separator](https://en.wikipedia.org/wiki/Decimal_separator) should
+   have changed to use the dot (`.`) for that purpose.
+
+### Windows
+
+In the _Git Bash_ application that emulates a terminal window, we should click
+on the _Git Bash_ logo at the top-left of its window and select `Options...`.
+A popup window should appear similar to this one below.
+
+  <img src="/_images/GitBashTerminalOptions.png" style="width:70%"/>
+
+In this popup window, we should first click on the section called `Text` from
+the left panel. Then, we should click on the pull-down menu called `Locale`
+and select the option `C`. Finally, we should click on `Apply`, then `Save`,
+close the _Git Bash_ application and next time we open it again, it will work
+with a regional configuration in which the dot (`.`) will now work as decimal
+separator character.
+
+### macOS
+
+Open the application of system preferences, click on the icon of
+`Language & Region` preferences and you should see the following popup window
+here below.
+
+  <img src="/_images/macOSsetupLanguageRegion.png" style="width:70%"/>
+
+In this image we already see two available regional configurations, English and
+Spanish. If you do not have the English one, then press on the button with the
+`+` sign and add an _US English_ configuration. Once this English configuration
+has been added, close the terminal application and open it again.
 
 ## Git version-control system
 
