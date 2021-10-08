@@ -209,6 +209,8 @@ the red arrow in the screen captures):
    [decimal separator](https://en.wikipedia.org/wiki/Decimal_separator) should
    have changed to use the dot (`.`) for that purpose.
 
+  &nbsp;&nbsp;<img src="/_images/UbuntuConfReg4_600x450.png"/>
+
 ### Windows
 
 In the _Git Bash_ application that emulates a terminal window, we should click
