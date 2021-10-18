@@ -483,10 +483,11 @@ To check whether the installation has been successfull, type:
 
 ```
 $ python3 --version
-Python 3.6.8
+Python 3.8.5
 ```
-It should return a message similar to the previous one, but with
-an increased version number `3.x.y`.
+Again, it may happen that the last line gives a 3.x.y version but with a
+different minor (`x`) or revision (`y`) version numbers than the ones shown
+here.
 
 ## Python modules
 

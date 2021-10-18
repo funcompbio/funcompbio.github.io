@@ -39,3 +39,7 @@
 	path = practical4
 	url = https://github.com/funcompbio/practical4
 	branch = docs
+[submodule "practical5"]
+	path = practical5
+	url = https://github.com/funcompbio/practical5
+	branch = docs
