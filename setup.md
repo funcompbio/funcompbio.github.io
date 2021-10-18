@@ -468,6 +468,26 @@ to install Python 3.x and Jupyter Notebook, through the following two steps:
      /usr/local/bin/jupyter
      ```
 
+### iOS
+
+To install Python in an iOS device you need first to install
+[iSH](https://ish.app) (see previous instructions about installing a
+[Unix shell](#unix-shell) in iOS) and then type the following commands
+on the Unix shell:
+
+```
+$ apk add python3
+```
+
+To check whether the installation has been successfull, type:
+
+```
+$ python3 --version
+Python 3.6.8
+```
+It should return a message similar to the previous one, but with
+an increased version number `3.x.y`.
+
 ## Python modules
 
 To install additional modules in Python, such as `numpy`, `pandas` or `matplotlib`,
