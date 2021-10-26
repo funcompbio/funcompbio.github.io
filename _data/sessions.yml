@@ -58,6 +58,11 @@
   slides: Lecture6
   desc: "Programming with data: the R language."
 
+- title: "Seminar 4"
+  dirname: seminar4
+  slides: Seminar4
+  desc: "Get started with R and RStudio."
+
 - title: "Lecture 7"
   dirname: lecture7
   slides: Lecture7
