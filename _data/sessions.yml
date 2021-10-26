@@ -56,17 +56,22 @@
 - title: "Lecture 6"
   dirname: lecture6
   slides: Lecture6
-  desc: "Programming with data: the R language."
+  desc: "Programming with data: the R language (1)."
 
 - title: "Seminar 4"
   dirname: seminar4
   slides: Seminar4
   desc: "Get started with R and RStudio."
 
+- title: "Practical 7"
+  dirname: practical7
+  slides: Practical7
+  desc: "Use R to work with dates and factors and visually explore data."
+
 - title: "Lecture 7"
   dirname: lecture7
   slides: Lecture7
-  desc: "Use R to work with dates and factors, while learning a few more plotting functions."
+  desc: "Programming with data: the R language (2)."
 
 - title: "Lecture 8"
   dirname: lecture8
@@ -76,7 +81,7 @@
 - title: "Practical 8"
   dirname: practical8
   slides: Practical8
-  desc: "Use R to work with lists and explicit and implicit looping."
+  desc: "Use R to work with lists and explicit and implicit looping, while learning a few more plotting functions."
 
 - title: "Lecture 9"
   dirname: lecture9
