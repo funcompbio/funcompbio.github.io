@@ -66,35 +66,35 @@
 - title: "Lecture 7"
   dirname: lecture7
   slides: Lecture7
-  desc: "Data manipulation and plotting with R."
-
-- title: "Practical 8"
-  dirname: practical8
-  slides: Practical8
-  desc: "Start using R on the computer (basic data types, read CSV files, subsetting, simple plotting)."
-
-- title: "Practical 9"
-  dirname: practical9
-  slides: Practical9
-  desc: "Use R to work with dates, factors lists and implicit looping, while learning a few more plotting functions."
+  desc: "Use R to work with dates and factors, while learning a few more plotting functions."
 
 - title: "Lecture 8"
   dirname: lecture8
   slides: Lecture8
   desc: "Markup languages."
 
+- title: "Practical 8"
+  dirname: practical8
+  slides: Practical8
+  desc: "Use R to work with lists and explicit and implicit looping."
+
 - title: "Lecture 9"
   dirname: lecture9
   slides: Lecture9
   desc: "Reproducibility with literate programming."
 
-- title: "Practical 10"
-  dirname: practical10
-  slides: Practical10
-  desc: "Create HTML and Markdown documents and develop reproducible analyses with R Markdown."
-
 - title: "Lecture 10"
   dirname: lecture10
   slides: Lecture10
   desc: "Automation."
+
+- title: "Practical 9"
+  dirname: practical9
+  slides: Practical9
+  desc: "Markdown and HTML."
+
+- title: "Practical 10"
+  dirname: practical10
+  slides: Practical10
+  desc: "Develop reproducible analyses with R Markdown."
 
