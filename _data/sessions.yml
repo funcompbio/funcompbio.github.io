@@ -56,7 +56,7 @@
 - title: "Lecture 6"
   dirname: lecture6
   slides: Lecture6
-  desc: "Programming with data: the R language (1)."
+  desc: "Programming with data: the R language."
 
 - title: "Seminar 4"
   dirname: seminar4
@@ -71,7 +71,7 @@
 - title: "Lecture 7"
   dirname: lecture7
   slides: Lecture7
-  desc: "Programming with data: the R language (2)."
+  desc: "Data manipulation and plotting with R."
 
 - title: "Lecture 8"
   dirname: lecture8
