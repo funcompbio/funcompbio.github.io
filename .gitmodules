@@ -59,3 +59,7 @@
 	path = practical8
 	url = https://github.com/funcompbio/practical8
 	branch = docs
+[submodule "lecture8"]
+	path = lecture8
+	url = https://github.com/funcompbio/lecture8
+	branch = docs
