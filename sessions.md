@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Sessions
-lastupdate: October 25th, 2021
+lastupdate: November 8th, 2021
 permalink: /sessions/
 ---
 
