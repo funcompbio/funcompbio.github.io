@@ -31,16 +31,16 @@ class: title-slide, center, middle
 ## Fundamentals of Computational Biology
 ### BSc on Human Biology
 ### UPF School of Health and Life Sciences
-### Academic Year 2020-2021
+### Academic Year 2021-2022
 
 ---
 
 ## Structure of the projects
 
-* Groups of two students, exceptionally you can do it on your own
+* Teams of two students, exceptionally you can do it on your own
 if you have difficulties to coordinate remotely.
 
-* Developing the project in groups is necessary not only for learning to
+* Developing the project in teams is necessary not only for learning to
 work as a team, but also to develop our social coding skills in GitHub.
 
 * All projects have the same structure: answer a question by combining
@@ -52,36 +52,37 @@ The project is about data exploration.
 * No need to do formal statistics. Gather insight into the data through
 visualization and summarization.
 
-* Projects have to be developed within each group, two groups cannot
-submit identical code for the same project.
+* Projects have to be developed independently within each team, two teams
+  cannot submit identical code for the same project.
 
 ---
 
-## How to merge data
+## Project submission
 
-* You can combine information from two different CSV files in, at least,
-three ways:
+* The project will be developed and submitted in the same form as the
+  _assignments_ made with GitHub Classroom.
 
-  1. In Unix, using the `join` command. See this
-  [blog post](https://shapeshed.com/unix-join) on how to use it.
+* Because projects will be carried out in teams of two, the acceptance
+  of the assignment in GitHub Classroom is slightly different than with
+  individual assignments:
 
-  2. In R, using the `merge()` function. See this
-  [blog post](https://www.r-bloggers.com/2018/10/how-to-perform-merges-joins-on-two-or-more-data-frames-with-base-r-tidyverse-and-data-table) on how to use it.
+  1. You should agree in your group, who of the two members accepts first
+  the assignment of the project, by following the corresponding link.
+  2. Once that member follows the link, he/she should give a name to the
+  team. The team name should be form exclusively by letters, numbers or
+  the dash (`-`) character. **PLEASE DO NOT USE SPACES, ACCENTS, ANY
+  NON-ASCII-STANDARD CHARACTERS OR ANY SYMBOL OTHER THAN THE DASH (`-`)**.
+  3. Once the first member has given the team name and accepted the
+  assignment, the second member should follow the assignment link,
+  search for his/her corresponding team name and select it.
 
-  3. In R, using the `match()` function:
-  ```
-  > y <- 1:10
-  > x <- 6:11
-  > mt <- match(x, y)
-  [1]  6  7  8  9 10 NA
-  ```
-
-* In either method you need to identify a column with common information
-  in both CSV files (e.g., country name). 
+* The URL of the repo of the project will be of the form:  
+  `https://github.com/funcompbio2021/project-xxxx-yyyy`  
+  where `xxxx` will be the project name and `yyyy` the team name.
 
 ---
 
-## How to resolve conflicts
+## How to resolve (GitHub) conflicts
 
 * When working in a common GitHub repo with other people, you may
 encounter the situation in which two or more people make changes
