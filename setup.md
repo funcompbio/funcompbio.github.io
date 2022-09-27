@@ -334,7 +334,8 @@ modern editors are easier to use for newbies:
 * Classical text editors (available in nearly every Unix system):
   * [nano](https://www.nano-editor.org)
   * [emacs](https://www.gnu.org/software/emacs)
-  * [vim](https://www.vim.org)
+  * [vim](https://www.vim.org) (you can find an interactive tutorial to learn
+    vim [here](https://www.openvim.com))
 
 * Modern text editors with a graphical interface:
   * [sublime](https://www.sublimetext.com)
