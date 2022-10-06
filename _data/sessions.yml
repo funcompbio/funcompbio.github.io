@@ -4,7 +4,7 @@
   desc: "Welcome to FCB."
 
 - title: "Lecture 2"
-  dirname: lecture2/docs
+  dirname: lecture2
   slides: Lecture2
   desc: "The Unix file system and the command line."
 
