@@ -394,12 +394,22 @@ follow these steps:
   python3 --version
   ``` 
 
-In some versions of Windows, after following the previous steps, you may encounter
-the following error:
+In some versions of Windows, after following the previous steps, your terminal window
+may become unresponsive after calling the executable `python` or `python3` without
+giving any sort of error or message. In such a case, close the terminal window, answering
+`Ok` to the popup that tells you that there is process running, open again the terminal
+window and type the following instruction in the Unix shell command line:
+
+```
+$ echo "alias python='winpty python.exe'" >> ~/.bashrc
+```
+Now calling the `python` executable, or `python3`, should work fine. Another different
+and problematic situation could be the following one. If when trying to execute
+`python`, or `python3`, you encounter the following error:
 
 ![pythonpermissiondenied](/_images/python3permissiondenied.png)
 
-In such as case you need to find the control panel for managing app execution aliases
+Then, you need to find the control panel for managing app execution aliases
 and switch off the aliases for `python.exe` and `python3.exe`, as shown in the captured
 images below. A quick way to find that control panel is by typing `manage app execution
 aliases` into the Windows search prompt.
