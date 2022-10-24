@@ -51,7 +51,7 @@
 - title: "Practical 6"
   dirname: practical6
   slides: Practical6
-  desc: "Implement in Python a simplified SIR model of spreading infectious diseases."
+  desc: "Implement Python scripts that parse DNA FASTA files for different purposes."
 
 - title: "Lecture 6"
   dirname: lecture6
