@@ -278,8 +278,7 @@ $ which git
 /usr/bin/git
 ```
 
-If you get an error, then go to the previous section and install the
-Xcode CLT.
+If you get an error, then go to the previous section and install the Xcode CLT.
 
 ### Android
 
@@ -577,20 +576,21 @@ and in the next page
 "[install R for the first time](https://cran.r-project.org/bin/windows/base)".
 Finally, follow the instructions in the loaded page, which essentially consist
 of downloading an installer program (a `.exe` file) and executing it in your
-computer to install R. **If you want** to be able to use R from the Unix command
-line, using a [text editor](#text-editor) you should create a new file called
-`.bashrc` in your _home_ directory and add the following line:
+computer to install R. **If you need** to be able to use R from the Unix command
+line (see section below on [pandoc](#pandoc)), using a
+[text editor](#text-editor) you should create a new file called `.bashrc` in
+your _home_ directory and add the following line:
 
 ```
-$ export PATH="/c/Program Files/R/R-4.0.3/bin":$PATH
+$ export PATH="/c/Program Files/R/R-4.2.2/bin":$PATH
 ```
-where you should replace the added path `/c/Program Files/R/R-4.0.3/bin` by the path
-in the filesystem where the R executables have been stored. If the file `.bashrc`
-already existed, open it in the [text editor](#text-editor) and add the previous line
-to the bottom of the file. Once you have created or updated this file `.bashrc`, you
-need to exit the current Git Bash terminal window and start a new one. In this new
-terminal window you should then be able to see that the `R` executable is available
-by typing:
+where **you should replace** the added path `/c/Program Files/R/R-4.2.2/bin` by
+the path in the filesystem where the R executables have been stored. If the file
+`.bashrc` already existed, open it in the [text editor](#text-editor) and add
+the previous line to the bottom of the file. Once you have created or updated
+this file `.bashrc`, you need to exit the current Git Bash terminal window and
+start a new one. In this new terminal window you should then be able to see that
+the `R` executable is available by typing:
 
 ```
 $ which R
@@ -650,3 +650,72 @@ you don't need then to follow the previous instructions to install R in your
 device, unless you want to have the possibility to run R commands without an
 internet connection.
 
+## Pandoc
+
+To automatize workflows, we cannot use an IDE such as RStudio and we need to
+script everything in the Unix command line. To be able to process R Markdown
+documents, i.e., `.Rmd` files, into HTML files from the command line, without
+RStudio, we need to install a software component called
+[pandoc](https://pandoc.org).
+
+### Unix
+
+Go to the pandoc installer [page](https://github.com/jgm/pandoc/releases/latest)
+and download the latest installer for the corresponding Unix distribution. If
+you don't find the package installer file for your Unix distribution, use the
+package manager to search for it. As last resort, you can alwasy download the
+source code and try to compile and install it _manually_.
+
+### Windows
+
+Make sure you can call the R executable from the command line. This implies
+that you have followed the instructions for windows on how to update the
+[PATH variable](https://en.wikipedia.org/wiki/PATH_%28variable%29) in the
+section on installing
+[R and RStudio](#r-and-rstudio).
+Now, go to the pandoc installer
+[page](https://github.com/jgm/pandoc/releases/latest) and download the latest
+installer for Windows (the `.msi` file).
+
+### macOS
+
+Having Homebrew installed (see section on [Unix shell](#unix-shell)), type the
+following instruction in the terminal window:
+
+```
+$ brew install pandoc
+```
+
+## Makefile
+
+One way to automatize workflows is using
+[make and Makefiles](https://en.wikipedia.org/wiki/Make_%28software%29).
+
+### Unix
+
+You don't need to do anything, `make` is part of a default Unix installation.
+To verify that you can use `make`, just type in the terminal windows:
+
+```
+$ which make
+```
+and should show you the path to the `make` executable.
+
+### Windows
+
+In Windows you need to install the so-called _Git for Windows Software
+Development Kit (SDK)_. Go to [GitForWindows](https://gitforwindows.org), scroll
+down to the bottom of the page, and follow the link called `Download Git for
+Windows SDK`. In the following page, download and execute the installer file.
+
+### macOS
+
+If you installed the _Xcode CLT_ following the instructions in the
+[Unix shell](#unix-shell) section, then you should already have `make` as
+part of the installation of the _Xcode CLT_. To verify that you can use `make`,
+just type in the terminal windows:
+
+```
+$ which make
+```
+and should show you the path to the `make` executable.
