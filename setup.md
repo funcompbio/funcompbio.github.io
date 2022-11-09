@@ -17,6 +17,8 @@ order given here.
 * [**Python and Jupyter Notebook**](#python-and-jupyter-notebook)
 * [**Python modules**](#python-modules)
 * [**R and RStudio**](#r-and-rstudio)
+* [**Pandoc**](#pandoc)
+* [**Makefile**](#makefile)
 
 If you have a tablet device, then it is probably running either Android
 (Samsung Galaxy Tab, etc.) or iOS (iPad). You will also find below instructions
@@ -647,5 +649,4 @@ on the cloud provided by the [UPF](https://www.upf.edu) and called
 you don't need then to follow the previous instructions to install R in your
 device, unless you want to have the possibility to run R commands without an
 internet connection.
-
 
