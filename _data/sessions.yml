@@ -11,7 +11,7 @@
 - title: "Lecture 3"
   dirname: lecture3
   slides: Lecture3
-  desc: "Programming with Python (1)."
+  desc: "Version control and social coding."
 
 - title: "Practical 1"
   dirname: practical1
@@ -26,7 +26,7 @@
 - title: "Lecture 4"
   dirname: lecture4
   slides: Lecture4
-  desc: "Version control and social coding."
+  desc: "Programming with Python (1)."
 
 - title: "Practical 3"
   dirname: practical3
