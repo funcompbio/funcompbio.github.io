@@ -51,8 +51,11 @@ alredy have direct access to the Unix shell through the terminal window.
 ### Windows
 
 If you have a computer running the Windows operating system, then you can
-install [GitForWindows](https://gitforwindows.org/), which will provide you a
-Unix shell within Windows through its tool _Git Bash_.
+install [GitForWindows](https://gitforwindows.org), which will provide you a
+Unix shell within Windows through its tool _Git Bash_. You can find very
+detailed instructions, including a video, on how to setup and configure
+[GitForWindows](https://gitforwindows.org) in this
+[link](https://carpentries.github.io/workshop-template/install_instructions/#shell) from [The Carpentries](https://carpentries.org) organisation. 
 
 The _Git Bash_ application will open a terminal window that should look similar
 to this one below.
