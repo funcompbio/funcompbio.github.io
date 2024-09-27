@@ -343,7 +343,10 @@ modern editors are easier to use for newbies:
 
 * Modern text editors with a graphical interface:
   * [sublime](https://www.sublimetext.com)
-  * [atom](https://atom.io)
+  * [Visual Studio Code](https://code.visualstudio.com)
+  * [pulsar](https://pulsar-edit.dev)
+  * [zed](https://zed.dev)
+
 
 If you want to use a classical editor in a **macOS system**, check out first whether
 is already available in the shell via `which nameofeditor` and if not, use
