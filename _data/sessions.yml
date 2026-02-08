@@ -71,12 +71,12 @@
 - title: "Lecture 7"
   dirname: lecture7
   slides: Lecture7
-  desc: "Data manipulation and plotting with R."
+  desc: "Data manipulation with R."
 
 - title: "Lecture 8"
   dirname: lecture8
   slides: Lecture8
-  desc: "Markup languages."
+  desc: "Plotting with R."
 
 - title: "Practical 8"
   dirname: practical8
@@ -86,7 +86,7 @@
 - title: "Lecture 9"
   dirname: lecture9
   slides: Lecture9
-  desc: "Reproducibility with literate programming."
+  desc: "Markup languages and reproducibility."
 
 - title: "Lecture 10"
   dirname: lecture10
