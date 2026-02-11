@@ -78,6 +78,11 @@
   slides: Lecture8
   desc: "Plotting with R."
 
+- title: "Seminar 5"
+  dirname: seminar5
+  slides: Seminar5
+  desc: "Exploring data with R and RStudio."
+
 - title: "Practical 8"
   dirname: practical8
   slides: Practical8
