@@ -76,7 +76,7 @@
 - title: "Lecture 8"
   dirname: lecture8
   slides: Lecture8
-  desc: "Plotting with R."
+  desc: "Data visualization with R."
 
 - title: "Seminar 5"
   dirname: seminar5
