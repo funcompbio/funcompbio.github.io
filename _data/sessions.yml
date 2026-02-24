@@ -108,3 +108,8 @@
   slides: Practical10
   desc: "Develop reproducible analyses with R Markdown."
 
+- title: "Practical 11"
+  dirname: practical11
+  slides: Practical11
+  desc: "AI pair programming with GitHub Copilot."
+

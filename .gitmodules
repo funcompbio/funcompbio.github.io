@@ -86,3 +86,7 @@
 	path = seminar5
 	url = https://github.com/funcompbio/seminar5
 	branch = docs
+[submodule "practical11"]
+	path = practical11
+	url = https://github.com/funcompbio/practical11
+	branch = docs
